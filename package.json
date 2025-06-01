@@ -1,8 +1,8 @@
 {
   "name": "@alextheman/utility",
-  "version": "1.0.1",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
+  "version": "1.0.2",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "scripts": {
