@@ -1,12 +1,16 @@
 {
   "name": "@alextheman/utility",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "test": "jest",
     "format": "npx prettier src/**/*.ts __tests__/*.ts --write",
     "lint": "npx eslint src/**/*.ts __tests__/*.ts && prettier src/**/*.ts __tests__/*.ts --check",
-    "prepare": "husky"
+    "prepare": "husky",
+    "build": "tsup"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +25,7 @@
     "jest": "^29.7.0",
     "prettier": "^3.5.3",
     "ts-jest": "^29.3.4",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.0"
   }
