@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "format": "npx prettier src/**/*.ts __tests__/*.ts --write",
-    "lint": "npx eslint src/**/*.ts __tests__/*.ts",
+    "lint": "npx eslint src/**/*.ts __tests__/*.ts && prettier src/**/*.ts __tests__/*.ts --check",
     "prepare": "husky"
   },
   "keywords": [],
