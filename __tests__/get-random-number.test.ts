@@ -9,6 +9,14 @@ describe("getRandomNumber", () => {
     const randomNumber = getRandomNumber(0, 10);
     expect(randomNumber >= 0 && randomNumber <= 10).toBe(true);
   });
+  test("Gives a random number", () => {
+    const spy = jest.spyOn(Math, "random");
+    spy.mockImplementationOnce(() => {
+      return 0.5;
+    });
+    const randomNumber = getRandomNumber(0, 10);
+    expect(randomNumber).toBe(5);
+  });
   test("Throw an error if inputs are not integers", () => {
     try {
       getRandomNumber(0.5, 10.5);
