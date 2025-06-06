@@ -10,6 +10,13 @@ export default defineConfig([
   tseslint.configs.recommended,
   {rules: {
     "@typescript-eslint/no-explicit-any": "off",
-    "no-param-reassign": "error"
+    "no-param-reassign": "error",
+    "no-unused-vars": [
+      "error", {
+        varsIgnorePattern: "^_",
+        argsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_"
+      }
+    ]
   }}
 ]);
