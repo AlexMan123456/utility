@@ -11,11 +11,11 @@ export default defineConfig([
   {rules: {
     "@typescript-eslint/no-explicit-any": "off",
     "no-param-reassign": "error",
-    "no-unused-vars": [
+    "@typescript-eslint/no-unused-vars": [
       "error", {
-        varsIgnorePattern: "^_",
-        argsIgnorePattern: "^_",
-        caughtErrorsIgnorePattern: "^_"
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
       }
     ]
   }}
