@@ -1,5 +1,12 @@
 import { wait } from "../src";
-jest.useFakeTimers();
+
+beforeAll(() => {
+  jest.useFakeTimers();
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
 
 describe("wait", () => {
   test("Resolves after the given amount of time", async () => {
