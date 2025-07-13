@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "test": "TZ=UTC jest",
-    "format": "prettier --write --parser typescript 'src/**/*.ts' '__tests__/**/.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
-    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' '__tests__/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' '__tests__/**/.test.ts'",
+    "format": "prettier --write --parser typescript 'src/**/*.ts' '__tests__/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' '__tests__/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' '__tests__/**/*.ts'",
     "prepare": "husky",
     "build": "tsup"
   },

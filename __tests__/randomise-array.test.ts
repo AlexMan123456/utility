@@ -1,5 +1,5 @@
-import { randomiseArray } from "../src";
-import * as getRandomNumber from "../src/get-random-number";
+import { randomiseArray } from "src";
+import * as getRandomNumber from "src/get-random-number";
 
 describe("randomiseArray", () => {
   test("Returns an array", () => {
