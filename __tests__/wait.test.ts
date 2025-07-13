@@ -1,4 +1,4 @@
-import { wait } from "../src";
+import { wait } from "src";
 
 beforeAll(() => {
   jest.useFakeTimers();

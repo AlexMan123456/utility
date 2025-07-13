@@ -1,4 +1,4 @@
-import addDaysToDate from "./add-days-to-date";
+import addDaysToDate from "src/add-days-to-date";
 
 function formatDateAndTime(inputDate: Date): string {
   const [date, time] = inputDate.toISOString().split("T");

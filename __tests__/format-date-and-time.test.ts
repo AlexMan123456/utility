@@ -1,4 +1,4 @@
-import formatDateAndTime from "../src/format-date-and-time";
+import { formatDateAndTime } from "src";
 
 beforeAll(() => {
   jest.useFakeTimers();

@@ -4,11 +4,13 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "TZ=UTC jest",
-    "format": "npx prettier src/**/*.ts __tests__/*.ts --write",
-    "lint": "npx eslint src/**/*.ts __tests__/*.ts && prettier src/**/*.ts __tests__/*.ts --check",
+    "format": "prettier --write --parser typescript 'src/**/*.ts' '__tests__/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
+    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' '__tests__/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' '__tests__/**/*.ts'",
     "prepare": "husky",
     "build": "tsup"
   },
@@ -17,16 +19,19 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@eslint/js": "^9.28.0",
-    "@types/jest": "^29.5.14",
-    "eslint": "^9.28.0",
-    "globals": "^16.2.0",
+    "@alextheman/eslint-config-typescript-base": "^1.0.4",
+    "@eslint/js": "^9.31.0",
+    "@types/jest": "^30.0.0",
+    "eslint": "^9.31.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^16.3.0",
     "husky": "^9.1.7",
-    "jest": "^29.7.0",
-    "prettier": "^3.5.3",
-    "ts-jest": "^29.3.4",
+    "jest": "^30.0.4",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.0"
+    "typescript-eslint": "^8.36.0"
   }
 }

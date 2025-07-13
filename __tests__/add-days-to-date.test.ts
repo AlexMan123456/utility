@@ -1,4 +1,4 @@
-import addDaysToDate from "../src/add-days-to-date";
+import { addDaysToDate } from "src";
 
 describe("addDaysToDate", () => {
   test("Returns the next day from today if no arguments given", () => {

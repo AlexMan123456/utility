@@ -1,4 +1,4 @@
-import truncate from "../src/truncate";
+import { truncate } from "src";
 
 describe("truncate", () => {
   test("Returns the same string if the length is less than the maximum length", () => {

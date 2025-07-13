@@ -1,22 +1,14 @@
-import js from "@eslint/js";
+import alexBaseConfig from "@alextheman/eslint-config-typescript-base";
 import globals from "globals";
-import tseslint from "typescript-eslint";
-import { defineConfig } from "eslint/config";
 
-
-export default defineConfig([
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts}"], plugins: { js }, extends: ["js/recommended"] },
-  { files: ["**/*.{js,mjs,cjs,ts,mts,cts}"], languageOptions: { globals: globals.browser } },
-  tseslint.configs.recommended,
-  {rules: {
-    "@typescript-eslint/no-explicit-any": "off",
-    "no-param-reassign": "error",
-    "@typescript-eslint/no-unused-vars": [
-      "error", {
-        "varsIgnorePattern": "^_",
-        "argsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
-    ]
-  }}
-]);
+export default [
+  ...alexBaseConfig,
+  {
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+        ...globals.node
+      },
+    },
+  },
+];
