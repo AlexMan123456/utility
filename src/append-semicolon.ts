@@ -1,5 +1,11 @@
-function appendSemicolon(stringToAppend: string): string {
-  const stringWithNoTrailingWhitespace = stringToAppend.trimEnd();
+function appendSemicolon(stringToAppendTo: string): string {
+  if (stringToAppendTo.includes("\n")) {
+    throw new Error("MULTIPLE_LINE_ERROR");
+  }
+  const stringWithNoTrailingWhitespace = stringToAppendTo.trimEnd();
+  if (stringWithNoTrailingWhitespace === "") {
+    return "";
+  }
   return stringWithNoTrailingWhitespace[
     stringWithNoTrailingWhitespace.length - 1
   ] === ";"
