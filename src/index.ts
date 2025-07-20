@@ -5,3 +5,4 @@ export { default as formatDateAndTime } from "src/format-date-and-time";
 export { default as addDaysToDate } from "src/add-days-to-date";
 export { default as truncate } from "src/truncate";
 export { default as appendSemicolon } from "src/append-semicolon";
+export { default as range } from "src/range";
