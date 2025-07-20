@@ -1,4 +1,5 @@
 import { randomiseArray } from "src";
+// eslint-disable-next-line @alextheman/no-namespace-imports
 import * as getRandomNumber from "src/get-random-number";
 import { describe, expect, test, vi } from "vitest";
 
