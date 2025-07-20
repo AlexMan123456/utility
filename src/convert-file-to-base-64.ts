@@ -1,6 +1,5 @@
 function convertFileToBase64(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
-    // eslint-disable-next-line no-undef
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
