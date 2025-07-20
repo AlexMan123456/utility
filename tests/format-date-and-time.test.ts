@@ -1,12 +1,13 @@
 import { formatDateAndTime } from "src";
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
 beforeAll(() => {
-  jest.useFakeTimers();
-  jest.setSystemTime(new Date("2025-06-07T23:27:17.403"));
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date("2025-06-07T23:27:17.403"));
 });
 
 afterAll(() => {
-  jest.useRealTimers();
+  vi.useRealTimers();
 });
 
 describe("formatDateAndTime", () => {

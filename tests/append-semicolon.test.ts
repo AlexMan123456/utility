@@ -1,4 +1,5 @@
 import appendSemicolon from "src/append-semicolon";
+import { describe, expect, test } from "vitest";
 
 describe("appendSemicolon", () => {
   test("Appends a semicolon to the end of string if not present", () => {
