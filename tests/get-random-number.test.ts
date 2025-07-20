@@ -1,4 +1,5 @@
 import { getRandomNumber } from "src";
+import { describe, expect, test, vi } from "vitest";
 
 describe("getRandomNumber", () => {
   test("Returns an integer", () => {
@@ -10,7 +11,7 @@ describe("getRandomNumber", () => {
     expect(randomNumber >= 0 && randomNumber <= 10).toBe(true);
   });
   test("Gives a random number", () => {
-    const spy = jest.spyOn(Math, "random");
+    const spy = vi.spyOn(Math, "random");
     spy.mockImplementationOnce(() => {
       return 0.5;
     });

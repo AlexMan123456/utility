@@ -1,5 +1,6 @@
 import { randomiseArray } from "src";
 import * as getRandomNumber from "src/get-random-number";
+import { describe, expect, test, vi } from "vitest";
 
 describe("randomiseArray", () => {
   test("Returns an array", () => {
@@ -15,7 +16,7 @@ describe("randomiseArray", () => {
     });
   });
   test("Returns the items in a random order", () => {
-    const spy = jest.spyOn(getRandomNumber, "default");
+    const spy = vi.spyOn(getRandomNumber, "default");
     spy.mockImplementationOnce(() => {
       return 1;
     });

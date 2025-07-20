@@ -1,4 +1,5 @@
 import { addDaysToDate } from "src";
+import { describe, expect, test } from "vitest";
 
 describe("addDaysToDate", () => {
   test("Returns the next day from today if no arguments given", () => {

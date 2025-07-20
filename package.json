@@ -8,9 +8,10 @@
     "dist"
   ],
   "scripts": {
-    "test": "TZ=UTC jest",
-    "format": "prettier --write --parser typescript 'src/**/*.ts' '__tests__/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' '__tests__/**/*.ts'",
-    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' '__tests__/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' '__tests__/**/*.ts'",
+    "test": "TZ=UTC vitest run",
+    "test-watch": "TZ=UTC vitest",
+    "format": "prettier --write --parser typescript 'src/**/*.ts' 'tests/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' 'tests/**/*.ts'",
+    "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' 'tests/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'tests/**/*.ts'",
     "prepare": "husky",
     "build": "tsup"
   },
@@ -21,17 +22,17 @@
   "devDependencies": {
     "@alextheman/eslint-config-typescript-base": "^1.0.5",
     "@eslint/js": "^9.31.0",
-    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.15",
     "eslint": "^9.31.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^16.3.0",
     "husky": "^9.1.7",
-    "jest": "^30.0.4",
     "prettier": "^3.6.2",
-    "ts-jest": "^29.4.0",
     "tsup": "^8.5.0",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.36.0"
+    "typescript-eslint": "^8.36.0",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.2.4"
   }
 }
