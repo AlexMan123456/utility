@@ -6,9 +6,7 @@ function appendSemicolon(stringToAppendTo: string): string {
   if (stringWithNoTrailingWhitespace === "") {
     return "";
   }
-  return stringWithNoTrailingWhitespace[
-    stringWithNoTrailingWhitespace.length - 1
-  ] === ";"
+  return stringWithNoTrailingWhitespace[stringWithNoTrailingWhitespace.length - 1] === ";"
     ? stringWithNoTrailingWhitespace
     : `${stringWithNoTrailingWhitespace};`;
 }
