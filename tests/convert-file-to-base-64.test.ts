@@ -22,8 +22,7 @@ describe("convertFileToBase64", () => {
       "FileReader",
       class MockFileReader extends FileReader {
         onload: ((this: FileReader, event: ProgressEvent) => any) | null = null;
-        onerror: ((this: FileReader, event: ProgressEvent) => any) | null =
-          null;
+        onerror: ((this: FileReader, event: ProgressEvent) => any) | null = null;
 
         readAsDataURL = () => {
           queueMicrotask(() => {
