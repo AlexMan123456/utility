@@ -10,7 +10,7 @@ describe("addDaysToDate", () => {
 
     const output = addDaysToDate();
 
-    expect(output.toString()).toBe(tomorrow.toString());
+    expect(isSameDate(output, tomorrow)).toBe(true);
   });
   test("Returns the next day from the date given if only date is given", () => {
     const currentDate = new Date("2025-06-07T23:27:17.403");
