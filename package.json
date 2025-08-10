@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,10 +25,10 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.2.10",
-    "@eslint/js": "^9.32.0",
-    "@types/node": "^24.2.0",
-    "eslint": "^9.32.0",
+    "@alextheman/eslint-plugin": "^1.2.11",
+    "@eslint/js": "^9.33.0",
+    "@types/node": "^24.2.1",
+    "eslint": "^9.33.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^16.3.0",

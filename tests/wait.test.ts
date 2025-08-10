@@ -1,5 +1,6 @@
+import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
+
 import { wait } from "src";
-import { vi, beforeAll, afterAll, describe, test, expect } from "vitest";
 
 beforeAll(() => {
   vi.useFakeTimers();

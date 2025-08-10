@@ -1,7 +1,9 @@
-import { randomiseArray } from "src";
+import { describe, expect, test, vi } from "vitest";
+
 // eslint-disable-next-line @alextheman/no-namespace-imports
 import * as getRandomNumber from "src/get-random-number";
-import { describe, expect, test, vi } from "vitest";
+
+import { randomiseArray } from "src";
 
 describe("randomiseArray", () => {
   test("Returns an array", () => {
