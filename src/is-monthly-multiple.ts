@@ -1,3 +1,5 @@
+import isLeapYear from "src/is-leap-year";
+
 function endOfMonthChecksButNotFebruary(firstDate: Date, secondDate: Date): boolean {
   if ([3, 5, 8, 10].includes(firstDate.getMonth())) {
     return firstDate.getDate() === 30 && secondDate.getDate() === 31;
@@ -7,7 +9,7 @@ function endOfMonthChecksButNotFebruary(firstDate: Date, secondDate: Date): bool
 
 function nonLeapYearFebruaryChecks(firstDate: Date, secondDate: Date): boolean {
   if (firstDate.getMonth() === 1) {
-    if (firstDate.getFullYear() % 4 !== 0 && firstDate.getDate() === 28) {
+    if (!isLeapYear(firstDate.getFullYear()) && firstDate.getDate() === 28) {
       return [28, 29, 30, 31].includes(secondDate.getDate());
     }
   }
@@ -16,7 +18,7 @@ function nonLeapYearFebruaryChecks(firstDate: Date, secondDate: Date): boolean {
 
 function leapYearFebruaryChecks(firstDate: Date, secondDate: Date): boolean {
   if (firstDate.getMonth() === 1) {
-    if (firstDate.getFullYear() % 4 === 0 && firstDate.getDate() === 29) {
+    if (isLeapYear(firstDate.getFullYear()) && firstDate.getDate() === 29) {
       return [29, 30, 31].includes(secondDate.getDate());
     }
   }
