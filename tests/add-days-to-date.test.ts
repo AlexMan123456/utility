@@ -1,4 +1,5 @@
 import { addDaysToDate } from "src";
+import isSameDate from "src/is-same-date";
 import { describe, expect, test } from "vitest";
 
 describe("addDaysToDate", () => {
@@ -16,14 +17,14 @@ describe("addDaysToDate", () => {
 
     const output = addDaysToDate(currentDate);
 
-    expect(output.toString()).toBe(theNextDay.toString());
+    expect(isSameDate(output, theNextDay)).toBe(true);
   });
   test("Returns the day a given increment away from now if no date given but increment is given", () => {
     const twoDaysFromNow = new Date();
     twoDaysFromNow.setDate(twoDaysFromNow.getDate() + 2);
 
     const output = addDaysToDate(undefined, 2);
-    expect(output.toString()).toBe(twoDaysFromNow.toString());
+    expect(isSameDate(output, twoDaysFromNow)).toBe(true);
   });
   test("Returns the day(s) before if the given increment is negative", () => {
     const currentDay = new Date("2025-06-07T23:27:17.403");
@@ -31,6 +32,6 @@ describe("addDaysToDate", () => {
 
     const output = addDaysToDate(currentDay, -1);
 
-    expect(output.toString()).toBe(theDayBefore.toString());
+    expect(isSameDate(output, theDayBefore)).toBe(true);
   });
 });
