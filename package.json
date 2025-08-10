@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "1.7.3",
+  "version": "1.7.4",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,8 +9,8 @@
     "dist"
   ],
   "scripts": {
-    "test": "TZ=UTC vitest run",
-    "test-watch": "TZ=UTC vitest",
+    "test": "vitest run",
+    "test-watch": "vitest",
     "format": "prettier --write --parser typescript 'src/**/*.ts' 'tests/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' 'tests/**/*.ts'",
     "lint": "ESLINT_MODE=lint eslint 'src/**/*.ts' 'tests/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'tests/**/*.ts'",
     "prepare": "husky",
