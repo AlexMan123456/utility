@@ -1,0 +1,22 @@
+import isLeapYear from "src/is-leap-year";
+
+function checkLeapYear(firstDate: Date, secondDate: Date) {
+  if (
+    isLeapYear(firstDate.getFullYear()) &&
+    firstDate.getMonth() === 1 &&
+    secondDate.getMonth() === 1
+  ) {
+    return firstDate.getDate() === 29 && secondDate.getDate() === 28;
+  }
+}
+
+function isAnniversary(firstDate: Date, secondDate: Date): boolean {
+  if (checkLeapYear(firstDate, secondDate) || checkLeapYear(secondDate, firstDate)) {
+    return true;
+  }
+  return (
+    firstDate.getDate() === secondDate.getDate() && firstDate.getMonth() === secondDate.getMonth()
+  );
+}
+
+export default isAnniversary;
