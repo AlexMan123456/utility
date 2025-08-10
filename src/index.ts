@@ -3,6 +3,7 @@ export { default as appendSemicolon } from "src/append-semicolon";
 export { default as convertFileToBase64 } from "src/convert-file-to-base-64";
 export { default as formatDateAndTime } from "src/format-date-and-time";
 export { default as getRandomNumber } from "src/get-random-number";
+export { default as isLeapYear } from "src/is-leap-year";
 export { default as isMonthlyMultiple } from "src/is-monthly-multiple";
 export { default as isSameDate } from "src/is-same-date";
 export { default as randomiseArray } from "src/randomise-array";
