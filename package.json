@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,7 +25,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^1.2.11",
+    "@alextheman/eslint-plugin": "^1.2.12",
     "@eslint/js": "^9.33.0",
     "@types/node": "^24.2.1",
     "eslint": "^9.33.0",
