@@ -1,6 +1,6 @@
 import isLeapYear from "src/is-leap-year";
 
-function checkLeapYear(firstDate: Date, secondDate: Date) {
+function checkLeapYear(firstDate: Date, secondDate: Date): boolean {
   if (
     isLeapYear(firstDate.getFullYear()) &&
     firstDate.getMonth() === 1 &&
@@ -8,6 +8,7 @@ function checkLeapYear(firstDate: Date, secondDate: Date) {
   ) {
     return firstDate.getDate() === 29 && secondDate.getDate() === 28;
   }
+  return false;
 }
 
 function isAnniversary(firstDate: Date, secondDate: Date): boolean {
