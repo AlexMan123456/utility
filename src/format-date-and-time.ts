@@ -1,22 +1,15 @@
 import addDaysToDate from "src/add-days-to-date";
+import isSameDate from "src/is-same-date";
 
 function formatDateAndTime(inputDate: Date): string {
   const yesterday = addDaysToDate(new Date(), -1);
   const today = new Date();
   const inputTime = `${inputDate.getHours().toString().padStart(2, "0")}:${inputDate.getMinutes().toString().padStart(2, "0")}`;
 
-  if (
-    inputDate.getDate() === yesterday.getDate() &&
-    inputDate.getMonth() === yesterday.getMonth() &&
-    inputDate.getFullYear() === yesterday.getFullYear()
-  ) {
+  if (isSameDate(inputDate, yesterday)) {
     return `Yesterday at ${inputTime}`;
   }
-  if (
-    inputDate.getDate() === today.getDate() &&
-    inputDate.getMonth() === yesterday.getMonth() &&
-    inputDate.getFullYear() === today.getFullYear()
-  ) {
+  if (isSameDate(inputDate, today)) {
     return `Today at ${inputTime}`;
   }
 
