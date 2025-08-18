@@ -16,7 +16,7 @@ function formatDateAndTime(inputDate: Date): string {
   const formattedInputDay = inputDate.getDate().toString().padStart(2, "0");
   // inputDate.getMonth() + 1... Whoever decided the Date object should be like this, I just want to have a word with you...
   const formattedInputMonth = (inputDate.getMonth() + 1).toString().padStart(2, "0");
-  const formattedInputYear = inputDate.getFullYear().toString().padStart(2, "0");
+  const formattedInputYear = inputDate.getFullYear().toString();
   return `${formattedInputDay}/${formattedInputMonth}/${formattedInputYear}, ${inputTime}`;
 }
 
