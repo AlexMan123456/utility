@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import isAnniversary from "src/is-anniversary";
+import isAnniversary from "src/isAnniversary";
 
 describe("isAnniversary", () => {
   test("Returns true if two dates are a year apart", () => {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import isMonthlyMultiple from "src/is-monthly-multiple";
+import isMonthlyMultiple from "src/isMonthlyMultiple";
 
 describe("isMonthlyMultiple", () => {
   test("Returns true if two dates share the same calendar day and are not a stupid edge case", () => {

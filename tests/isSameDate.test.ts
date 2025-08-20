@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import isSameDate from "src/is-same-date";
+import isSameDate from "src/isSameDate";
 
 describe("isSameDate", () => {
   test("Returns true if two dates are fully equal", () => {

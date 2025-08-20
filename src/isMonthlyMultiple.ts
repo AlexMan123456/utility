@@ -1,4 +1,4 @@
-import isLeapYear from "src/is-leap-year";
+import isLeapYear from "src/isLeapYear";
 
 function endOfMonthChecksButNotFebruary(firstDate: Date, secondDate: Date): boolean {
   if ([3, 5, 8, 10].includes(firstDate.getMonth())) {
