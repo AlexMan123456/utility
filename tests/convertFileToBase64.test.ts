@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from "vitest";
 
-import convertFileToBase64 from "src/convert-file-to-base-64";
+import convertFileToBase64 from "src/convertFileToBase64";
 
 describe("convertFileToBase64", () => {
   test("Converts a file to base 64 string", async () => {

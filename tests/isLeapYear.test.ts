@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import isLeapYear from "src/is-leap-year";
+import isLeapYear from "src/isLeapYear";
 
 describe("isLeapYear", () => {
   test("Returns false if the year is not a leap year", () => {
