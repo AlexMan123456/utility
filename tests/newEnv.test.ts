@@ -30,4 +30,7 @@ describe("newEnv", () => {
     }
     throw new Error("TEST_FAILED");
   });
+  test("If input is undefined, default to development", () => {
+    expect(newEnv(undefined)).toBe("development");
+  });
 });
