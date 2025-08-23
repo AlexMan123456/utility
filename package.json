@@ -40,5 +40,8 @@
     "typescript-eslint": "^8.40.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "zod": "^4.0.17"
   }
 }
