@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import range from "src/range";
+import range from "src/functions/range";
 
 describe("range", () => {
   describe("Positive step sizes", () => {

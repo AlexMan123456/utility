@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
 
-import addDaysToDate from "src/addDaysToDate";
-import isSameDate from "src/isSameDate";
+import addDaysToDate from "src/functions/addDaysToDate";
+import isSameDate from "src/functions/isSameDate";
 
 describe("addDaysToDate", () => {
   test("Returns the next day from today if no arguments given", () => {

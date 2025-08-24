@@ -1,5 +1,6 @@
-import { truncate } from "src";
 import { describe, expect, test } from "vitest";
+
+import truncate from "src/functions/truncate";
 
 describe("truncate", () => {
   test("Returns the same string if the length is less than the maximum length", () => {

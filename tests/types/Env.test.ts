@@ -1,9 +1,9 @@
-import type { Env } from "src/newEnv";
+import type { Env } from "src/types/Env";
 
 import { describe, expect, test } from "vitest";
 import { z, ZodError } from "zod";
 
-import newEnv from "src/newEnv";
+import newEnv from "src/types/Env";
 
 describe("newEnv", () => {
   test("Is successful when input is a valid environment", () => {
