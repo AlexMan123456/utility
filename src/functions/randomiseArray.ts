@@ -1,4 +1,4 @@
-import getRandomNumber from "src/getRandomNumber";
+import getRandomNumber from "src/functions/getRandomNumber";
 
 function randomiseArray(array: unknown[]): unknown[] {
   const mutableArray = [...array];
