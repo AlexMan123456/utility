@@ -21,6 +21,7 @@ class APIError extends Error {
     } else {
       this.message = httpErrorCodeLookup[this.status as HTTPErrorCodes] ?? "API_ERROR";
     }
+    Object.defineProperty(this, "message", { enumerable: true });
     Object.setPrototypeOf(this, new.target.prototype);
   }
 }
