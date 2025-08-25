@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
