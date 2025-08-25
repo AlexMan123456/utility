@@ -10,6 +10,3 @@ export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
 export { default as truncate } from "src/functions/truncate";
 export { default as wait } from "src/functions/wait";
-export { default as newEnv } from "src/types/Env";
-
-export type { Env } from "src/types/Env";
