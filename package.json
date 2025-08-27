@@ -11,11 +11,11 @@
   "scripts": {
     "test": "vitest run",
     "test-watch": "vitest",
-    "format": "prettier --write --parser typescript 'src/**/*.ts' 'tests/**/*.test.ts' && ESLINT_MODE=fix eslint --fix 'src/**/*.ts' 'tests/**/*.ts'",
+    "format": "prettier --write --parser typescript 'src/**/*.ts' 'tests/**/*.test.ts' && ESLINT_MODE=fix eslint --fix --quiet 'src/**/*.ts' 'tests/**/*.ts'",
     "lint": "tsc --noEmit && ESLINT_MODE=lint eslint 'src/**/*.ts' 'tests/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'tests/**/*.ts'",
     "prepare": "husky",
     "build": "tsup",
-    "update-dependencies": "npx npm-check-updates -u && npm install",
+    "update-dependencies": "npx npm-check-updates -u \"$@\" && npm install",
     "change-major": "npm version major -m \"Change version number to v%s\"",
     "change-minor": "npm version minor -m \"Change version number to v%s\"",
     "change-patch": "npm version patch -m \"Change version number to v%s\""
