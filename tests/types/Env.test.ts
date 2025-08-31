@@ -3,22 +3,22 @@ import type { Env } from "src/types/Env";
 import { describe, expect, test } from "vitest";
 import { z, ZodError } from "zod";
 
-import newEnv from "src/types/Env";
+import parseEnv from "src/types/Env";
 
-describe("newEnv", () => {
+describe("parseEnv", () => {
   test("Is successful when input is a valid environment", () => {
     const testInput: Env = "test";
-    expect(newEnv(testInput)).toBe("test");
+    expect(parseEnv(testInput)).toBe("test");
 
     const developmentInput: Env = "development";
-    expect(newEnv(developmentInput)).toBe("development");
+    expect(parseEnv(developmentInput)).toBe("development");
 
     const productionInput: Env = "production";
-    expect(newEnv(productionInput)).toBe("production");
+    expect(parseEnv(productionInput)).toBe("production");
   });
   test("Throws an error when input is not a valid environment", () => {
     try {
-      newEnv("Invalid env");
+      parseEnv("Invalid env");
     } catch (error: unknown) {
       if (error instanceof ZodError) {
         expect(z.treeifyError(error).errors[0]).toBe(
@@ -31,6 +31,6 @@ describe("newEnv", () => {
     throw new Error("TEST_FAILED");
   });
   test("If input is undefined, default to development", () => {
-    expect(newEnv(undefined)).toBe("development");
+    expect(parseEnv(undefined)).toBe("development");
   });
 });
