@@ -3,8 +3,8 @@ import { z } from "zod";
 const envSchema = z.enum(["test", "development", "production"]);
 export type Env = z.infer<typeof envSchema>;
 
-function newEnv(data: unknown = "development"): Env {
+function parseEnv(data: unknown = "development"): Env {
   return envSchema.parse(data);
 }
 
-export default newEnv;
+export default parseEnv;
