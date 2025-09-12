@@ -12,8 +12,8 @@ export const httpErrorCodeLookup: Record<HTTPErrorCodes, string> = {
 };
 
 class APIError extends Error {
-  status: number;
-  constructor(status: number = 500, message?: string, options?: ErrorOptions) {
+  public status: number;
+  public constructor(status: number = 500, message?: string, options?: ErrorOptions) {
     super(message, options);
     this.status = status;
     if (message) {
