@@ -22,10 +22,10 @@ describe("convertFileToBase64", () => {
     vi.stubGlobal(
       "FileReader",
       class MockFileReader extends FileReader {
-        onload: ((this: FileReader, event: ProgressEvent) => any) | null = null;
-        onerror: ((this: FileReader, event: ProgressEvent) => any) | null = null;
+        public override onload: ((this: FileReader, event: ProgressEvent) => any) | null = null;
+        public override onerror: ((this: FileReader, event: ProgressEvent) => any) | null = null;
 
-        readAsDataURL = () => {
+        public override readAsDataURL = () => {
           queueMicrotask(() => {
             this.onerror?.(new ProgressEvent("error"));
           });
