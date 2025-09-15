@@ -7,6 +7,11 @@ describe("isSameDate", () => {
     const today = new Date();
     expect(isSameDate(today, today)).toBe(true);
   });
+  test("Returns true if two dates are equal but use different instances of Date", () => {
+    const today = new Date();
+    const alsoToday = new Date();
+    expect(isSameDate(today, alsoToday)).toBe(true);
+  });
   test("Returns false if two dates are not equal", () => {
     const currentDate = new Date("2025-06-07T23:27:17.403");
     const theNextDay = new Date("2025-06-08T23:27:17.403");
