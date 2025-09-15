@@ -1,6 +1,6 @@
 import getRandomNumber from "src/functions/getRandomNumber";
 
-function randomiseArray(array: unknown[]): unknown[] {
+function randomiseArray<T>(array: T[]): T[] {
   const mutableArray = [...array];
   const outputArray = [];
   do {
