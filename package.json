@@ -26,22 +26,22 @@
   "description": "",
   "devDependencies": {
     "@alextheman/eslint-plugin": "^1.14.1",
-    "@eslint/js": "^9.35.0",
-    "@types/node": "^24.3.2",
-    "eslint": "^9.35.0",
+    "@eslint/js": "^9.36.0",
+    "@types/node": "^24.5.2",
+    "eslint": "^9.36.0",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-import": "^2.32.0",
     "globals": "^16.4.0",
     "husky": "^9.1.7",
-    "jsdom": "^26.1.0",
+    "jsdom": "^27.0.0",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.43.0",
+    "typescript-eslint": "^8.44.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
   "dependencies": {
-    "zod": "^4.1.8"
+    "zod": "^4.1.9"
   }
 }
