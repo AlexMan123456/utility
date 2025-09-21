@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 export { default as addDaysToDate } from "src/functions/addDaysToDate";
 export { default as appendSemicolon } from "src/functions/appendSemicolon";
 export { default as convertFileToBase64 } from "src/functions/convertFileToBase64";
