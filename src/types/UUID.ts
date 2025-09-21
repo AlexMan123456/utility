@@ -1,6 +1,6 @@
 import z from "zod";
 
-const uuidSchema = z.uuid();
+const uuidSchema = z.uuid().brand<"UUID">();
 export type UUID = z.infer<typeof uuidSchema>;
 
 function parseUUID(UUID: unknown): UUID {
