@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { fillArray } from "src/functions";
+import { fillArray, wait } from "src/functions";
 
 describe("fillArray", () => {
   test("Fills the array with the result of the passed-in function", () => {
@@ -20,6 +20,14 @@ describe("fillArray", () => {
   test("Gives the callback access to the index", () => {
     expect(
       fillArray((index) => {
+        return index;
+      }, 5),
+    ).toEqual([0, 1, 2, 3, 4]);
+  });
+  test("Works with async functions", async () => {
+    expect(
+      await fillArray(async (index) => {
+        await wait(0.1);
         return index;
       }, 5),
     ).toEqual([0, 1, 2, 3, 4]);

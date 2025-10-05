@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
+/**
+ * @deprecated The functionality of fillArrayAsync has been combined with fillArray, so fillArray should now be used instead.
+ */
 async function fillArrayAsync<T>(
   callback: (index: number) => Promise<T>,
   length: number = 1,

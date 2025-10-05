@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import { describe, expect, test } from "vitest";
 
 import { fillArrayAsync, wait } from "src/functions";
