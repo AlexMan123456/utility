@@ -1,29 +1,40 @@
 {
   "name": "@alextheman/utility",
   "version": "1.19.1",
+  "description": "Helpful utility functions",
+  "license": "ISC",
+  "author": "alextheman",
+  "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "type": "module",
   "files": [
     "dist"
   ],
   "scripts": {
-    "test": "vitest run",
-    "test-watch": "vitest",
-    "format": "prettier --write --parser typescript 'src/**/*.ts' 'tests/**/*.test.ts' && eslint --fix --suppress-all 'src/**/*.ts' 'tests/**/*.ts' && rm -f eslint-suppressions.json",
-    "lint": "tsc --noEmit && eslint 'src/**/*.ts' 'tests/**/*.ts' && prettier --check --parser typescript 'src/**/*.ts' 'tests/**/*.ts'",
-    "prepare": "husky",
     "build": "tsup",
-    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --",
     "change-major": "npm version major -m \"Change version number to v%s\"",
     "change-minor": "npm version minor -m \"Change version number to v%s\"",
-    "change-patch": "npm version patch -m \"Change version number to v%s\""
+    "change-patch": "npm version patch -m \"Change version number to v%s\"",
+    "format": "npm run format-prettier && npm run format-eslint",
+    "format-eslint": "eslint --fix --suppress-all \"package.json\" \"src/**/*.ts\" \"tests/**/*.ts\" && rm -f eslint-suppressions.json",
+    "format-prettier": "npm run format-prettier-typescript && npm run format-prettier-javascript",
+    "format-prettier-javascript": "prettier --write \"./**/*.js\"",
+    "format-prettier-typescript": "prettier --write --parser typescript \"./**/*.ts\"",
+    "lint": "npm run lint-tsc && npm run lint-eslint && npm run lint-prettier",
+    "lint-eslint": "eslint \"package.json\" \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "lint-prettier": "npm run lint-prettier-typescript && npm run lint-prettier-javascript",
+    "lint-prettier-javascript": "prettier --check \"./**/*.js\"",
+    "lint-prettier-typescript": "prettier --check --parser typescript \"./**/*.ts\"",
+    "lint-tsc": "tsc --noEmit",
+    "prepare": "husky",
+    "test": "vitest run",
+    "test-watch": "vitest",
+    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "dependencies": {
+    "zod": "^4.1.11"
+  },
   "devDependencies": {
     "@alextheman/eslint-plugin": "^1.14.2",
     "@eslint/js": "^9.37.0",
@@ -40,8 +51,5 @@
     "typescript-eslint": "^8.45.0",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
-  },
-  "dependencies": {
-    "zod": "^4.1.11"
   }
 }
