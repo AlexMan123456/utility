@@ -9,6 +9,7 @@ export { default as getRandomNumber } from "src/functions/getRandomNumber";
 export { default as isLeapYear } from "src/functions/isLeapYear";
 export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
 export { default as isSameDate } from "src/functions/isSameDate";
+export { default as omitProperties } from "src/functions/omitProperties";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
 export { default as truncate } from "src/functions/truncate";
