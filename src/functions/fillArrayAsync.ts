@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-deprecated */
 /**
  * @deprecated The functionality of fillArrayAsync has been combined with fillArray, so fillArray should now be used instead.
  */
