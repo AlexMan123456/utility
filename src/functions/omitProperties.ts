@@ -1,6 +1,6 @@
 function omitProperties<T extends Record<string, unknown>, K extends keyof T>(
-  keysToOmit: K | readonly K[],
   object: T,
+  keysToOmit: K | readonly K[],
 ): Omit<T, K> {
   const outputObject = { ...object };
   const keysArray = Array.isArray(keysToOmit) ? keysToOmit : [keysToOmit];

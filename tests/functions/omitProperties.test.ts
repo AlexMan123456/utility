@@ -5,7 +5,7 @@ import omitProperties from "src/functions/omitProperties";
 describe("omitProperties", () => {
   test("Removes the given property from the object", () => {
     expect(
-      omitProperties("secondKey", { firstKey: "First property", secondKey: "Second property" }),
+      omitProperties({ firstKey: "First property", secondKey: "Second property" }, "secondKey"),
     ).toEqual({ firstKey: "First property" });
   });
   test("Removes all specified keys if given an array of keys", () => {
@@ -18,7 +18,7 @@ describe("omitProperties", () => {
     const outputObject: Record<string, string> = { ...inputObject };
     delete outputObject.firstKey;
     delete outputObject.thirdKey;
-    expect(omitProperties(["firstKey", "thirdKey"], inputObject)).toEqual({
+    expect(omitProperties(inputObject, ["firstKey", "thirdKey"])).toEqual({
       secondKey: "Second property",
       fourthKey: "Fourth property",
     });
@@ -30,7 +30,7 @@ describe("omitProperties", () => {
       thirdKey: "Third property",
       fourthKey: "Fourth property",
     };
-    omitProperties("firstKey", inputObject);
+    omitProperties(inputObject, "firstKey");
     expect(inputObject).toEqual({
       firstKey: "First property",
       secondKey: "Second property",
@@ -40,12 +40,15 @@ describe("omitProperties", () => {
   });
   test("Does not mutate the array of keys", () => {
     const keys = ["firstKey", "thirdKey"] as const;
-    omitProperties(keys, {
-      firstKey: "First property",
-      secondKey: "Second property",
-      thirdKey: "Third property",
-      fourthKey: "Fourth property",
-    });
+    omitProperties(
+      {
+        firstKey: "First property",
+        secondKey: "Second property",
+        thirdKey: "Third property",
+        fourthKey: "Fourth property",
+      },
+      keys,
+    );
     expect(keys).toEqual(["firstKey", "thirdKey"]);
   });
   test("Returns an object with a new reference in memory", () => {
@@ -56,7 +59,7 @@ describe("omitProperties", () => {
       thirdKey: "Third property",
       fourthKey: "Fourth property",
     };
-    const outputObject = omitProperties(keys, inputObject);
+    const outputObject = omitProperties(inputObject, keys);
     expect(outputObject).not.toBe(keys);
     expect(outputObject).not.toBe(inputObject);
   });
