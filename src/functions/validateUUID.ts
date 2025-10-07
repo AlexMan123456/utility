@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-deprecated */
 import z from "zod";
 
 import { APIError } from "src/types";
