@@ -37,3 +37,36 @@ describe("APIError", () => {
     testAPIError(new APIError(69), 69, "API_ERROR");
   });
 });
+
+describe("APIError.check()", () => {
+  test("Returns true if given an actual instance of APIError", () => {
+    try {
+      throw new APIError(404);
+    } catch (error) {
+      expect(APIError.check(error)).toBe(true);
+    }
+  });
+  test("Returns true for any object with a status and message", () => {
+    expect(APIError.check({ status: 404, message: "NOT_FOUND" })).toBe(true);
+  });
+  test("Returns false for a generic JavaScript error", () => {
+    try {
+      throw new Error("SHOULD_BE_FALSE");
+    } catch (error) {
+      expect(APIError.check(error)).toBe(false);
+    }
+  });
+  test("Returns false for any object without a status and message", () => {
+    expect(APIError.check({ hello: "world" })).toBe(false);
+  });
+  test("Returns false if only one of status or message is provided, but not both", () => {
+    expect(APIError.check({ status: 404 })).toBe(false);
+    expect(APIError.check({ message: "SHOULD_BE_FALSE" })).toBe(false);
+  });
+  test("Returns false if status is not a number", () => {
+    expect(APIError.check({ status: "Hello", message: "World" })).toBe(false);
+  });
+  test("Returns false if message is not a string", () => {
+    expect(APIError.check({ status: 420, message: 69 })).toBe(false);
+  });
+});
