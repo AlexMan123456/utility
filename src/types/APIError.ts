@@ -28,6 +28,15 @@ class APIError extends Error {
     Object.defineProperty(this, "message", { enumerable: true });
     Object.setPrototypeOf(this, new.target.prototype);
   }
+  public static check(input: unknown): input is APIError {
+    const data: any = input;
+    return (
+      typeof data === "object" &&
+      data !== null &&
+      typeof data?.status === "number" &&
+      typeof data?.message === "string"
+    );
+  }
 }
 
 export default APIError;
