@@ -6,4 +6,5 @@ export { default as parseUUID } from "src/types/UUID";
 export type { HTTPErrorCodes } from "src/types/APIError";
 export type { Email } from "src/types/Email";
 export type { Env } from "src/types/Env";
+export type { NonUndefined } from "src/types/NonUndefined";
 export type { UUID } from "src/types/UUID";
