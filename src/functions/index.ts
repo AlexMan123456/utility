@@ -8,6 +8,7 @@ export { default as isLeapYear } from "src/functions/isLeapYear";
 export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
 export { default as isSameDate } from "src/functions/isSameDate";
 export { default as omitProperties } from "src/functions/omitProperties";
+export { default as parseIntStrict } from "src/functions/parseIntStrict";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
 export { default as stringToBoolean } from "src/functions/stringToBoolean";
