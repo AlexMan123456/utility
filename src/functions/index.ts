@@ -10,5 +10,6 @@ export { default as isSameDate } from "src/functions/isSameDate";
 export { default as omitProperties } from "src/functions/omitProperties";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
+export { default as stringToBoolean } from "src/functions/stringToBoolean";
 export { default as truncate } from "src/functions/truncate";
 export { default as wait } from "src/functions/wait";
