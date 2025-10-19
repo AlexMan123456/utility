@@ -1,7 +1,7 @@
 import plugin from "@alextheman/eslint-plugin";
 
 export default [
-  ...plugin.configs.alexTypeScriptBase,
+  ...plugin.configs["combined/typescript"],
   {
     rules: {
       /* Since the entire purpose of this package is to provide functions to be used by others, it's best to be explicit about the exact return type
