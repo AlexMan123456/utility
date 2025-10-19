@@ -55,4 +55,16 @@ describe("parseIntStrict", () => {
       }
     }
   });
+  test("Fails if the number is outside the base system", () => {
+    try {
+      parseIntStrict("12", 2);
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
 });

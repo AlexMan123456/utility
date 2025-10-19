@@ -1,3 +1,5 @@
+const IntegerParsingError = new TypeError("INTEGER_PARSING_ERROR");
+
 function parseIntStrict(string: string, radix?: number): number {
   const trimmedString = string.trim();
   const pattern: RegExp =
@@ -6,10 +8,25 @@ function parseIntStrict(string: string, radix?: number): number {
         new RegExp(`^[+-]?[0-9a-${String.fromCharCode(87 + radix - 1)}]+$`, "i")
       : /^[+-]?\d+$/;
 
-  const parseIntResult = parseInt(trimmedString, radix);
-  if (isNaN(parseIntResult) || !pattern.test(trimmedString)) {
-    throw new TypeError("INTEGER_PARSING_ERROR");
+  if (!pattern.test(trimmedString)) {
+    throw IntegerParsingError;
   }
+
+  if (
+    radix &&
+    radix < 10 &&
+    [...trimmedString].some((character) => {
+      return parseInt(character) >= radix;
+    })
+  ) {
+    throw IntegerParsingError;
+  }
+
+  const parseIntResult = parseInt(trimmedString, radix);
+  if (isNaN(parseIntResult)) {
+    throw IntegerParsingError;
+  }
+
   return parseIntResult;
 }
 
