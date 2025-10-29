@@ -5,7 +5,8 @@ import { removeDuplicates } from "src/functions";
 describe("removeDuplicates", () => {
   describe("Mutation checks", () => {
     test("Does not mutate the original array", () => {
-      const inputArray = [1, 1, 2, 3, 4];
+      const inputArray = Object.freeze([1, 1, 2, 3, 4]);
+      // since the array has been frozen, this will give a TypeError if it tries to mutate the inputArray.
       removeDuplicates(inputArray);
       expect(inputArray).toEqual([1, 1, 2, 3, 4]);
     });

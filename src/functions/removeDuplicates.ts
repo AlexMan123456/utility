@@ -1,4 +1,4 @@
-function removeDuplicates<T>(array: T[]): T[] {
+function removeDuplicates<T>(array: T[] | readonly T[]): T[] {
   const outputArray: T[] = [];
   for (const item of array) {
     if (!outputArray.includes(item)) {
