@@ -1,6 +1,9 @@
+export type HTTPErrorCode = 400 | 401 | 403 | 404 | 418 | 500;
+
+/** @deprecated This type has been renamed to HTTPErrorCode (singular) */
 export type HTTPErrorCodes = 400 | 401 | 403 | 404 | 418 | 500;
 
-export const httpErrorCodeLookup: Record<HTTPErrorCodes, string> = {
+export const httpErrorCodeLookup: Record<HTTPErrorCode, string> = {
   400: "BAD_REQUEST",
   401: "UNAUTHORISED",
   403: "FORBIDDEN",
@@ -14,7 +17,7 @@ export const httpErrorCodeLookup: Record<HTTPErrorCodes, string> = {
 class APIError extends Error {
   public status: number;
   public constructor(
-    status: HTTPErrorCodes | number = 500,
+    status: HTTPErrorCode | number = 500,
     message?: string,
     options?: ErrorOptions,
   ) {
@@ -23,7 +26,7 @@ class APIError extends Error {
     if (message) {
       this.message = message;
     } else {
-      this.message = httpErrorCodeLookup[this.status as HTTPErrorCodes] ?? "API_ERROR";
+      this.message = httpErrorCodeLookup[this.status as HTTPErrorCode] ?? "API_ERROR";
     }
     Object.defineProperty(this, "message", { enumerable: true });
     Object.setPrototypeOf(this, new.target.prototype);
