@@ -22,7 +22,7 @@ describe("getRandomNumber", () => {
   test("Throw an error if inputs are not integers", () => {
     try {
       getRandomNumber(0.5, 10.5);
-      throw new Error("Test failed");
+      throw new Error("TEST_FAILED");
     } catch (error: any) {
       expect(error?.message).toBe("NON_INTEGER_INPUTS");
     }
