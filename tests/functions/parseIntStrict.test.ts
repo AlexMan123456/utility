@@ -67,4 +67,28 @@ describe("parseIntStrict", () => {
       }
     }
   });
+  test("Fails if given an empty string", () => {
+    try {
+      parseIntStrict("");
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Fails if given a string that trims to be an empty string", () => {
+    try {
+      parseIntStrict(" ");
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
 });
