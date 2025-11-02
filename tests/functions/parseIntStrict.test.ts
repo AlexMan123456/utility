@@ -29,7 +29,7 @@ describe("parseIntStrict", () => {
     }
   });
   test.each(["3.14", "3a", "a3", "3+1"])(
-    "Fails if the input contains any non-numeric characters other than - (testing %s)",
+    "Fails if the input contains any non-numeric characters other than '-' (testing %s)",
     (stringToParse: string) => {
       try {
         parseIntStrict(stringToParse);
