@@ -1,8 +1,9 @@
+import parseIntStrict from "src/functions/parseIntStrict";
+
 function getRandomNumber(lowerBound: number, upperBound: number): number {
-  if (lowerBound % 1 !== 0 || upperBound % 1 !== 0) {
-    throw new TypeError("NON_INTEGER_INPUTS");
-  }
-  return Math.floor(Math.random() * (upperBound - lowerBound + 1) + lowerBound);
+  const parsedLowerBound = parseIntStrict(`${lowerBound}`);
+  const parsedUpperBound = parseIntStrict(`${upperBound}`);
+  return Math.floor(Math.random() * (parsedUpperBound - parsedLowerBound + 1) + parsedLowerBound);
 }
 
 export default getRandomNumber;

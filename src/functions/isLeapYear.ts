@@ -1,8 +1,8 @@
+import parseIntStrict from "src/functions/parseIntStrict";
+
 function isLeapYear(year: number): boolean {
-  if (year % 1 !== 0) {
-    throw new TypeError("NON_INTEGER_INPUT");
-  }
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+  const parsedYear = parseIntStrict(`${year}`);
+  return (parsedYear % 4 === 0 && parsedYear % 100 !== 0) || parsedYear % 400 === 0;
 }
 
 export default isLeapYear;
