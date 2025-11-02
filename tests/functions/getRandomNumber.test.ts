@@ -24,7 +24,7 @@ describe("getRandomNumber", () => {
       getRandomNumber(0.5, 10.5);
       throw new Error("TEST_FAILED");
     } catch (error: any) {
-      expect(error?.message).toBe("NON_INTEGER_INPUTS");
+      expect(error?.message).toBe("INTEGER_PARSING_ERROR");
     }
   });
 });

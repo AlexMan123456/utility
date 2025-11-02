@@ -1,6 +1,6 @@
 const IntegerParsingError = new TypeError("INTEGER_PARSING_ERROR");
 
-function parseIntStrict(string: string, radix?: number): number {
+function parseIntStrict(...[string, radix]: Parameters<typeof parseInt>): number {
   const trimmedString = string.trim();
   const pattern: RegExp =
     radix && radix > 10 && radix <= 36

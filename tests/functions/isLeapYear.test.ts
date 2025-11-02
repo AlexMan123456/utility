@@ -17,7 +17,7 @@ describe("isLeapYear", () => {
       isLeapYear(2025.5);
     } catch (error: unknown) {
       if (error instanceof Error) {
-        expect(error.message).toBe("NON_INTEGER_INPUT");
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
         return;
       }
     }

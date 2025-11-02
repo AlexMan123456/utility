@@ -29,7 +29,7 @@ describe("parseIntStrict", () => {
     }
   });
   test.each(["3.14", "3a", "a3", "3+1"])(
-    "Fails if the input contains any non-numeric characters other than - (testing %s)",
+    "Fails if the input contains any non-numeric characters other than '-' (testing %s)",
     (stringToParse: string) => {
       try {
         parseIntStrict(stringToParse);
@@ -58,6 +58,30 @@ describe("parseIntStrict", () => {
   test("Fails if the number is outside the base system", () => {
     try {
       parseIntStrict("12", 2);
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Fails if given an empty string", () => {
+    try {
+      parseIntStrict("");
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Fails if given a string that trims to be an empty string", () => {
+    try {
+      parseIntStrict(" ");
       throw new Error("TEST_FAILED");
     } catch (error) {
       if (error instanceof TypeError) {
