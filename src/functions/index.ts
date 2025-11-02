@@ -13,6 +13,7 @@ export { default as parseIntStrict } from "src/functions/parseIntStrict";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
 export { default as removeDuplicates } from "src/functions/removeDuplicates";
+export { default as stringListToArray } from "src/functions/stringListToArray";
 export { default as stringToBoolean } from "src/functions/stringToBoolean";
 export { default as truncate } from "src/functions/truncate";
 export { default as wait } from "src/functions/wait";
