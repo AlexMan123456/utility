@@ -25,4 +25,13 @@ describe("createFormData", () => {
     expect(blob).toBeTruthy();
     expect(String(blob)).toBe("[object Blob]");
   });
+  test("Can take a type argument", () => {
+    createFormData<{
+      firstKey: string;
+      secondKey: string;
+    }>({
+      firstKey: "First property",
+      secondKey: "Second property",
+    });
+  });
 });
