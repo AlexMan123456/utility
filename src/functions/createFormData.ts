@@ -1,4 +1,4 @@
-function createFormData(data: Record<string, string | object | Blob>): FormData {
+function createFormData<T extends Record<string, string | object | Blob>>(data: T): FormData {
   const formData = new FormData();
   for (const key in data) {
     if (data[key] instanceof Blob) {
