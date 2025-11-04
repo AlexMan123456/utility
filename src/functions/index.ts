@@ -18,3 +18,10 @@ export { default as stringListToArray } from "src/functions/stringListToArray";
 export { default as stringToBoolean } from "src/functions/stringToBoolean";
 export { default as truncate } from "src/functions/truncate";
 export { default as wait } from "src/functions/wait";
+
+export type {
+  FormDataResolutionStrategy,
+  CreateFormDataOptions,
+  CreateFormDataOptionsNullableResolution,
+  CreateFormDataOptionsUndefinedOrNullResolution,
+} from "src/functions/createFormData";
