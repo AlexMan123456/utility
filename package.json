@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "2.10.1",
+  "version": "2.10.2",
   "description": "Helpful utility functions",
   "license": "ISC",
   "author": "alextheman",
@@ -36,7 +36,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^2.4.1",
+    "@alextheman/eslint-plugin": "^2.5.0",
     "@eslint/js": "^9.39.0",
     "@types/node": "^24.9.2",
     "eslint": "^9.39.0",
