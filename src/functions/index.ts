@@ -25,3 +25,4 @@ export type {
   CreateFormDataOptionsNullableResolution,
   CreateFormDataOptionsUndefinedOrNullResolution,
 } from "src/functions/createFormData";
+export type { StringListToArrayOptions } from "src/functions/stringListToArray";
