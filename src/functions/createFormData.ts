@@ -37,7 +37,7 @@ function createFormData<T extends Record<string, unknown>>(
       case "omit":
         break;
       default:
-        throw new Error("SLOPPY_PURE_JAVASCRIPT_USER_ERROR");
+        throw new TypeError("SLOPPY_PURE_JAVASCRIPT_USER_ERROR");
     }
   }
 
