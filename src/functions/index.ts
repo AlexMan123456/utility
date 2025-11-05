@@ -8,6 +8,7 @@ export { default as formatDateAndTime } from "src/functions/formatDateAndTime";
 export { default as getRandomNumber } from "src/functions/getRandomNumber";
 export { default as isLeapYear } from "src/functions/isLeapYear";
 export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
+export { default as isOrdered } from "src/functions/isOrdered";
 export { default as isSameDate } from "src/functions/isSameDate";
 export { default as omitProperties } from "src/functions/omitProperties";
 export { default as parseIntStrict } from "src/functions/parseIntStrict";
