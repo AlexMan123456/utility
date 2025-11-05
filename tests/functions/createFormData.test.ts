@@ -89,4 +89,20 @@ describe("createFormData", () => {
     expect(nullableResolutionFormDataTest.get("undefinedKey")).toEqual(null);
     expect(nullableResolutionFormDataTest.get("nullKey")).toEqual(null);
   });
+  test("Pure JavaScript slop", () => {
+    const data = {
+      nullKey: null,
+    };
+
+    try {
+      // @ts-expect-error: Because pure JavaScript users still exist, for some reason
+      createFormData(data, { nullableResolution: "slop" });
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("SLOPPY_PURE_JAVASCRIPT_USER_ERROR");
+      } else {
+        throw error;
+      }
+    }
+  });
 });
