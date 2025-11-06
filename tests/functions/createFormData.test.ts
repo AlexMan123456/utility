@@ -89,6 +89,21 @@ describe("createFormData", () => {
     expect(nullableResolutionFormDataTest.get("undefinedKey")).toEqual(null);
     expect(nullableResolutionFormDataTest.get("nullKey")).toEqual(null);
   });
+  test("Adds arrays as a repeated property if arrayResolution is set to multiple", () => {
+    const data = {
+      arrayKey: ["Multiple", "data", "test"],
+    };
+
+    const formData = createFormData(data, { arrayResolution: "multiple" });
+    expect(formData.getAll("arrayKey")).toEqual(["Multiple", "data", "test"]);
+  });
+  test("Stringifies nested arrays even under arrayResolution: multiple", () => {
+    const data = {
+      arrayKey: ["Multiple", ["data", "test"]],
+    };
+    const formData = createFormData(data, { arrayResolution: "multiple" });
+    expect(formData.getAll("arrayKey")).toEqual(["Multiple", JSON.stringify(["data", "test"])]);
+  });
   test("Pure JavaScript slop", () => {
     const data = {
       nullKey: null,

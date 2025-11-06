@@ -1,15 +1,20 @@
-export type FormDataResolutionStrategy = "stringify" | "empty" | "omit";
+export type FormDataNullableResolutionStrategy = "stringify" | "empty" | "omit";
+export type FormDataArrayResolutionStrategy = "stringify" | "multiple";
 
-export interface CreateFormDataOptionsUndefinedOrNullResolution {
-  undefinedResolution?: FormDataResolutionStrategy;
-  nullResolution?: FormDataResolutionStrategy;
+export interface CreateFormDataOptionsBase {
+  arrayResolution?: FormDataArrayResolutionStrategy;
+}
+
+export interface CreateFormDataOptionsUndefinedOrNullResolution extends CreateFormDataOptionsBase {
+  undefinedResolution?: FormDataNullableResolutionStrategy;
+  nullResolution?: FormDataNullableResolutionStrategy;
   nullableResolution?: never;
 }
 
-export interface CreateFormDataOptionsNullableResolution {
+export interface CreateFormDataOptionsNullableResolution extends CreateFormDataOptionsBase {
   undefinedResolution?: never;
   nullResolution?: never;
-  nullableResolution: FormDataResolutionStrategy;
+  nullableResolution: FormDataNullableResolutionStrategy;
 }
 
 export type CreateFormDataOptions =
@@ -18,14 +23,14 @@ export type CreateFormDataOptions =
 
 function createFormData<T extends Record<string, unknown>>(
   data: T,
-  options: CreateFormDataOptions = { nullableResolution: "empty" },
+  options: CreateFormDataOptions = { arrayResolution: "stringify", nullableResolution: "empty" },
 ): FormData {
   const formData = new FormData();
 
   function resolveByStrategy(
     key: string,
     value: unknown,
-    resolutionStrategy: FormDataResolutionStrategy,
+    resolutionStrategy: FormDataNullableResolutionStrategy,
   ) {
     switch (resolutionStrategy) {
       case "empty":
@@ -60,6 +65,16 @@ function createFormData<T extends Record<string, unknown>>(
         }
       }
     } else if (typeof data[key] === "object") {
+      if (Array.isArray(data[key]) && options.arrayResolution === "multiple") {
+        for (const item of data[key]) {
+          if (typeof item === "object") {
+            formData.append(key, JSON.stringify(item));
+          } else {
+            formData.append(key, String(item));
+          }
+        }
+        continue;
+      }
       formData.append(key, JSON.stringify(data[key]));
     } else {
       formData.append(key, String(data[key]));
