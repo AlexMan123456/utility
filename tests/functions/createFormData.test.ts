@@ -35,15 +35,6 @@ describe("createFormData", () => {
     expect(blob).toBeTruthy();
     expect(String(blob)).toBe("[object Blob]");
   });
-  test("Can take a type argument", () => {
-    createFormData<{
-      firstKey: string;
-      secondKey: string;
-    }>({
-      firstKey: "First property",
-      secondKey: "Second property",
-    });
-  });
   test("Resolves undefined to be an empty string", () => {
     const formData = createFormData({
       undefinedKey: undefined,
@@ -120,6 +111,56 @@ describe("createFormData", () => {
     formData.getAll("blobs").forEach((item) => {
       expect(String(item)).toBe("[object Blob]");
     });
+  });
+  test("Allows an object to be passed in for arrayResolution to specify resolution type per property", () => {
+    const data = {
+      multipleKey: ["This", "is", "a", "test"],
+      stringifyKey: [1, 2, 3, 4],
+    };
+
+    const formData = createFormData(data, {
+      arrayResolution: { multipleKey: "multiple", stringifyKey: "stringify" },
+    });
+    expect(formData.getAll("multipleKey")).toEqual(data.multipleKey);
+    expect(formData.get("stringifyKey")).toBe(JSON.stringify(data.stringifyKey));
+  });
+  test("Allows an object to be passed for undefinedResolution or nullResolution", () => {
+    const data = {
+      emptyUndefined: undefined,
+      omittedUndefined: undefined,
+      emptyNull: null,
+      omittedNull: null,
+    };
+
+    const formData = createFormData(data, {
+      undefinedResolution: { emptyUndefined: "empty", omittedUndefined: "omit" },
+      nullResolution: { emptyNull: "empty", omittedNull: "omit" },
+    });
+    expect(formData.get("emptyUndefined")).toBe("");
+    expect(formData.get("omittedUndefined")).toEqual(null);
+    expect(formData.get("emptyNull")).toBe("");
+    expect(formData.get("omittedNull")).toEqual(null);
+  });
+  test("Allows an object to be passed for nullableResolution", () => {
+    const data = {
+      emptyUndefined: undefined,
+      omittedUndefined: undefined,
+      emptyNull: null,
+      omittedNull: null,
+    };
+
+    const formData = createFormData(data, {
+      nullableResolution: {
+        emptyUndefined: "empty",
+        omittedUndefined: "omit",
+        emptyNull: "empty",
+        omittedNull: "omit",
+      },
+    });
+    expect(formData.get("emptyUndefined")).toBe("");
+    expect(formData.get("omittedUndefined")).toEqual(null);
+    expect(formData.get("emptyNull")).toBe("");
+    expect(formData.get("omittedNull")).toEqual(null);
   });
   test("Pure JavaScript slop", () => {
     const data = {

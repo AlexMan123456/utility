@@ -1,43 +1,64 @@
+import type { RecordKey } from "src/types";
+
 export type FormDataNullableResolutionStrategy = "stringify" | "empty" | "omit";
 export type FormDataArrayResolutionStrategy = "stringify" | "multiple";
 
-export interface CreateFormDataOptionsBase {
-  arrayResolution?: FormDataArrayResolutionStrategy;
+export interface CreateFormDataOptionsBase<K extends RecordKey> {
+  arrayResolution?:
+    | FormDataArrayResolutionStrategy
+    | Partial<Record<K, FormDataArrayResolutionStrategy>>;
 }
 
-export interface CreateFormDataOptionsUndefinedOrNullResolution extends CreateFormDataOptionsBase {
-  undefinedResolution?: FormDataNullableResolutionStrategy;
-  nullResolution?: FormDataNullableResolutionStrategy;
+export interface CreateFormDataOptionsUndefinedOrNullResolution<K extends RecordKey>
+  extends CreateFormDataOptionsBase<K> {
+  undefinedResolution?:
+    | FormDataNullableResolutionStrategy
+    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
+  nullResolution?:
+    | FormDataNullableResolutionStrategy
+    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
   nullableResolution?: never;
 }
 
-export interface CreateFormDataOptionsNullableResolution extends CreateFormDataOptionsBase {
+export interface CreateFormDataOptionsNullableResolution<K extends RecordKey>
+  extends CreateFormDataOptionsBase<K> {
   undefinedResolution?: never;
   nullResolution?: never;
-  nullableResolution: FormDataNullableResolutionStrategy;
+  nullableResolution:
+    | FormDataNullableResolutionStrategy
+    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
 }
 
-export type CreateFormDataOptions =
-  | CreateFormDataOptionsUndefinedOrNullResolution
-  | CreateFormDataOptionsNullableResolution;
+export type CreateFormDataOptions<K extends RecordKey> =
+  | CreateFormDataOptionsUndefinedOrNullResolution<K>
+  | CreateFormDataOptionsNullableResolution<K>;
 
-function createFormData<T extends Record<string, unknown>>(
+function getNullableResolutionStrategy(
+  key: RecordKey,
+  strategy:
+    | FormDataNullableResolutionStrategy
+    | Partial<Record<RecordKey, FormDataNullableResolutionStrategy>>,
+) {
+  return (typeof strategy === "object" ? strategy[key] : strategy) ?? "empty";
+}
+
+function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>(
   data: T,
-  options: CreateFormDataOptions = { arrayResolution: "stringify", nullableResolution: "empty" },
+  options: CreateFormDataOptions<K> = { arrayResolution: "stringify", nullableResolution: "empty" },
 ): FormData {
   const formData = new FormData();
 
-  function resolveByStrategy(
-    key: string,
+  function resolveNullablesByStrategy(
+    key: K,
     value: unknown,
     resolutionStrategy: FormDataNullableResolutionStrategy,
   ) {
     switch (resolutionStrategy) {
       case "empty":
-        formData.append(key, "");
+        formData.append(String(key), "");
         break;
       case "stringify":
-        formData.append(key, JSON.stringify(value));
+        formData.append(String(key), JSON.stringify(value));
         break;
       case "omit":
         break;
@@ -46,40 +67,58 @@ function createFormData<T extends Record<string, unknown>>(
     }
   }
 
-  function resolveNullables(key: string, value: unknown, options: CreateFormDataOptions) {
+  function resolveNullables(key: K, value: unknown, options: CreateFormDataOptions<K>) {
     if (options.nullableResolution) {
-      resolveByStrategy(key, value, options.nullableResolution);
+      resolveNullablesByStrategy(
+        key,
+        value,
+        getNullableResolutionStrategy(key, options.nullableResolution),
+      );
       return;
     }
     if (options.undefinedResolution || options.nullResolution) {
       if (data[key] === undefined && options.undefinedResolution) {
-        resolveByStrategy(key, value, options.undefinedResolution);
+        resolveNullablesByStrategy(
+          key,
+          value,
+          getNullableResolutionStrategy(key, options.undefinedResolution),
+        );
         return;
       }
       if (data[key] === null && options.nullResolution) {
-        resolveByStrategy(key, value, options.nullResolution);
+        resolveNullablesByStrategy(
+          key,
+          value,
+          getNullableResolutionStrategy(key, options.nullResolution),
+        );
       }
     }
   }
 
-  for (const key in data) {
-    if (data[key] instanceof Blob) {
-      formData.append(key, data[key]);
-    } else if (data[key] === undefined || data[key] === null) {
-      resolveNullables(key, data[key], options);
-    } else if (typeof data[key] === "object") {
-      if (Array.isArray(data[key]) && options.arrayResolution === "multiple") {
-        for (const item of data[key]) {
+  const entries = Object.entries(data) as [K, unknown][];
+  for (const [key, value] of entries) {
+    if (value instanceof Blob) {
+      formData.append(String(key), value);
+    } else if (value === undefined || value === null) {
+      resolveNullables(key, value, options);
+    } else if (typeof value === "object") {
+      if (
+        Array.isArray(value) &&
+        (options.arrayResolution === "multiple" ||
+          (typeof options.arrayResolution === "object" &&
+            options.arrayResolution[key] === "multiple"))
+      ) {
+        for (const item of value) {
           if ((typeof item === "object" || !item) && !(item instanceof Blob)) {
             throw new TypeError("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
           }
-          formData.append(key, String(item));
+          formData.append(String(key), String(item));
         }
         continue;
       }
-      formData.append(key, JSON.stringify(data[key]));
+      formData.append(String(key), JSON.stringify(value));
     } else {
-      formData.append(key, String(data[key]));
+      formData.append(String(key), String(value));
     }
   }
 
