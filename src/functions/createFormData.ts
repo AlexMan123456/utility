@@ -65,6 +65,7 @@ function createFormData<T extends Record<string, unknown>>(
       formData.append(key, String(data[key]));
     }
   }
+
   return formData;
 }
 
