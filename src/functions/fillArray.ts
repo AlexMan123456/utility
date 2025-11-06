@@ -1,3 +1,6 @@
+function fillArray<T>(callback: (index: number) => Promise<T>, length?: number): Promise<T[]>;
+function fillArray<T>(callback: (index: number) => T, length?: number): T[];
+
 function fillArray<T>(
   callback: (index: number) => T | Promise<T>,
   length: number = 1,
