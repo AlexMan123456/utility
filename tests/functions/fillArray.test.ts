@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 
 import { fillArray, wait } from "src/functions";
 
@@ -31,5 +31,19 @@ describe("fillArray", () => {
         return index;
       }, 5),
     ).toEqual([0, 1, 2, 3, 4]);
+  });
+  test("Infers correct types", async () => {
+    expectTypeOf(
+      fillArray(() => {
+        return "Hello";
+      }),
+    ).toEqualTypeOf<string[]>();
+
+    expectTypeOf(
+      fillArray(async () => {
+        await wait(0.1);
+        return "Hello";
+      }),
+    ).toEqualTypeOf<Promise<string[]>>();
   });
 });
