@@ -46,32 +46,34 @@ function createFormData<T extends Record<string, unknown>>(
     }
   }
 
+  function resolveNullables(key: string, value: unknown, options: CreateFormDataOptions) {
+    if (options.nullableResolution) {
+      resolveByStrategy(key, value, options.nullableResolution);
+      return;
+    }
+    if (options.undefinedResolution || options.nullResolution) {
+      if (data[key] === undefined && options.undefinedResolution) {
+        resolveByStrategy(key, value, options.undefinedResolution);
+        return;
+      }
+      if (data[key] === null && options.nullResolution) {
+        resolveByStrategy(key, value, options.nullResolution);
+      }
+    }
+  }
+
   for (const key in data) {
     if (data[key] instanceof Blob) {
       formData.append(key, data[key]);
     } else if (data[key] === undefined || data[key] === null) {
-      if (options.nullableResolution) {
-        resolveByStrategy(key, data[key], options.nullableResolution);
-        continue;
-      }
-      if (options.undefinedResolution || options.nullResolution) {
-        if (data[key] === undefined && options.undefinedResolution) {
-          resolveByStrategy(key, data[key], options.undefinedResolution);
-          continue;
-        }
-        if (data[key] === null && options.nullResolution) {
-          resolveByStrategy(key, data[key], options.nullResolution);
-          continue;
-        }
-      }
+      resolveNullables(key, data[key], options);
     } else if (typeof data[key] === "object") {
       if (Array.isArray(data[key]) && options.arrayResolution === "multiple") {
         for (const item of data[key]) {
-          if (typeof item === "object") {
-            formData.append(key, JSON.stringify(item));
-          } else {
-            formData.append(key, String(item));
+          if ((typeof item === "object" || !item) && !(item instanceof Blob)) {
+            throw new TypeError("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
           }
+          formData.append(key, String(item));
         }
         continue;
       }

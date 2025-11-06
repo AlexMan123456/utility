@@ -97,12 +97,29 @@ describe("createFormData", () => {
     const formData = createFormData(data, { arrayResolution: "multiple" });
     expect(formData.getAll("arrayKey")).toEqual(["Multiple", "data", "test"]);
   });
-  test("Stringifies nested arrays even under arrayResolution: multiple", () => {
+  test("Does not allow non-primitive data (except blobs)", () => {
     const data = {
-      arrayKey: ["Multiple", ["data", "test"]],
+      arrayKey: ["Multiple", ["data", "test"], undefined, null],
     };
-    const formData = createFormData(data, { arrayResolution: "multiple" });
-    expect(formData.getAll("arrayKey")).toEqual(["Multiple", JSON.stringify(["data", "test"])]);
+
+    try {
+      createFormData(data, { arrayResolution: "multiple" });
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Allow blobs in an array to be resolved with the multiple option", () => {
+    const data = [new Blob(["Hello"]), new Blob(["World"])];
+
+    const formData = createFormData({ blobs: data }, { arrayResolution: "multiple" });
+    formData.getAll("blobs").forEach((item) => {
+      expect(String(item)).toBe("[object Blob]");
+    });
   });
   test("Pure JavaScript slop", () => {
     const data = {
