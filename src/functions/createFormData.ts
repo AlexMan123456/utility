@@ -112,7 +112,11 @@ function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>
           if ((typeof item === "object" || !item) && !(item instanceof Blob)) {
             throw new TypeError("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
           }
-          formData.append(String(key), String(item));
+          if (item instanceof Blob) {
+            formData.append(String(key), item);
+          } else {
+            formData.append(String(key), String(item));
+          }
         }
         continue;
       }
