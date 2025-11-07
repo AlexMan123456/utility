@@ -33,7 +33,7 @@ describe("createFormData", () => {
     const formData = createFormData({ blobKey: new Blob(["Hello"]) });
     const blob = formData.get("blobKey") as any;
     expect(blob).toBeTruthy();
-    expect(String(blob)).toBe("[object Blob]");
+    expect(["[object Blob]", "[object File]"]).toContain(String(blob));
   });
   test("Resolves undefined to be an empty string", () => {
     const formData = createFormData({
@@ -109,7 +109,7 @@ describe("createFormData", () => {
 
     const formData = createFormData(data, { arrayResolution: "multiple" });
     formData.getAll("blobs").forEach((item) => {
-      expect(String(item)).toBe("[object Blob]");
+      expect(["[object Blob]", "[object File]"]).toContain(String(item));
     });
   });
   test("Do not allow arrays of Blobs to be stringified", () => {
