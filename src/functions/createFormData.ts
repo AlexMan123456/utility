@@ -102,23 +102,34 @@ function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>
     } else if (value === undefined || value === null) {
       resolveNullables(key, value, options);
     } else if (typeof value === "object") {
-      if (
-        Array.isArray(value) &&
-        (options.arrayResolution === "multiple" ||
-          (typeof options.arrayResolution === "object" &&
-            options.arrayResolution[key] === "multiple"))
-      ) {
-        for (const item of value) {
-          if ((typeof item === "object" || !item) && !(item instanceof Blob)) {
-            throw new TypeError("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
-          }
-          if (item instanceof Blob) {
-            formData.append(String(key), item);
-          } else {
-            formData.append(String(key), String(item));
-          }
+      if (Array.isArray(value)) {
+        if (
+          value.some((item) => {
+            return item instanceof Blob;
+          }) &&
+          (options.arrayResolution === "stringify" ||
+            (typeof options.arrayResolution === "object" &&
+              options.arrayResolution[key] === "stringify"))
+        ) {
+          throw new TypeError("CANNOT_STRINGIFY_BLOB");
         }
-        continue;
+        if (
+          options.arrayResolution === "multiple" ||
+          (typeof options.arrayResolution === "object" &&
+            options.arrayResolution[key] === "multiple")
+        ) {
+          for (const item of value) {
+            if ((typeof item === "object" || !item) && !(item instanceof Blob)) {
+              throw new TypeError("NON_PRIMITIVE_ARRAY_ITEMS_FOUND");
+            }
+            if (item instanceof Blob) {
+              formData.append(String(key), item);
+            } else {
+              formData.append(String(key), String(item));
+            }
+          }
+          continue;
+        }
       }
       formData.append(String(key), JSON.stringify(value));
     } else {

@@ -105,12 +105,25 @@ describe("createFormData", () => {
     }
   });
   test("Allow blobs in an array to be resolved with the multiple option", () => {
-    const data = [new Blob(["Hello"]), new Blob(["World"])];
+    const data = { blobs: [new Blob(["Hello"]), new Blob(["World"])] };
 
-    const formData = createFormData({ blobs: data }, { arrayResolution: "multiple" });
+    const formData = createFormData(data, { arrayResolution: "multiple" });
     formData.getAll("blobs").forEach((item) => {
       expect(String(item)).toBe("[object Blob]");
     });
+  });
+  test("Do not allow arrays of Blobs to be stringified", () => {
+    const data = { blobs: [new Blob(["Hello"]), new Blob(["World"])] };
+    try {
+      createFormData(data, { arrayResolution: "stringify" });
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("CANNOT_STRINGIFY_BLOB");
+      } else {
+        throw error;
+      }
+    }
   });
   test("Allows an object to be passed in for arrayResolution to specify resolution type per property", () => {
     const data = {
