@@ -175,6 +175,9 @@ describe("createFormData", () => {
     expect(formData.get("emptyNull")).toBe("");
     expect(formData.get("omittedNull")).toEqual(null);
   });
+  test("Can take only one type argument", () => {
+    createFormData<{ hello: "world" }>({ hello: "world" });
+  });
   test("Pure JavaScript slop", () => {
     const data = {
       nullKey: null,

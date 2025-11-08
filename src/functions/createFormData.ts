@@ -42,14 +42,17 @@ function getNullableResolutionStrategy(
   return (typeof strategy === "object" ? strategy[key] : strategy) ?? "empty";
 }
 
-function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>(
+function createFormData<T extends Record<RecordKey, unknown>>(
   data: T,
-  options: CreateFormDataOptions<K> = { arrayResolution: "stringify", nullableResolution: "empty" },
+  options: CreateFormDataOptions<keyof T> = {
+    arrayResolution: "stringify",
+    nullableResolution: "empty",
+  },
 ): FormData {
   const formData = new FormData();
 
   function resolveNullablesByStrategy(
-    key: K,
+    key: keyof T,
     value: unknown,
     resolutionStrategy: FormDataNullableResolutionStrategy,
   ) {
@@ -67,7 +70,7 @@ function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>
     }
   }
 
-  function resolveNullables(key: K, value: unknown, options: CreateFormDataOptions<K>) {
+  function resolveNullables(key: keyof T, value: unknown, options: CreateFormDataOptions<keyof T>) {
     if (options.nullableResolution) {
       resolveNullablesByStrategy(
         key,
@@ -95,7 +98,7 @@ function createFormData<T extends Record<RecordKey, unknown>, K extends keyof T>
     }
   }
 
-  const entries = Object.entries(data) as [K, unknown][];
+  const entries = Object.entries(data) as [keyof T, unknown][];
   for (const [key, value] of entries) {
     if (value instanceof Blob) {
       formData.append(String(key), value);
