@@ -18,4 +18,9 @@ describe("getRecordKeys", () => {
     // @ts-expect-error: This will give a compile-time error because it's not a record.
     getRecordKeys("hello");
   });
+  test("Does not mutate the input object", () => {
+    const input = Object.freeze({ firstKey: "First property", secondKey: "Second property" });
+    getRecordKeys(input);
+    expect(input).toEqual({ firstKey: "First property", secondKey: "Second property" });
+  });
 });
