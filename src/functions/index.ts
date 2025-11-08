@@ -6,6 +6,7 @@ export { default as createFormData } from "src/functions/createFormData";
 export { default as fillArray } from "src/functions/fillArray";
 export { default as formatDateAndTime } from "src/functions/formatDateAndTime";
 export { default as getRandomNumber } from "src/functions/getRandomNumber";
+export { default as getRecordKeys } from "src/functions/getRecordKeys";
 export { default as isLeapYear } from "src/functions/isLeapYear";
 export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
 export { default as isOrdered } from "src/functions/isOrdered";
