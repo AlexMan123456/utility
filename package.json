@@ -36,7 +36,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^2.5.0",
+    "@alextheman/eslint-plugin": "^2.6.2",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.0",
     "eslint": "^9.39.1",
