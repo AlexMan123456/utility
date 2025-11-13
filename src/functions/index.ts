@@ -11,6 +11,7 @@ export { default as isLeapYear } from "src/functions/isLeapYear";
 export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
 export { default as isOrdered } from "src/functions/isOrdered";
 export { default as isSameDate } from "src/functions/isSameDate";
+export { default as kebabToCamel } from "src/functions/kebabToCamel";
 export { default as omitProperties } from "src/functions/omitProperties";
 export { default as parseIntStrict } from "src/functions/parseIntStrict";
 export { default as randomiseArray } from "src/functions/randomiseArray";
@@ -27,4 +28,5 @@ export type {
   CreateFormDataOptionsNullableResolution,
   CreateFormDataOptionsUndefinedOrNullResolution,
 } from "src/functions/createFormData";
+export type { KebabToCamelOptions } from "src/functions/kebabToCamel";
 export type { StringListToArrayOptions } from "src/functions/stringListToArray";
