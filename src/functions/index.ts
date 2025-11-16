@@ -13,6 +13,7 @@ export { default as isOrdered } from "src/functions/isOrdered";
 export { default as isSameDate } from "src/functions/isSameDate";
 export { default as kebabToCamel } from "src/functions/kebabToCamel";
 export { default as omitProperties } from "src/functions/omitProperties";
+export { default as paralleliseArrays } from "src/functions/paralleliseArrays";
 export { default as parseIntStrict } from "src/functions/parseIntStrict";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
