@@ -26,4 +26,18 @@ describe("stripIndents", () => {
       "Hello\nworld\nAn interpolation\n    1 indent here\n        2 indents here\n        An indented line with 1 interpolation in the middle",
     );
   });
+  test("If given options, return a new function that takes the template string with the options applied", () => {
+    expect(stripIndents({ whitespaceLength: 11 })`Hello
+            world`).toBe("Hello\n world");
+    expect(stripIndents({ preserveTabs: false })`Hello
+            world
+                Please ignore tabs`).toBe("Hello\nworld\nPlease ignore tabs");
+    expect(stripIndents({ preserveTabs: false })`Hello
+            world
+                ${"An interpolation"}
+                A ${2}nd interpolation
+                    Please ignore tabs`).toBe(
+      "Hello\nworld\nAn interpolation\nA 2nd interpolation\nPlease ignore tabs",
+    );
+  });
 });
