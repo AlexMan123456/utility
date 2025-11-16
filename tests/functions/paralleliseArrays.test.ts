@@ -20,4 +20,23 @@ describe("paralleliseArrays", () => {
       [5, undefined],
     ]);
   });
+  describe("Immutability checks", () => {
+    test("Does not mutate either input", () => {
+      const firstArray = Object.freeze([1, 3, 5]);
+      const secondArray = Object.freeze([2, 4, 6]);
+
+      paralleliseArrays(firstArray, secondArray);
+
+      expect(firstArray).toEqual([1, 3, 5]);
+      expect(secondArray).toEqual([2, 4, 6]);
+    });
+    test("Returns an array with a new reference in memory", () => {
+      const firstArray = Object.freeze([1, 3, 5]);
+      const secondArray = Object.freeze([2, 4, 6]);
+
+      const result = paralleliseArrays(firstArray, secondArray);
+      expect(result).not.toBe(firstArray);
+      expect(result).not.toBe(secondArray);
+    });
+  });
 });
