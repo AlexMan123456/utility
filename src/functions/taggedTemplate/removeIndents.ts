@@ -1,8 +1,7 @@
 import fillArray from "src/functions/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
-export interface StripIndentsOptions {
-  whitespaceLength?: number;
+export interface RemoveIndentsOptions {
   preserveTabs?: boolean;
 }
 
@@ -19,13 +18,10 @@ function calculateTabSize(line: string, whitespaceLength: number = 12): number {
   return tabSize < 0 ? 0 : tabSize;
 }
 
-function reduceLines(
-  lines: string[],
-  { whitespaceLength = 12, preserveTabs = true }: StripIndentsOptions,
-): string {
+function reduceLines(lines: string[], { preserveTabs = true }: RemoveIndentsOptions): string {
   return lines
     .map((line) => {
-      const tabSize = calculateTabSize(line, whitespaceLength);
+      const tabSize = calculateTabSize(line, 12);
       return (
         (preserveTabs
           ? fillArray(() => {
@@ -37,30 +33,30 @@ function reduceLines(
     .join("\n");
 }
 
-export type StripIndentsFunction = (
+export type RemoveIndentsFunction = (
   strings: TemplateStringsArray,
   ...interpolations: unknown[]
 ) => string;
 
-function stripIndents(options: StripIndentsOptions): StripIndentsFunction;
-function stripIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
+function removeIndents(options: RemoveIndentsOptions): RemoveIndentsFunction;
+function removeIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
 
 /** @deprecated This function has been renamed to removeIndents. */
-function stripIndents(
-  first: TemplateStringsArray | StripIndentsOptions,
+function removeIndents(
+  first: TemplateStringsArray | RemoveIndentsOptions,
   ...args: unknown[]
-): string | StripIndentsFunction {
+): string | RemoveIndentsFunction {
   if (typeof first === "object" && first !== null && !Array.isArray(first)) {
-    const options = first as StripIndentsOptions;
+    const options = first as RemoveIndentsOptions;
     return (strings: TemplateStringsArray, ...interpolations: unknown[]) => {
-      return stripIndents(strings, ...interpolations, options);
+      return removeIndents(strings, ...interpolations, options);
     };
   }
 
   const strings = first as TemplateStringsArray;
-  const options: StripIndentsOptions =
+  const options: RemoveIndentsOptions =
     typeof args[args.length - 1] === "object" && !Array.isArray(args[args.length - 1])
-      ? (args.pop() as StripIndentsOptions)
+      ? (args.pop() as RemoveIndentsOptions)
       : {};
   const interpolations = [...args];
 
@@ -68,4 +64,4 @@ function stripIndents(
   return reduceLines(fullString.split("\n"), options);
 }
 
-export default stripIndents;
+export default removeIndents;

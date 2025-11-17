@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 
 import { stripIndents } from "src/index";
 
-describe("stripIndents", () => {
+describe("removeIndents", () => {
   test("Strips weird indents when creating new lines in template strings", () => {
     expect(stripIndents`Hello
             world`).toBe("Hello\nworld");
