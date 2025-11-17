@@ -5,7 +5,7 @@ export interface RemoveIndentsOptions {
   preserveTabs?: boolean;
 }
 
-function calculateTabSize(line: string, whitespaceLength: number = 12): number {
+function calculateTabSize(line: string, whitespaceLength: number): number {
   const potentialWhitespacePart = line.slice(0, whitespaceLength);
   const trimmedString = line.trimStart();
 
@@ -18,10 +18,21 @@ function calculateTabSize(line: string, whitespaceLength: number = 12): number {
   return tabSize < 0 ? 0 : tabSize;
 }
 
+function getWhitespaceLength(lines: string[]): number {
+  const [firstNonEmptyLine] = lines.filter((line) => {
+    return line.trim() !== "";
+  });
+  return firstNonEmptyLine.length - firstNonEmptyLine.trimStart().length;
+}
+
 function reduceLines(lines: string[], { preserveTabs = true }: RemoveIndentsOptions): string {
-  return lines
+  const slicedLines = lines.slice(1);
+  const isFirstLineEmpty = lines[0].trim() === "";
+  const whitespaceLength = getWhitespaceLength(isFirstLineEmpty ? lines : slicedLines);
+
+  return (isFirstLineEmpty ? slicedLines : lines)
     .map((line) => {
-      const tabSize = calculateTabSize(line, 12);
+      const tabSize = calculateTabSize(line, whitespaceLength);
       return (
         (preserveTabs
           ? fillArray(() => {
@@ -41,7 +52,6 @@ export type RemoveIndentsFunction = (
 function removeIndents(options: RemoveIndentsOptions): RemoveIndentsFunction;
 function removeIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
 
-/** @deprecated This function has been renamed to removeIndents. */
 function removeIndents(
   first: TemplateStringsArray | RemoveIndentsOptions,
   ...args: unknown[]
