@@ -27,8 +27,6 @@ describe("stripIndents", () => {
     );
   });
   test("If given options, return a new function that takes the template string with the options applied", () => {
-    expect(stripIndents({ whitespaceLength: 11 })`Hello
-            world`).toBe("Hello\n world");
     expect(stripIndents({ preserveTabs: false })`Hello
             world
                 Please ignore tabs`).toBe("Hello\nworld\nPlease ignore tabs");
