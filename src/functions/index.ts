@@ -13,6 +13,10 @@ export { default as isMonthlyMultiple } from "src/functions/isMonthlyMultiple";
 export { default as isOrdered } from "src/functions/isOrdered";
 export { default as isSameDate } from "src/functions/isSameDate";
 export { default as kebabToCamel } from "src/functions/kebabToCamel";
+export {
+  default as normalizeImportPath,
+  normaliseImportPath,
+} from "src/functions/normalizeImportPath";
 export { default as omitProperties } from "src/functions/omitProperties";
 export { default as paralleliseArrays } from "src/functions/paralleliseArrays";
 export { default as parseIntStrict } from "src/functions/parseIntStrict";
