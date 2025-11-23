@@ -34,13 +34,15 @@
     "prepare": "husky",
     "test": "vitest run",
     "test-watch": "vitest",
-    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --"
+    "update-dependencies": "bash -c 'npx npm-check-updates -u \"$@\" && npm install' --",
+    "use-live-eslint-plugin": "npm uninstall @alextheman/eslint-plugin && npm install --save-dev @alextheman/eslint-plugin",
+    "use-local-eslint-plugin": "npm --prefix ../eslint-plugin run create-local-package && npm uninstall @alextheman/eslint-plugin && npm install --save-dev ../eslint-plugin/alextheman-eslint-plugin-*.tgz"
   },
   "dependencies": {
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^3.2.1",
+    "@alextheman/eslint-plugin": "^4.1.0",
     "@types/node": "^24.10.1",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",

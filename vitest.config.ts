@@ -1,10 +1,3 @@
-import { defineConfig } from "vitest/config";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { vitestConfig } from "@alextheman/eslint-plugin";
 
-export default defineConfig({
-  plugins: [tsconfigPaths()],
-  test: {
-    environment: "jsdom",
-    include: ["**/tests/**/*.test.ts"],
-  },
-});
+export default vitestConfig();
