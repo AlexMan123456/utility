@@ -1,8 +1,5 @@
 export type HTTPErrorCode = 400 | 401 | 403 | 404 | 418 | 500;
 
-/** @deprecated This type has been renamed to HTTPErrorCode (singular) */
-export type HTTPErrorCodes = 400 | 401 | 403 | 404 | 418 | 500;
-
 export const httpErrorCodeLookup: Record<HTTPErrorCode, string> = {
   400: "BAD_REQUEST",
   401: "UNAUTHORISED",
