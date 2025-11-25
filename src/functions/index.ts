@@ -20,6 +20,7 @@ export {
 export { default as omitProperties } from "src/functions/omitProperties";
 export { default as paralleliseArrays } from "src/functions/paralleliseArrays";
 export { default as parseIntStrict } from "src/functions/parseIntStrict";
+export { default as parseZodSchema } from "src/functions/parseZodSchema";
 export { default as randomiseArray } from "src/functions/randomiseArray";
 export { default as range } from "src/functions/range";
 export { default as removeDuplicates } from "src/functions/removeDuplicates";
