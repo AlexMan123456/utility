@@ -1,4 +1,4 @@
-import parseIntStrict from "src/functions/parseIntStrict";
+import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
 function getRandomNumber(lowerBound: number, upperBound: number): number {
   const parsedLowerBound = parseIntStrict(`${lowerBound}`);

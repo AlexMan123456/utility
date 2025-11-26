@@ -1,5 +1,5 @@
-import addDaysToDate from "src/functions/addDaysToDate";
-import isSameDate from "src/functions/isSameDate";
+import addDaysToDate from "src/functions/date/addDaysToDate";
+import isSameDate from "src/functions/date/isSameDate";
 
 function formatDateAndTime(inputDate: Date): string {
   const yesterday = addDaysToDate(new Date(), -1);

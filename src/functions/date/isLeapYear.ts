@@ -1,4 +1,4 @@
-import parseIntStrict from "src/functions/parseIntStrict";
+import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
 function isLeapYear(year: number): boolean {
   const parsedYear = parseIntStrict(`${year}`);
