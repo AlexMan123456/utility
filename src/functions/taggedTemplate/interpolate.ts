@@ -1,4 +1,4 @@
-import paralleliseArrays from "src/functions/paralleliseArrays";
+import paralleliseArrays from "src/functions/arrayHelpers/paralleliseArrays";
 
 function interpolate(strings: TemplateStringsArray, ...interpolations: unknown[]): string {
   let result = "";

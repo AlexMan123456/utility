@@ -1,4 +1,4 @@
-import parseIntStrict from "src/functions/parseIntStrict";
+import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
 export interface KebabToCamelOptions {
   startWithUpper?: boolean;

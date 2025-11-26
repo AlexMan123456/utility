@@ -1,4 +1,4 @@
-import fillArray from "src/functions/fillArray";
+import fillArray from "src/functions/arrayHelpers/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
 export interface RemoveIndentsOptions {

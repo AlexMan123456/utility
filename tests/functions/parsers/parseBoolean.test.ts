@@ -1,17 +1,17 @@
 import { describe, expect, test } from "vitest";
 
-import { stringToBoolean } from "src/functions";
+import { parseBoolean } from "src/functions/parsers";
 
-describe("stringToBoolean", () => {
+describe("parseBoolean", () => {
   test("Returns true when given a string of true", () => {
-    expect(stringToBoolean("true")).toBe(true);
+    expect(parseBoolean("true")).toBe(true);
   });
   test("Returns false when given a string of false", () => {
-    expect(stringToBoolean("false")).toBe(false);
+    expect(parseBoolean("false")).toBe(false);
   });
   test("Throws an error for any other input", () => {
     try {
-      stringToBoolean("Yes");
+      parseBoolean("Yes");
       throw new Error("TEST_FAILED");
     } catch (error) {
       if (error instanceof TypeError) {
@@ -22,7 +22,7 @@ describe("stringToBoolean", () => {
     }
   });
   test("Case insensitivity", () => {
-    expect(stringToBoolean("TruE")).toBe(true);
-    expect(stringToBoolean("faLsE")).toBe(false);
+    expect(parseBoolean("TruE")).toBe(true);
+    expect(parseBoolean("faLsE")).toBe(false);
   });
 });

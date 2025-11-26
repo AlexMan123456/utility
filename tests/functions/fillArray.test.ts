@@ -1,6 +1,7 @@
 import { describe, expect, expectTypeOf, test } from "vitest";
 
-import { fillArray, wait } from "src/functions";
+import { wait } from "src/functions";
+import { fillArray } from "src/functions/arrayHelpers";
 
 describe("fillArray", () => {
   test("Fills the array with the result of the passed-in function", () => {

@@ -1,4 +1,4 @@
-function stringToBoolean(inputString: string): boolean {
+function parseBoolean(inputString: string): boolean {
   const normalisedString = inputString.toLowerCase();
   if (normalisedString !== "true" && normalisedString !== "false") {
     throw new TypeError("INVALID_BOOLEAN_STRING");
@@ -6,4 +6,7 @@ function stringToBoolean(inputString: string): boolean {
   return normalisedString === "true";
 }
 
-export default stringToBoolean;
+/** @deprecated This function has been renamed to parseBoolean. */
+export const stringToBoolean = parseBoolean;
+
+export default parseBoolean;

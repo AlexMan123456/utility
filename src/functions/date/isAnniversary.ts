@@ -1,4 +1,4 @@
-import isLeapYear from "src/functions/isLeapYear";
+import isLeapYear from "src/functions/date/isLeapYear";
 
 function checkLeapYear(firstDate: Date, secondDate: Date): boolean {
   if (
