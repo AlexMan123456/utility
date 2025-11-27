@@ -22,7 +22,8 @@ export { default as truncate } from "src/functions/truncate";
 export { default as wait } from "src/functions/wait";
 
 export type {
-  FormDataNullableResolutionStrategy as FormDataResolutionStrategy,
+  FormDataNullableResolutionStrategy,
+  FormDataArrayResolutionStrategy,
   CreateFormDataOptions,
   CreateFormDataOptionsNullableResolution,
   CreateFormDataOptionsUndefinedOrNullResolution,
