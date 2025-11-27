@@ -19,6 +19,8 @@ function testDataError(
         expect(error.data).toBe(expectedData);
       }
       expect(error.code).toBe(expectedCode);
+      expect(error.name).toBe("DataError");
+      expect(error.stack).toBeDefined();
     } else {
       throw error;
     }
