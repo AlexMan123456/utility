@@ -1,9 +1,10 @@
 import fillArray from "src/functions/arrayHelpers/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
-export interface RemoveIndentsOptions {
+export interface NormaliseIndentsOptions {
   preserveTabs?: boolean;
 }
+export type NormalizeIndentsOptions = NormaliseIndentsOptions;
 
 function calculateTabSize(line: string, whitespaceLength: number): number {
   const potentialWhitespacePart = line.slice(0, whitespaceLength);
@@ -25,7 +26,7 @@ function getWhitespaceLength(lines: string[]): number {
   return firstNonEmptyLine.length - firstNonEmptyLine.trimStart().length;
 }
 
-function reduceLines(lines: string[], { preserveTabs = true }: RemoveIndentsOptions): string {
+function reduceLines(lines: string[], { preserveTabs = true }: NormaliseIndentsOptions): string {
   const slicedLines = lines.slice(1);
   const isFirstLineEmpty = lines[0].trim() === "";
   const whitespaceLength = getWhitespaceLength(isFirstLineEmpty ? lines : slicedLines);
@@ -44,31 +45,30 @@ function reduceLines(lines: string[], { preserveTabs = true }: RemoveIndentsOpti
     .join("\n");
 }
 
-export type RemoveIndentsFunction = (
+export type NormaliseIndentsFunction = (
   strings: TemplateStringsArray,
   ...interpolations: unknown[]
 ) => string;
+export type NormalizeIndentsFunction = NormaliseIndentsFunction;
 
-/** @deprecated This function has been renamed to normaliseIndents */
-function removeIndents(options: RemoveIndentsOptions): RemoveIndentsFunction;
-/** @deprecated This function has been renamed to normaliseIndents */
-function removeIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
+function normaliseIndents(options: NormaliseIndentsOptions): NormaliseIndentsFunction;
+function normaliseIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
 
-function removeIndents(
-  first: TemplateStringsArray | RemoveIndentsOptions,
+function normaliseIndents(
+  first: TemplateStringsArray | NormaliseIndentsOptions,
   ...args: unknown[]
-): string | RemoveIndentsFunction {
+): string | NormaliseIndentsFunction {
   if (typeof first === "object" && first !== null && !Array.isArray(first)) {
-    const options = first as RemoveIndentsOptions;
+    const options = first as NormaliseIndentsOptions;
     return (strings: TemplateStringsArray, ...interpolations: unknown[]) => {
-      return removeIndents(strings, ...interpolations, options);
+      return normaliseIndents(strings, ...interpolations, options);
     };
   }
 
   const strings = first as TemplateStringsArray;
-  const options: RemoveIndentsOptions =
+  const options: NormaliseIndentsOptions =
     typeof args[args.length - 1] === "object" && !Array.isArray(args[args.length - 1])
-      ? (args.pop() as RemoveIndentsOptions)
+      ? (args.pop() as NormaliseIndentsOptions)
       : {};
   const interpolations = [...args];
 
@@ -76,4 +76,6 @@ function removeIndents(
   return reduceLines(fullString.split("\n"), options);
 }
 
-export default removeIndents;
+export const normalizeIndents = normaliseIndents;
+
+export default normaliseIndents;

@@ -1,31 +1,31 @@
 import { describe, expect, test } from "vitest";
 
-import { removeIndents } from "src/index";
+import { normaliseIndents, normalizeIndents } from "src/index";
 
-describe("removeIndents", () => {
+describe("normaliseIndents", () => {
   test("Strips weird indents when creating new lines in template strings", () => {
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
             world`).toBe("Hello\nworld");
   });
   test("Calculates indentation level based on the length of the second line if first line is not empty", () => {
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
         world
             This is a test`).toBe("Hello\nworld\n    This is a test");
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
             world
                 This is a test`).toBe("Hello\nworld\n    This is a test");
   });
   test("Calculates indentation level based on the length of the first non-blank line and removes first line if empty, preserving other empty lines", () => {
-    expect(removeIndents`
+    expect(normaliseIndents`
               Hello
               world
                   This is a test`).toBe("Hello\nworld\n    This is a test");
-    expect(removeIndents`
+    expect(normaliseIndents`
   
               Hello
               world
                   This is a test`).toBe("\nHello\nworld\n    This is a test");
-    expect(removeIndents`
+    expect(normaliseIndents`
 
               ${""}
 
@@ -34,17 +34,17 @@ describe("removeIndents", () => {
                   This is a test`).toBe("\n\n\nHello\nworld\n    This is a test");
   });
   test("Maintains intentional indents", () => {
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
             world
                 test`).toBe("Hello\nworld\n    test");
   });
   test("Deals with empty lines", () => {
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
             
             world`).toBe("Hello\n\nworld");
   });
   test("Deals with interpolations", () => {
-    expect(removeIndents`Hello
+    expect(normaliseIndents`Hello
             world
             ${"An interpolation"}
                 ${1} indent here
@@ -54,15 +54,20 @@ describe("removeIndents", () => {
     );
   });
   test("If given preserveTabs option, return a new function that takes the template string with the options applied", () => {
-    expect(removeIndents({ preserveTabs: false })`Hello
+    expect(normaliseIndents({ preserveTabs: false })`Hello
             world
                 Please ignore tabs`).toBe("Hello\nworld\nPlease ignore tabs");
-    expect(removeIndents({ preserveTabs: false })`Hello
+    expect(normaliseIndents({ preserveTabs: false })`Hello
             world
                 ${"An interpolation"}
                 A ${2}nd interpolation
                     Please ignore tabs`).toBe(
       "Hello\nworld\nAn interpolation\nA 2nd interpolation\nPlease ignore tabs",
     );
+  });
+  test("Works with the spelling of normalizeIndents", () => {
+    expect(normalizeIndents`
+      Hello
+      world`).toBe("Hello\nworld");
   });
 });
