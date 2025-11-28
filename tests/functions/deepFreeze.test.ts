@@ -122,5 +122,44 @@ describe("deepFreeze", () => {
       }
     }
   });
-  // TODO: Add tests for nested objects
+  test("Freezes an object with one layer of nesting", () => {
+    const object = { hello: { there: "world" } };
+    try {
+      deepFreeze(object);
+      object.hello.there = "Test";
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe(
+          "Cannot assign to read only property 'there' of object '#<Object>'",
+        );
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Freezes an object with many layers of nesting", () => {
+    const object = {
+      hello: {
+        there: "world",
+      },
+      this: {
+        is: {
+          a: "test",
+        },
+      },
+    };
+
+    try {
+      deepFreeze(object);
+      object.this.is.a = "mutation attempt that should fail";
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("Cannot assign to read only property 'a' of object '#<Object>'");
+      } else {
+        throw error;
+      }
+    }
+  });
 });
