@@ -9,8 +9,9 @@ export interface CreateFormDataOptionsBase<K extends RecordKey> {
     | Partial<Record<K, FormDataArrayResolutionStrategy>>;
 }
 
-export interface CreateFormDataOptionsUndefinedOrNullResolution<K extends RecordKey>
-  extends CreateFormDataOptionsBase<K> {
+export interface CreateFormDataOptionsUndefinedOrNullResolution<
+  K extends RecordKey,
+> extends CreateFormDataOptionsBase<K> {
   undefinedResolution?:
     | FormDataNullableResolutionStrategy
     | Partial<Record<K, FormDataNullableResolutionStrategy>>;
@@ -20,8 +21,9 @@ export interface CreateFormDataOptionsUndefinedOrNullResolution<K extends Record
   nullableResolution?: never;
 }
 
-export interface CreateFormDataOptionsNullableResolution<K extends RecordKey>
-  extends CreateFormDataOptionsBase<K> {
+export interface CreateFormDataOptionsNullableResolution<
+  K extends RecordKey,
+> extends CreateFormDataOptionsBase<K> {
   undefinedResolution?: never;
   nullResolution?: never;
   nullableResolution:
