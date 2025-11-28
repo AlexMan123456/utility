@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 
 import APIError from "src/types/APIError";
 
@@ -49,11 +49,29 @@ describe("APIError.check()", () => {
   test("Returns true for any object with a status and message", () => {
     expect(APIError.check({ status: 404, message: "NOT_FOUND" })).toBe(true);
   });
+  test("The error type is narrowed down after checking", () => {
+    try {
+      throw new APIError(404);
+    } catch (error) {
+      if (APIError.check(error)) {
+        expectTypeOf(error).toEqualTypeOf<APIError>();
+      }
+    }
+  });
   test("Returns false for a generic JavaScript error", () => {
     try {
       throw new Error("SHOULD_BE_FALSE");
     } catch (error) {
       expect(APIError.check(error)).toBe(false);
+    }
+  });
+  test("The error type does not resolve to be APIError if the check is false", () => {
+    try {
+      throw new Error("SHOULD_BE_FALSE");
+    } catch (error) {
+      if (!APIError.check(error)) {
+        expectTypeOf(error).not.toEqualTypeOf<APIError>();
+      }
     }
   });
   test("Returns false for any object without a status and message", () => {

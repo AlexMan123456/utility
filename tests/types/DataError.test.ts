@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 
 import { DataError } from "src/types";
 
@@ -19,6 +19,8 @@ function testDataError(
         expect(error.data).toBe(expectedData);
       }
       expect(error.code).toBe(expectedCode);
+      expect(error.name).toBe("DataError");
+      expect(error.stack).toBeDefined();
     } else {
       throw error;
     }
@@ -52,6 +54,15 @@ describe("DataError.check()", () => {
       expect(DataError.check(error)).toBe(true);
     }
   });
+  test("The error type is narrowed down after checking", () => {
+    try {
+      throw new DataError(404);
+    } catch (error) {
+      if (DataError.check(error)) {
+        expectTypeOf(error).toEqualTypeOf<DataError>();
+      }
+    }
+  });
   test("Returns true for any object with a code, data, message", () => {
     expect(
       DataError.check({ code: "INVALID_DATA", message: "Invalid data", data: { invalid: "data" } }),
@@ -62,6 +73,15 @@ describe("DataError.check()", () => {
       throw new Error("SHOULD_BE_FALSE");
     } catch (error) {
       expect(DataError.check(error)).toBe(false);
+    }
+  });
+  test("The error type does not resolve to be APIError if the check is false", () => {
+    try {
+      throw new Error("SHOULD_BE_FALSE");
+    } catch (error) {
+      if (!DataError.check(error)) {
+        expectTypeOf(error).not.toEqualTypeOf<DataError>();
+      }
     }
   });
   test("Returns false for any object without data", () => {

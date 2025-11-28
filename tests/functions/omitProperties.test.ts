@@ -1,4 +1,4 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, expectTypeOf, test } from "vitest";
 
 import omitProperties from "src/functions/omitProperties";
 
@@ -22,6 +22,17 @@ describe("omitProperties", () => {
       secondKey: "Second property",
       fourthKey: "Fourth property",
     });
+  });
+  test("The return type is the input object without the specified keys", () => {
+    const inputObject = {
+      firstKey: "First property",
+      secondKey: "Second property",
+      keyToOmit: "Omit me",
+      anotherKeyToOmit: "Also omit me",
+    };
+    expectTypeOf(omitProperties(inputObject, ["keyToOmit", "anotherKeyToOmit"])).toEqualTypeOf<
+      Omit<typeof inputObject, "keyToOmit" | "anotherKeyToOmit">
+    >();
   });
   describe("Mutation checks", () => {
     test("Does not mutate the input object", () => {
