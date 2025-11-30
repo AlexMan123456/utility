@@ -5,6 +5,7 @@ export { default as convertFileToBase64 } from "src/functions/convertFileToBase6
 export { default as createFormData } from "src/functions/createFormData";
 export { default as createTemplateStringsArray } from "src/functions/createTemplateStringsArray";
 export * from "src/functions/date";
+export { default as deepCopy } from "src/functions/deepCopy";
 export { default as deepFreeze } from "src/functions/deepFreeze";
 export { default as getRandomNumber } from "src/functions/getRandomNumber";
 export { default as getRecordKeys } from "src/functions/getRecordKeys";
