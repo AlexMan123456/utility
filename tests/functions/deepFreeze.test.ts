@@ -224,4 +224,14 @@ describe("deepFreeze", () => {
       }
     }
   });
+  test("Returns the object with the same reference in memory", () => {
+    const object = {
+      hello: { world: "This is a test" },
+      sayHello: () => {
+        return "Hello world";
+      },
+    };
+    const frozenObject = deepFreeze(object);
+    expect(frozenObject).toBe(object);
+  });
 });
