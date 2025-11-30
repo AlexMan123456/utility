@@ -152,11 +152,73 @@ describe("deepFreeze", () => {
 
     try {
       deepFreeze(object);
+      object.hello.there = "bad";
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe(
+          "Cannot assign to read only property 'there' of object '#<Object>'",
+        );
+      } else {
+        throw error;
+      }
+    }
+    try {
       object.this.is.a = "mutation attempt that should fail";
       throw new Error("TEST_FAILED");
     } catch (error) {
       if (error instanceof TypeError) {
         expect(error.message).toBe("Cannot assign to read only property 'a' of object '#<Object>'");
+      } else {
+        throw error;
+      }
+    }
+  });
+  test("Freezes an input with mixed objects/arrays", () => {
+    const object = {
+      hello: {
+        there: "world",
+      },
+      this: {
+        is: {
+          a: ["test", "with a nested array"],
+        },
+      },
+    };
+
+    try {
+      deepFreeze(object);
+      object.hello.there = "bad";
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe(
+          "Cannot assign to read only property 'there' of object '#<Object>'",
+        );
+      } else {
+        throw error;
+      }
+    }
+
+    try {
+      object.this.is.a = ["mutation attempt that should fail"];
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe("Cannot assign to read only property 'a' of object '#<Object>'");
+      } else {
+        throw error;
+      }
+    }
+
+    try {
+      object.this.is.a.push("mutation attempt that should fail");
+      throw new Error("TEST_FAILED");
+    } catch (error) {
+      if (error instanceof TypeError) {
+        expect(error.message).toBe(
+          `Cannot add property ${object.this.is.a.length}, object is not extensible`,
+        );
       } else {
         throw error;
       }
