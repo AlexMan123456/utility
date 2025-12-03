@@ -35,6 +35,7 @@
     "prepare": "husky",
     "test": "vitest run",
     "test-watch": "vitest",
+    "update-dependencies": "pnpm update --latest && pnpm update",
     "use-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
     "use-local-eslint-plugin": "npm --prefix ../eslint-plugin run create-local-package && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev ../eslint-plugin/alextheman-eslint-plugin-*.tgz"
   },
