@@ -1,6 +1,4 @@
-import type { DeepReadonly } from "src/types/DeepReadonly";
-
-function deepFreeze<T extends object>(object: T): DeepReadonly<T> {
+function deepFreeze<T extends object>(object: T): Readonly<T> {
   for (const value of Object.values(object)) {
     if (typeof value === "function") {
       continue;
@@ -10,7 +8,7 @@ function deepFreeze<T extends object>(object: T): DeepReadonly<T> {
       deepFreeze(value);
     }
   }
-  return Object.freeze(object) as DeepReadonly<T>;
+  return Object.freeze(object);
 }
 
 export default deepFreeze;
