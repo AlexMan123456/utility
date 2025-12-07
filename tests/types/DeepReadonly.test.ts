@@ -1,3 +1,4 @@
+import type { ArrayElement } from "src/types/ArrayElement";
 import type { DeepReadonly } from "src/types/DeepReadonly";
 
 import { describe, expectTypeOf, test } from "vitest";
@@ -8,7 +9,9 @@ describe("DeepReadonly", () => {
   test("Marks an array as Readonly", () => {
     const _array = [1, 2, 3, 4];
 
-    expectTypeOf<DeepReadonly<typeof _array>>().toEqualTypeOf<readonly number[]>();
+    expectTypeOf<DeepReadonly<typeof _array>>().toEqualTypeOf<
+      readonly ArrayElement<typeof _array>[]
+    >();
   });
   test("Marks an object as Readonly", () => {
     const _object = { hello: "world" };
