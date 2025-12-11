@@ -33,11 +33,13 @@
     "lint-prettier-typescript": "prettier --check --parser typescript \"./**/*.ts\"",
     "lint-tsc": "tsc --noEmit",
     "prepare": "husky",
+    "refresh-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
+    "refresh-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev -w file:\"$ESLINT_PLUGIN_PATH\"'",
     "test": "vitest run",
     "test-watch": "vitest",
     "update-dependencies": "pnpm update --latest && pnpm update",
-    "use-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
-    "use-local-eslint-plugin": "npm --prefix ../eslint-plugin run create-local-package && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev ../eslint-plugin/alextheman-eslint-plugin-*.tgz"
+    "use-live-eslint-plugin": "pnpm run refresh-live-eslint-plugin && pnpm run lint",
+    "use-local-eslint-plugin": "pnpm run refresh-local-eslint-plugin && pnpm run lint"
   },
   "dependencies": {
     "zod": "^4.1.13"
@@ -45,6 +47,7 @@
   "devDependencies": {
     "@alextheman/eslint-plugin": "^4.3.0",
     "@types/node": "^24.10.1",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
