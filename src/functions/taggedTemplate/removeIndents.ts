@@ -1,3 +1,4 @@
+/* eslint-disable */
 import fillArray from "src/functions/arrayHelpers/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
@@ -49,9 +50,16 @@ export type RemoveIndentsFunction = (
   ...interpolations: unknown[]
 ) => string;
 
-/** @deprecated This function has been renamed to normaliseIndents */
+/**
+ * @param options
+ * @deprecated This function has been renamed to normaliseIndents
+ */
 function removeIndents(options: RemoveIndentsOptions): RemoveIndentsFunction;
-/** @deprecated This function has been renamed to normaliseIndents */
+/**
+ * @param strings
+ * @param interpolations
+ * @deprecated This function has been renamed to normaliseIndents
+ */
 function removeIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
 
 function removeIndents(

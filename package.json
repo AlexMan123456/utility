@@ -34,7 +34,7 @@
     "lint-tsc": "tsc --noEmit",
     "prepare": "husky",
     "prepare-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
-    "prepare-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev -w file:\"$ESLINT_PLUGIN_PATH\"'",
+    "prepare-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev file:\"$ESLINT_PLUGIN_PATH\"'",
     "test": "vitest run",
     "test-watch": "vitest",
     "update-dependencies": "pnpm update --latest && pnpm update",
@@ -45,7 +45,7 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^4.3.0",
+    "@alextheman/eslint-plugin": "^4.5.1",
     "@types/node": "^24.10.1",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",
