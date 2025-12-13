@@ -11,4 +11,4 @@ permissions:
 jobs:
   publish:
     if: ${{ github.repository == 'AlexMan123456/utility' }}
-    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@c9e8f4a524509cd563f994896a677fdb8ce794dc # v2.8.6
+    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@d9962435db3e6cef4df7b2b745e609553760ea24 # v2.8.7
