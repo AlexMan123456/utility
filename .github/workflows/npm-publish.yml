@@ -10,10 +10,6 @@ permissions:
   contents: read
 
 jobs:
-  check-version:
-    if: ${{ github.repository == 'AlexMan123456/utility' }}
-    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-version-check.yml@e7edea7da44dd2cd30df00c0dcb695ca032e3adf # v2.8.0
-
   publish:
     if: ${{ github.repository == 'AlexMan123456/utility' }}
     uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@e7edea7da44dd2cd30df00c0dcb695ca032e3adf # v2.8.0
