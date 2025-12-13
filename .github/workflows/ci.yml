@@ -6,6 +6,9 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+
 jobs:
   ci:
     uses: AlexMan123456/github-actions/.github/workflows/pnpm-ci.yml@3a563f3e63adf3f7b28805b4940f989055a4c265 # v2.6.2
