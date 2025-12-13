@@ -14,7 +14,6 @@ jobs:
 
   publish:
     if: ${{ github.repository == 'AlexMan123456/utility' }}
-    needs: check-version
     permissions:
       id-token: write
       contents: read
