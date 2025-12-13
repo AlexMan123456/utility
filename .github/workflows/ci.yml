@@ -11,4 +11,4 @@ permissions:
 
 jobs:
   ci:
-    uses: AlexMan123456/github-actions/.github/workflows/pnpm-ci.yml@629b3bae50a584b37600997b3a63155b2b6c789d # v2.7.1
+    uses: AlexMan123456/github-actions/.github/workflows/pnpm-ci.yml@e7edea7da44dd2cd30df00c0dcb695ca032e3adf # v2.8.0
