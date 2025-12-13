@@ -2,6 +2,7 @@ name: Publish to NPM Registry
 
 permissions:
   id-token: write
+  contents: read
 
 on:
   push:
@@ -11,4 +12,4 @@ on:
 jobs:
   publish:
     if: ${{ github.repository == 'AlexMan123456/utility' }}
-    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@2a6e458d2145fe1a486a889ecbde2a738b486b94 # v2.7.0
+    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@629b3bae50a584b37600997b3a63155b2b6c789d # v2.7.1
