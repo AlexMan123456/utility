@@ -1,4 +1,16 @@
-function deepFreeze<T extends object>(object: T): Readonly<T> {
+/**
+ * Deeply freezes an object or array such that all child objects/arrays are also frozen.
+ *
+ * Note that this will also freeze the input itself as well.
+ * If the intent is to create a newly frozen object with a different reference in memory, pass your object through deepCopy first before passing to deepFreeze.
+ *
+ * @template ObjectType - The type of the input object.
+ *
+ * @param object - The object to freeze. May also be an array.
+ *
+ * @returns The input object completely frozen.
+ */
+function deepFreeze<ObjectType extends object>(object: ObjectType): Readonly<ObjectType> {
   for (const value of Object.values(object)) {
     if (typeof value === "function") {
       continue;
