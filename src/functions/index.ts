@@ -7,7 +7,6 @@ export { default as isOrdered } from "src/functions/isOrdered";
 export * from "src/functions/objectHelpers";
 export * from "src/functions/parsers";
 export * from "src/functions/recursive";
-export { default as removeDuplicates } from "src/functions/removeDuplicates";
 export * from "src/functions/stringHelpers";
 export { default as stringListToArray } from "src/functions/stringListToArray";
 export * from "src/functions/taggedTemplate";
