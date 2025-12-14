@@ -11,8 +11,14 @@ export const httpErrorCodeLookup: Record<HTTPErrorCode, string> = {
   500: "INTERNAL_SERVER_ERROR",
 };
 
+/** Represents common errors you may get from a HTTP API request. */
 class APIError extends Error {
   public status: number;
+  /**
+   * @param status - A HTTP status code. Can be any number, but numbers between 400 and 600 are encouraged to fit with HTTP status code conventions.
+   * @param message - An error message to display alongside the status code.
+   * @param options - Extra options to be passed to super Error constructor.
+   */
   public constructor(
     status: HTTPErrorCode | number = 500,
     message?: string,
@@ -28,6 +34,14 @@ class APIError extends Error {
     Object.defineProperty(this, "message", { enumerable: true });
     Object.setPrototypeOf(this, new.target.prototype);
   }
+
+  /**
+   * Checks whether the given input may have been caused by an APIError.
+   *
+   * @param input - The input to check.
+   *
+   * @returns `true` if the input is an APIError, and `false` otherwise. The type of the input will also be narrowed down to APIError if `true`.
+   */
   public static check(input: unknown): input is APIError {
     const data: any = input;
     return (
