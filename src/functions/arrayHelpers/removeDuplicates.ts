@@ -1,5 +1,14 @@
-function removeDuplicates<T>(array: T[] | readonly T[]): T[] {
-  const outputArray: T[] = [];
+/**
+ * Removes duplicate values from an array.
+ *
+ * @template ItemType - The type of the array items.
+ *
+ * @param array - The array to remove duplicates from.
+ *
+ * @returns A new array with a different reference in memory, with the duplicates removed.
+ */
+function removeDuplicates<ItemType>(array: ItemType[] | readonly ItemType[]): ItemType[] {
+  const outputArray: ItemType[] = [];
   for (const item of array) {
     if (!outputArray.includes(item)) {
       outputArray.push(item);
