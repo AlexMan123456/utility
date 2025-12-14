@@ -22,4 +22,28 @@ describe("isSameDate", () => {
     const currentDateWithDifferentTime = new Date("2025-06-07T22:27:17.403");
     expect(isSameDate(currentDate, currentDateWithDifferentTime)).toBe(true);
   });
+  describe("Mutation checks", () => {
+    test("Does not mutate the first input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isSameDate(inputDate, new Date());
+      expect(
+        inputDate.getDate() === new Date().getDate() &&
+          inputDate.getMonth() === new Date().getMonth() &&
+          inputDate.getFullYear() === new Date().getFullYear(),
+      ).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
+    test("Does not mutate the second input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isSameDate(new Date(), inputDate);
+      expect(
+        inputDate.getDate() === new Date().getDate() &&
+          inputDate.getMonth() === new Date().getMonth() &&
+          inputDate.getFullYear() === new Date().getFullYear(),
+      ).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
+  });
 });

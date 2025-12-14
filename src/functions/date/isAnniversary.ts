@@ -11,6 +11,14 @@ function checkLeapYear(firstDate: Date, secondDate: Date): boolean {
   return false;
 }
 
+/**
+ * Checks if the provided dates are exactly a whole number of years apart.
+ *
+ * @param firstDate - The first date to compare.
+ * @param secondDate - The second date to compare.
+ *
+ * @returns True if the provided dates are exactly a whole number of years apart, and false otherwise.
+ */
 function isAnniversary(firstDate: Date, secondDate: Date): boolean {
   if (checkLeapYear(firstDate, secondDate) || checkLeapYear(secondDate, firstDate)) {
     return true;

@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
-import { addDaysToDate, formatDateAndTime } from "src/functions/date";
+import { addDaysToDate, formatDateAndTime, isSameDate } from "src/functions/date";
 
 beforeAll(() => {
   vi.useFakeTimers();
@@ -29,5 +29,14 @@ describe("formatDateAndTime", () => {
     const twoDaysAgo = addDaysToDate(new Date(), -2);
     const formattedDate = formatDateAndTime(twoDaysAgo);
     expect(formattedDate).toBe("05/06/2025, 23:27");
+  });
+  describe("Mutation checks", () => {
+    test("Does not mutate the input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      formatDateAndTime(inputDate);
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
   });
 });
