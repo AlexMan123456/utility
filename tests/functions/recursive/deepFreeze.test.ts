@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import deepFreeze from "src/functions/deepFreeze";
+import deepFreeze from "src/functions/recursive/deepFreeze";
 
 describe("deepFreeze", () => {
   test("Freezes an array with no nesting", () => {

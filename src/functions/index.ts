@@ -4,8 +4,6 @@ export { default as camelToKebab } from "src/functions/camelToKebab";
 export { default as convertFileToBase64 } from "src/functions/convertFileToBase64";
 export { default as createFormData } from "src/functions/createFormData";
 export * from "src/functions/date";
-export { default as deepCopy } from "src/functions/deepCopy";
-export { default as deepFreeze } from "src/functions/deepFreeze";
 export { default as getRandomNumber } from "src/functions/getRandomNumber";
 export { default as getRecordKeys } from "src/functions/getRecordKeys";
 export { default as isOrdered } from "src/functions/isOrdered";
@@ -16,6 +14,7 @@ export {
 } from "src/functions/normalizeImportPath";
 export { default as omitProperties } from "src/functions/omitProperties";
 export * from "src/functions/parsers";
+export * from "src/functions/recursive";
 export { default as removeDuplicates } from "src/functions/removeDuplicates";
 export { default as stringListToArray } from "src/functions/stringListToArray";
 export * from "src/functions/taggedTemplate";

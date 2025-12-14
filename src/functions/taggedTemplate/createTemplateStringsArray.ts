@@ -1,4 +1,4 @@
-import deepFreeze from "src/functions/deepFreeze";
+import deepFreeze from "src/functions/recursive/deepFreeze";
 
 /**
  * Creates a template strings array given a regular array of strings
