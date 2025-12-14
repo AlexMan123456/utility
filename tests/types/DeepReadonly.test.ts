@@ -1,3 +1,4 @@
+/* eslint-disable */
 import type { ArrayElement } from "src/types/ArrayElement";
 import type { DeepReadonly } from "src/types/DeepReadonly";
 
