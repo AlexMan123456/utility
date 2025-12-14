@@ -15,7 +15,4 @@ function parseBoolean(inputString: string): boolean {
   return normalisedString === "true";
 }
 
-/** @deprecated This function has been renamed to parseBoolean. */
-export const stringToBoolean = parseBoolean;
-
 export default parseBoolean;
