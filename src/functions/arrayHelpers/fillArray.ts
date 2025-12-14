@@ -3,9 +3,12 @@
  *
  * The callback will be invoked once for each index from `0` to `length - 1`.
  * If no length is provided, a single-element array will be produced.
+ *
  * @template ItemType
+ *
  * @param callback - An asynchronous function invoked with the current index.
- * @param [length] - The desired length of the resulting array.
+ * @param length - The desired length of the resulting array.
+ *
  * @returns A Promise resolving to an array of the callback results.
  */
 function fillArray<ItemType>(
@@ -18,9 +21,12 @@ function fillArray<ItemType>(
  *
  * The callback will be invoked once for each index from `0` to `length - 1`.
  * If no length is provided, a single-element array will be produced.
+ *
  * @template ItemType
+ *
  * @param callback - A synchronous function invoked with the current index.
- * @param [length] - The desired length of the resulting array.
+ * @param length - The desired length of the resulting array.
+ *
  * @returns An array of the callback results.
  */
 function fillArray<ItemType>(callback: (index: number) => ItemType, length?: number): ItemType[];
@@ -30,9 +36,12 @@ function fillArray<ItemType>(callback: (index: number) => ItemType, length?: num
  *
  * If the callback returns at least one Promise, the entire result will be wrapped
  * in a `Promise` and resolved with `Promise.all`. Otherwise, a plain array is returned.
+ *
  * @template ItemType
+ *
  * @param callback - A function invoked with the current index. May return a value or a Promise.
- * @param [length] - The desired length of the resulting array.
+ * @param length - The desired length of the resulting array.
+ *
  * @returns An array of the callback results, or a Promise resolving to one if the callback is async.
  */
 function fillArray<ItemType>(

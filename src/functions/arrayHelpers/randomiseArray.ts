@@ -1,6 +1,15 @@
 import getRandomNumber from "src/functions/getRandomNumber";
 
-function randomiseArray<T>(array: T[]): T[] {
+/**
+ * Randomises the order of a given array and returns the result in a new array without mutating the original.
+ *
+ * @template ItemType - The type of the array items.
+ *
+ * @param array - The array to randomise.
+ *
+ * @returns A new array with the items randomised.
+ */
+function randomiseArray<ItemType>(array: ItemType[]): ItemType[] {
   const mutableArray = [...array];
   const outputArray = [];
   do {

@@ -1,6 +1,6 @@
 {
   "name": "@alextheman/utility",
-  "version": "3.5.8",
+  "version": "3.5.9",
   "description": "Helpful utility functions",
   "repository": {
     "type": "git",
@@ -45,7 +45,7 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^4.5.1",
+    "@alextheman/eslint-plugin": "^4.8.0",
     "@types/node": "^25.0.1",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",

@@ -13,8 +13,8 @@ importers:
         version: 4.1.13
     devDependencies:
       '@alextheman/eslint-plugin':
-        specifier: ^4.5.1
-        version: 4.5.1(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.24(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))
+        specifier: ^4.8.0
+        version: 4.8.0(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.24(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))
       '@types/node':
         specifier: ^25.0.1
         version: 25.0.1
@@ -54,8 +54,8 @@ packages:
   '@acemir/cssom@0.9.29':
     resolution: {integrity: sha512-G90x0VW+9nW4dFajtjCoT+NM0scAfH9Mb08IcjgFHYbfiL/lU04dTF9JuVOi3/OH+DJCQdcIseSXkdCB9Ky6JA==}
 
-  '@alextheman/eslint-plugin@4.5.1':
-    resolution: {integrity: sha512-VCxTZLnR6PW28G9UA61FwKtS7J1BFwnaCq85JYCjvbycdKzxGpazcHFjRI3dnAwf6qVPlxt+xOqnUX+x7HW4uQ==}
+  '@alextheman/eslint-plugin@4.8.0':
+    resolution: {integrity: sha512-NjcGQEkEn9FxQxDpkSMxZYrrMvsmxEpOKyzhGeDzqY12hHqOchggmsSBRAQQM7mrzEIU5xoHQ+IfmfMuhf03lQ==}
     peerDependencies:
       '@eslint/js': '>=9.0.0'
       eslint: '>=9.0.0'
@@ -74,8 +74,8 @@ packages:
       vite-tsconfig-paths: '>=5.1.4'
       vitest: '>=4.0.13'
 
-  '@alextheman/utility@3.5.5':
-    resolution: {integrity: sha512-sm7znHz78fLI4hVj63GiEq/UOfOsLUM+EVHWEd0f/0ylhHkaIke5ZV9RyD/R1li+wJ9AaVbuctS670IO6sA8Fg==}
+  '@alextheman/utility@3.5.8':
+    resolution: {integrity: sha512-El967cw88wPp/hhX88oBpXk3kXcZY1+IgnXFv8iYavZ1I+6mN9T8OxD9akuU9nTLnxqcMaq0h3ho7abWcTNI1A==}
 
   '@altano/repository-tools@2.0.1':
     resolution: {integrity: sha512-YE/52CkFtb+YtHPgbWPai7oo5N9AKnMuP5LM+i2AG7G1H2jdYBCO1iDnkDE3dZ3C1MIgckaF+d5PNRulgt0bdw==}
@@ -1162,8 +1162,8 @@ packages:
     resolution: {integrity: sha512-aN97NXWF6AWBTahfVOIrB/NShkzi5H7F9r1s9mD3cDj4Ko5f2qhhVoYMibXF7GlLveb/D2ioWay8lxI97Ven3g==}
     engines: {node: '>=0.12'}
 
-  es-abstract@1.24.0:
-    resolution: {integrity: sha512-WSzPgsdLtTcQwm4CROfS5ju2Wa1QQcVeT37jFjYzdFz1r9ahadC8B8/a4qxJxM+09F18iumCdRmlr96ZYkQvEg==}
+  es-abstract@1.24.1:
+    resolution: {integrity: sha512-zHXBLhP+QehSSbsS9Pt23Gg964240DPd6QCf8WpkqEXxQ7fhdZzYsocOr5u7apWonsS5EjZDmTF+/slGMyasvw==}
     engines: {node: '>= 0.4'}
 
   es-define-property@1.0.1:
@@ -1174,8 +1174,8 @@ packages:
     resolution: {integrity: sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw==}
     engines: {node: '>= 0.4'}
 
-  es-iterator-helpers@1.2.1:
-    resolution: {integrity: sha512-uDn+FE1yrDzyC0pCo961B2IHbdM8y/ACZsKD4dG6WqrjV53BADjwa7D+1aom2rsNVfLyDgU/eigvlJGJ08OQ4w==}
+  es-iterator-helpers@1.2.2:
+    resolution: {integrity: sha512-BrUQ0cPTB/IwXj23HtwHjS9n7O4h9FX94b4xc5zlTHxeLgTAdzYUDyy6KdExAl9lbN5rtfe44xpjpmj9grxs5w==}
     engines: {node: '>= 0.4'}
 
   es-module-lexer@1.7.0:
@@ -2522,9 +2522,9 @@ snapshots:
 
   '@acemir/cssom@0.9.29': {}
 
-  '@alextheman/eslint-plugin@4.5.1(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.24(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))':
+  '@alextheman/eslint-plugin@4.8.0(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.24(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))':
     dependencies:
-      '@alextheman/utility': 3.5.5
+      '@alextheman/utility': 3.5.8
       '@eslint/js': 9.39.1
       '@typescript-eslint/utils': 8.49.0(eslint@9.39.1)(typescript@5.9.3)
       common-tags: 1.8.2
@@ -2548,7 +2548,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@alextheman/utility@3.5.5':
+  '@alextheman/utility@3.5.8':
     dependencies:
       zod: 4.1.13
 
@@ -3265,7 +3265,7 @@ snapshots:
       call-bind: 1.0.8
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-object-atoms: 1.1.1
       get-intrinsic: 1.3.0
       is-string: 1.1.1
@@ -3275,7 +3275,7 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
       es-shim-unscopables: 1.1.0
@@ -3285,7 +3285,7 @@ snapshots:
       call-bind: 1.0.8
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
       es-shim-unscopables: 1.1.0
@@ -3294,21 +3294,21 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-shim-unscopables: 1.1.0
 
   array.prototype.flatmap@1.3.3:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-shim-unscopables: 1.1.0
 
   array.prototype.tosorted@1.1.4:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-shim-unscopables: 1.1.0
 
@@ -3317,7 +3317,7 @@ snapshots:
       array-buffer-byte-length: 1.0.2
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
       is-array-buffer: 3.0.5
@@ -3531,7 +3531,7 @@ snapshots:
 
   entities@6.0.1: {}
 
-  es-abstract@1.24.0:
+  es-abstract@1.24.1:
     dependencies:
       array-buffer-byte-length: 1.0.2
       arraybuffer.prototype.slice: 1.0.4
@@ -3592,12 +3592,12 @@ snapshots:
 
   es-errors@1.3.0: {}
 
-  es-iterator-helpers@1.2.1:
+  es-iterator-helpers@1.2.2:
     dependencies:
       call-bind: 1.0.8
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-set-tostringtag: 2.1.0
       function-bind: 1.1.2
@@ -3844,7 +3844,7 @@ snapshots:
       array.prototype.flatmap: 1.3.3
       array.prototype.tosorted: 1.1.4
       doctrine: 2.1.0
-      es-iterator-helpers: 1.2.1
+      es-iterator-helpers: 1.2.2
       eslint: 9.39.1
       estraverse: 5.3.0
       hasown: 2.0.2
@@ -4395,14 +4395,14 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-object-atoms: 1.1.1
 
   object.groupby@1.0.3:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
 
   object.values@1.2.1:
     dependencies:
@@ -4501,7 +4501,7 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
       get-intrinsic: 1.3.0
@@ -4742,14 +4742,14 @@ snapshots:
     dependencies:
       call-bind: 1.0.8
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
 
   string.prototype.matchall@4.0.12:
     dependencies:
       call-bind: 1.0.8
       call-bound: 1.0.4
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
       get-intrinsic: 1.3.0
@@ -4763,7 +4763,7 @@ snapshots:
   string.prototype.repeat@1.0.0:
     dependencies:
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
 
   string.prototype.trim@1.2.10:
     dependencies:
@@ -4771,7 +4771,7 @@ snapshots:
       call-bound: 1.0.4
       define-data-property: 1.1.4
       define-properties: 1.2.1
-      es-abstract: 1.24.0
+      es-abstract: 1.24.1
       es-object-atoms: 1.1.1
       has-property-descriptors: 1.0.2
 
