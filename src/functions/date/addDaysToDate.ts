@@ -7,7 +7,7 @@
  * @returns A new Date instance with the number of days added to the initially provided date.
  */
 function addDaysToDate(currentDate: Date = new Date(), dayIncrement: number = 1): Date {
-  const newDate = currentDate;
+  const newDate = new Date(currentDate);
   newDate.setDate(newDate.getDate() + dayIncrement);
   return newDate;
 }

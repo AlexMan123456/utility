@@ -35,4 +35,22 @@ describe("addDaysToDate", () => {
 
     expect(isSameDate(output, theDayBefore)).toBe(true);
   });
+  describe("Mutation checks", () => {
+    test("Does not mutate the input date", () => {
+      const currentDate = Object.freeze(new Date());
+      addDaysToDate(currentDate, 1);
+      expect(isSameDate(currentDate, new Date())).toBe(true);
+    });
+    test("0 increment returns a new Date with a new reference in memory, but equal to the input", () => {
+      const currentDate = new Date();
+      const output = addDaysToDate(currentDate, 0);
+      expect(isSameDate(output, currentDate)).toBe(true);
+      expect(output).not.toBe(currentDate);
+    });
+    test("Returns a new Date with a new reference in memory", () => {
+      const currentDate = new Date();
+      const outputDate = addDaysToDate(currentDate, 1);
+      expect(outputDate).not.toBe(currentDate);
+    });
+  });
 });
