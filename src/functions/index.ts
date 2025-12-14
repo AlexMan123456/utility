@@ -3,7 +3,6 @@ export * from "src/functions/arrayHelpers";
 export { default as camelToKebab } from "src/functions/camelToKebab";
 export { default as convertFileToBase64 } from "src/functions/convertFileToBase64";
 export { default as createFormData } from "src/functions/createFormData";
-export { default as createTemplateStringsArray } from "src/functions/createTemplateStringsArray";
 export * from "src/functions/date";
 export { default as deepCopy } from "src/functions/deepCopy";
 export { default as deepFreeze } from "src/functions/deepFreeze";
