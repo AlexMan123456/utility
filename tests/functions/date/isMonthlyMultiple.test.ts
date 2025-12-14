@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { isMonthlyMultiple } from "src/functions/date";
+import { isMonthlyMultiple, isSameDate } from "src/functions/date";
 
 describe("isMonthlyMultiple", () => {
   test("Returns true if two dates share the same calendar day and are not a stupid edge case", () => {
@@ -65,5 +65,21 @@ describe("isMonthlyMultiple", () => {
     expect(isMonthlyMultiple(February29, January29)).toBe(true);
     expect(isMonthlyMultiple(February29, January30)).toBe(true);
     expect(isMonthlyMultiple(February29, January31)).toBe(true);
+  });
+  describe("Mutation checks", () => {
+    test("Does not mutate the first input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isMonthlyMultiple(inputDate, new Date());
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
+    test("Does not mutate the second input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isMonthlyMultiple(new Date(), inputDate);
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
   });
 });

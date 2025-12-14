@@ -37,9 +37,11 @@ describe("addDaysToDate", () => {
   });
   describe("Mutation checks", () => {
     test("Does not mutate the input date", () => {
-      const currentDate = Object.freeze(new Date());
-      addDaysToDate(currentDate, 1);
-      expect(isSameDate(currentDate, new Date())).toBe(true);
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      addDaysToDate(inputDate, 1);
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
     });
     test("0 increment returns a new Date with a new reference in memory, but equal to the input", () => {
       const currentDate = new Date();

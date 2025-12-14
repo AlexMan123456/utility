@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { isAnniversary } from "src/functions/date";
+import { isAnniversary, isSameDate } from "src/functions/date";
 
 describe("isAnniversary", () => {
   test("Returns true if two dates are a year apart", () => {
@@ -23,5 +23,21 @@ describe("isAnniversary", () => {
 
     expect(isAnniversary(currentDate, leapYearDate)).toBe(true);
     expect(isAnniversary(leapYearDate, currentDate)).toBe(true);
+  });
+  describe("Mutation checks", () => {
+    test("Does not mutate the first input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isAnniversary(inputDate, new Date());
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
+    test("Does not mutate the second input date", () => {
+      const initialDate = new Date();
+      const inputDate = initialDate;
+      isAnniversary(new Date(), inputDate);
+      expect(isSameDate(inputDate, new Date())).toBe(true);
+      expect(inputDate).toBe(initialDate);
+    });
   });
 });
