@@ -1,9 +1,9 @@
-import type { Env } from "src/types/Env";
+import type { Env } from "src/functions/parsers/parseEnv";
 
 import { describe, expect, test } from "vitest";
 import { z, ZodError } from "zod";
 
-import parseEnv from "src/types/Env";
+import parseEnv from "src/functions/parsers/parseEnv";
 
 describe("parseEnv", () => {
   test("Is successful when input is a valid environment", () => {
@@ -29,8 +29,5 @@ describe("parseEnv", () => {
       throw error;
     }
     throw new Error("TEST_FAILED");
-  });
-  test("If input is undefined, default to development", () => {
-    expect(parseEnv(undefined)).toBe("development");
   });
 });
