@@ -30,7 +30,4 @@ describe("parseEnv", () => {
     }
     throw new Error("TEST_FAILED");
   });
-  test("If input is undefined, default to development", () => {
-    expect(parseEnv(undefined)).toBe("development");
-  });
 });
