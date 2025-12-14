@@ -1,9 +1,18 @@
 import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
 export interface KebabToCamelOptions {
+  /** Whether or not the converted string should start with an uppercase (e.g. CamelCase instead of camelCase). */
   startWithUpper?: boolean;
 }
 
+/**
+ * Converts a string from kebab-case to camelCase
+ *
+ * @param string - The string to convert.
+ * @param options - Options to apply to the conversion.
+ *
+ * @returns The string converted to camelCase.
+ */
 function kebabToCamel(string: string, options?: KebabToCamelOptions): string {
   if (string !== string.toLowerCase()) {
     throw new Error("INVALID_KEBAB_CASE_INPUT");
