@@ -1,4 +1,4 @@
-import getRandomNumber from "src/functions/getRandomNumber";
+import getRandomNumber from "src/functions/miscellaneous/getRandomNumber";
 
 /**
  * Randomises the order of a given array and returns the result in a new array without mutating the original.
