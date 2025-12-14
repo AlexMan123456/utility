@@ -1,5 +1,19 @@
 import paralleliseArrays from "src/functions/arrayHelpers/paralleliseArrays";
 
+/**
+ * Returns the result of interpolating a template string when given the strings and interpolations separately.
+ *
+ * You can pass a template string directly by doing:
+ *
+ *      interpolate`Template string here`.
+ *
+ * In this case, it will be functionally the same as if you just wrote the template string by itself.
+ *
+ * @param strings - The strings from the template to process.
+ * @param interpolations - An array of all interpolations from the template.
+ *
+ * @returns A new string with the strings and interpolations from the template applied.
+ */
 function interpolate(strings: TemplateStringsArray, ...interpolations: unknown[]): string {
   let result = "";
   for (const [string, interpolation = ""] of paralleliseArrays(strings, interpolations)) {

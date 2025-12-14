@@ -2,6 +2,7 @@ import fillArray from "src/functions/arrayHelpers/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
 export interface NormaliseIndentsOptions {
+  /** Whether to preserve extra tabs or not (defaults to true) */
   preserveTabs?: boolean;
 }
 export type NormalizeIndentsOptions = NormaliseIndentsOptions;
@@ -51,9 +52,50 @@ export type NormaliseIndentsFunction = (
 ) => string;
 export type NormalizeIndentsFunction = NormaliseIndentsFunction;
 
+/**
+ * Provides a new function that removes any extraneous indents from a multi-line template string, with the given options applied.
+ *
+ * @param options - The options to apply.
+ *
+ * @returns A function that takes a template string, and returns a new string with the strings and interpolations from the template applied, and extraneous indents removed.
+ */
 function normaliseIndents(options: NormaliseIndentsOptions): NormaliseIndentsFunction;
+/**
+ * Removes any extraneous indents from a multi-line template string.
+ *
+ * You can pass a template string directly by doing:
+ *
+ *      normaliseIndents`Template string here
+ *          with a new line
+ *          and another new line`.
+ *
+ * @param strings - The strings from the template to process.
+ * @param interpolations - An array of all interpolations from the template.
+ *
+ * @returns A new string with the strings and interpolations from the template applied, and extraneous indents removed.
+ */
 function normaliseIndents(strings: TemplateStringsArray, ...interpolations: unknown[]): string;
 
+/**
+ * Applies any options if provided, then removes any extraneous indents from a multi-line template string.
+ *
+ * You can pass a template string directly by doing:
+ *
+ *      normaliseIndents`Template string here
+ *          with a new line
+ *          and another new line`.
+ *
+ * You may also pass the options first, then invoke the resulting function with a template string:
+ *
+ *      normaliseIndents({ preserveTabs: false })`Template string here
+ *          with a new line
+ *          and another new line`.
+ *
+ * @param first - The strings from the template to process, or the options to apply.
+ * @param args - An array of all interpolations from the template.
+ *
+ * @returns An additional function to invoke, or a new string with the strings and interpolations from the template applied, and extraneous indents removed.
+ */
 function normaliseIndents(
   first: TemplateStringsArray | NormaliseIndentsOptions,
   ...args: unknown[]
@@ -76,6 +118,26 @@ function normaliseIndents(
   return reduceLines(fullString.split("\n"), options);
 }
 
+/**
+ * Applies any options if provided, then removes any extraneous indents from a multi-line template string.
+ *
+ * You can pass a template string directly by doing:
+ *
+ *      normalizeIndents`Template string here
+ *          with a new line
+ *          and another new line`.
+ *
+ * You may also pass the options first, then invoke the resulting function with a template string:
+ *
+ *      normalizeIndents({ preserveTabs: false })`Template string here
+ *          with a new line
+ *          and another new line`.
+ *
+ * @param first - The strings from the template to process, or the options to apply.
+ * @param args - An array of all interpolations from the template.
+ *
+ * @returns An additional function to invoke, or a new string with the strings and interpolations from the template applied, and extraneous indents removed.
+ */
 export const normalizeIndents = normaliseIndents;
 
 export default normaliseIndents;
