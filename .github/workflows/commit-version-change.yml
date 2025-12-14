@@ -22,6 +22,6 @@ permissions:
 
 jobs:
   commit-version-change:
-    uses: AlexMan123456/github-actions/.github/workflows/commit-version-change.yml@544384ec9bcfd5a896904d4c286385fed2db2690 # v2.9.2
+    uses: AlexMan123456/github-actions/.github/workflows/commit-version-change.yml@ffb5c5ac14fafd8d26aab6c1669e494b5372d65b # v2.9.3
     secrets:
       PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
