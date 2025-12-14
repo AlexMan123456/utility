@@ -1,5 +1,13 @@
 import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
+/**
+ * Gets a random number between the given bounds.
+ *
+ * @param lowerBound - The lowest number that can be chosen.
+ * @param upperBound - The highest number that can be chosen.
+ *
+ * @returns A random number between the provided lower bound and upper bound.
+ */
 function getRandomNumber(lowerBound: number, upperBound: number): number {
   const parsedLowerBound = parseIntStrict(`${lowerBound}`);
   const parsedUpperBound = parseIntStrict(`${upperBound}`);

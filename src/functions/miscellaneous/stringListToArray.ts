@@ -1,8 +1,20 @@
 export interface StringListToArrayOptions {
+  /** What each item in the list is separated by. */
   separator?: string;
+  /** An option to trim any extra whitespace. */
   trimWhitespace?: boolean;
 }
 
+/**
+ * Converts a stringly-typed list to a proper array.
+ *
+ * @param stringList - The stringly-typed list to convert.
+ * @param options - The options to apply to the conversion.
+ * @param options.separator - What each item in the list is separated by.
+ * @param options.trimWhitespace - An option to trim any extra whitespace.
+ *
+ * @returns A new array with each item being an item from the given list.
+ */
 function stringListToArray(
   stringList: string,
   { separator = ",", trimWhitespace = true }: StringListToArrayOptions = {},
