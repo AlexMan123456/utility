@@ -1,6 +1,17 @@
 import addDaysToDate from "src/functions/date/addDaysToDate";
 import isSameDate from "src/functions/date/isSameDate";
 
+/**
+ * Creates a human-readable string with information about the input date.
+ *
+ * @param inputDate - The date to base the string on.
+ *
+ * @returns A new string with information about the given date.
+ *
+ * - If the date given is today, the output will be something like `Today at HH:MM`
+ * - If the date given happened yesterday, the output will be something like `Yesterday at HH:MM`
+ * - For any other date, the output will be something like `DD/MM/YYYY, HH:MM`
+ */
 function formatDateAndTime(inputDate: Date): string {
   const yesterday = addDaysToDate(new Date(), -1);
   const today = new Date();

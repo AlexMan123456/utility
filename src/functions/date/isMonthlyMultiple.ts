@@ -25,6 +25,14 @@ function leapYearFebruaryChecks(firstDate: Date, secondDate: Date): boolean {
   return false;
 }
 
+/**
+ * Checks if the provided dates are exactly a whole number of months apart.
+ *
+ * @param firstDate - The first date to compare.
+ * @param secondDate - The second date to compare.
+ *
+ * @returns True if the provided dates are exactly a whole number of months apart, and false otherwise.
+ */
 function isMonthlyMultiple(firstDate: Date, secondDate: Date): boolean {
   if (
     endOfMonthChecksButNotFebruary(firstDate, secondDate) ||
