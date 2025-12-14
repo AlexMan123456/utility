@@ -1,3 +1,4 @@
+/** Represents errors you may get that may've been caused by a specific piece of data. */
 class DataError extends Error {
   public data: unknown;
   public code: string;
@@ -27,6 +28,13 @@ class DataError extends Error {
     Object.setPrototypeOf(this, new.target.prototype);
   }
 
+  /**
+   * Checks whether the given input may have been caused by a DataError.
+   *
+   * @param input - The input to check.
+   *
+   * @returns `true` if the input is a DataError, and `false` otherwise. The type of the input will also be narrowed down to DataError if `true`.
+   */
   public static check(input: unknown): input is DataError {
     const data: any = input;
     return (

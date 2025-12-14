@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { randomUUID } from "crypto";
 
 import { describe, expect, test } from "vitest";

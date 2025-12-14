@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { describe, expect, test } from "vitest";
 import z, { ZodError } from "zod";
 
