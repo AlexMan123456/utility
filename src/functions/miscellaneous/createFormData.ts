@@ -3,37 +3,44 @@ import type { RecordKey } from "src/types";
 export type FormDataNullableResolutionStrategy = "stringify" | "empty" | "omit";
 export type FormDataArrayResolutionStrategy = "stringify" | "multiple";
 
-export interface CreateFormDataOptionsBase<K extends RecordKey> {
+export interface CreateFormDataOptionsBase<Key extends RecordKey> {
+  /** How to resolve any arrays provided in the data (can either stringify them or add them multiple times). */
   arrayResolution?:
     | FormDataArrayResolutionStrategy
-    | Partial<Record<K, FormDataArrayResolutionStrategy>>;
+    | Partial<Record<Key, FormDataArrayResolutionStrategy>>;
 }
 
 export interface CreateFormDataOptionsUndefinedOrNullResolution<
-  K extends RecordKey,
-> extends CreateFormDataOptionsBase<K> {
+  Key extends RecordKey,
+> extends CreateFormDataOptionsBase<Key> {
+  /** How to resolve undefined data (May either stringify to 'undefined', resolve to an empty string, or omit entirely). */
   undefinedResolution?:
     | FormDataNullableResolutionStrategy
-    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
+    | Partial<Record<Key, FormDataNullableResolutionStrategy>>;
+  /** How to resolve null data (May either stringify to 'null', resolve to an empty string, or omit entirely). */
   nullResolution?:
     | FormDataNullableResolutionStrategy
-    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
+    | Partial<Record<Key, FormDataNullableResolutionStrategy>>;
+  /** @note This must not be provided at the same time as undefinedResolution and/or nullResolution. */
   nullableResolution?: never;
 }
 
 export interface CreateFormDataOptionsNullableResolution<
-  K extends RecordKey,
-> extends CreateFormDataOptionsBase<K> {
+  Key extends RecordKey,
+> extends CreateFormDataOptionsBase<Key> {
+  /** @note This must not be provided at the same time as nullableResolution. */
   undefinedResolution?: never;
+  /** @note This must not be provided at the same time as nullableResolution. */
   nullResolution?: never;
+  /** How to resolve nullable data (May either stringify to 'undefined | null', resolve to an empty string, or omit entirely). */
   nullableResolution:
     | FormDataNullableResolutionStrategy
-    | Partial<Record<K, FormDataNullableResolutionStrategy>>;
+    | Partial<Record<Key, FormDataNullableResolutionStrategy>>;
 }
 
-export type CreateFormDataOptions<K extends RecordKey> =
-  | CreateFormDataOptionsUndefinedOrNullResolution<K>
-  | CreateFormDataOptionsNullableResolution<K>;
+export type CreateFormDataOptions<Key extends RecordKey> =
+  | CreateFormDataOptionsUndefinedOrNullResolution<Key>
+  | CreateFormDataOptionsNullableResolution<Key>;
 
 function getNullableResolutionStrategy(
   key: RecordKey,
@@ -44,9 +51,19 @@ function getNullableResolutionStrategy(
   return (typeof strategy === "object" ? strategy[key] : strategy) ?? "empty";
 }
 
-function createFormData<T extends Record<RecordKey, unknown>>(
-  data: T,
-  options: CreateFormDataOptions<keyof T> = {
+/**
+ * Creates FormData from a given object, resolving non-string types as appropriate.
+ *
+ * @template DataType - The type of the given data.
+ *
+ * @param data - The data to create FormData from.
+ * @param options - Options to apply to the conversion.
+ *
+ * @returns A FormData object with the data applied.
+ */
+function createFormData<DataType extends Record<RecordKey, unknown>>(
+  data: DataType,
+  options: CreateFormDataOptions<keyof DataType> = {
     arrayResolution: "stringify",
     nullableResolution: "empty",
   },
@@ -54,7 +71,7 @@ function createFormData<T extends Record<RecordKey, unknown>>(
   const formData = new FormData();
 
   function resolveNullablesByStrategy(
-    key: keyof T,
+    key: keyof DataType,
     value: unknown,
     resolutionStrategy: FormDataNullableResolutionStrategy,
   ) {
@@ -72,7 +89,11 @@ function createFormData<T extends Record<RecordKey, unknown>>(
     }
   }
 
-  function resolveNullables(key: keyof T, value: unknown, options: CreateFormDataOptions<keyof T>) {
+  function resolveNullables(
+    key: keyof DataType,
+    value: unknown,
+    options: CreateFormDataOptions<keyof DataType>,
+  ) {
     if (options.nullableResolution) {
       resolveNullablesByStrategy(
         key,
@@ -100,7 +121,7 @@ function createFormData<T extends Record<RecordKey, unknown>>(
     }
   }
 
-  const entries = Object.entries(data) as [keyof T, unknown][];
+  const entries = Object.entries(data) as [keyof DataType, unknown][];
   for (const [key, value] of entries) {
     if (value instanceof Blob) {
       formData.append(String(key), value);

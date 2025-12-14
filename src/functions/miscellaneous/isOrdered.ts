@@ -1,4 +1,11 @@
-function isOrdered(array: readonly number[] | number[]): boolean {
+/**
+ * Checks to see if the given array is sorted in ascending order.
+ *
+ * @param array - The array to check.
+ *
+ * @returns `true` if the array is sorted in ascending order, and `false` otherwise.
+ */
+function isOrdered(array: readonly number[]): boolean {
   const newArray = [...array];
   newArray.sort();
 
