@@ -1,5 +1,6 @@
 export { default as convertFileToBase64 } from "src/functions/miscellaneous/convertFileToBase64";
 export { default as createFormData } from "src/functions/miscellaneous/createFormData";
+export { default as getIndividualVersionNumbers } from "src/functions/miscellaneous/getIndividualVersionNumbers";
 export { default as getRandomNumber } from "src/functions/miscellaneous/getRandomNumber";
 export { default as isOrdered } from "src/functions/miscellaneous/isOrdered";
 export { default as stringListToArray } from "src/functions/miscellaneous/stringListToArray";
