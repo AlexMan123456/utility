@@ -134,7 +134,7 @@ class Class<FirstTypeArg, SecondTypeArg> {
    * @returns What the function is expected to return.
    */
   public constructor(firstArg: FirstTypeArg, secondArg: SecondTypeArg) {
-    
+
   }
 }
 ```
@@ -164,7 +164,9 @@ Note that when you actually run the tests using `npm test`, the tests will alway
 
 ## Publishing
 
-Once you are happy with your changes, commit the changes to your branch. Then, if the feature is intended to be part of a release, create a new release note in `docs/releases/(major|minor|patch)/vX.Y.Z`, where you must choose one of `major`, `minor`, or `patch`, and `vX.Y.Z` should be replaced with the version you are releasing (if a release note already exists, add your feature to that). Once your change gets merged in, run the `commit-version-change` workflow to generate a pull request that changes the version number, using the release note as the pull request body. Once that gets merged in, congratulations, your change should have been published!
+Once you are happy with your changes, commit the changes to your branch. Then, if the feature is intended to be part of a release, create a new release note in `docs/releases/(major|minor|patch)/vX.Y.Z`, where you must choose one of `major`, `minor`, or `patch`, and `vX.Y.Z` should be replaced with the version you are releasing (if a release note already exists, add your feature to that). You must also select the appropriate pull request template to categorise your change. See the [default pull request template](.github/pull_request_template.md) for the full list of templates and guidance on choosing the correct one.
+
+Once your change gets merged in, run the `commit-version-change` workflow to generate a pull request that changes the version number, using the release note as the pull request body. Once that gets merged in, congratulations, your change should have been published!
 
 ## General workflow summary
 
@@ -174,7 +176,7 @@ Once you are happy with your changes, commit the changes to your branch. Then, i
 4. Commit the feature by itself.
 5. If intending to release, create a release note, carefully deciding if it's a major, minor, or patch release (if adding to a release that is about to happen, add to the existing note)
 6. Commit the release note separately from the feature.
-7. Create a feature pull request and wait for it to be merged.
+7. Create a feature pull request and wait for it to be merged, choosing the appropriate template.
 8. Run the commit-version-change workflow to create a pull request to change just the version.
 9. Merge it in once CI passes.
 10. All done!
