@@ -6,12 +6,4 @@ export * from "src/functions/parsers";
 export * from "src/functions/recursive";
 export * from "src/functions/stringHelpers";
 export * from "src/functions/taggedTemplate";
-
-export type {
-  FormDataNullableResolutionStrategy,
-  FormDataArrayResolutionStrategy,
-  CreateFormDataOptions,
-  CreateFormDataOptionsNullableResolution,
-  CreateFormDataOptionsUndefinedOrNullResolution,
-} from "src/functions/miscellaneous/createFormData";
-export type { StringListToArrayOptions } from "src/functions/miscellaneous/stringListToArray";
+export * from "src/functions/versioning";
