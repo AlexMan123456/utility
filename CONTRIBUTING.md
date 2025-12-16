@@ -134,7 +134,7 @@ class Class<FirstTypeArg, SecondTypeArg> {
    * @returns What the function is expected to return.
    */
   public constructor(firstArg: FirstTypeArg, secondArg: SecondTypeArg) {
-
+    //
   }
 }
 ```
