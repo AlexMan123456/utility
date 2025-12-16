@@ -1,4 +1,4 @@
-import getIndividualVersionNumbers from "src/functions/miscellaneous/getIndividualVersionNumbers";
+import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
 
 export type VersionType = "major" | "minor" | "patch";
 

@@ -1,4 +1,5 @@
-import { parseIntStrict, parseVersion } from "src/functions/parsers";
+import { parseIntStrict } from "src/functions/parsers";
+import parseVersion from "src/functions/versioning/parseVersion";
 
 /**
  * Gets the individual version numbers from a given version number as a tuple of numbers.

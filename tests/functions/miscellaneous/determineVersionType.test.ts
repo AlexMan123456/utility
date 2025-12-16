@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import determineVersionType from "src/functions/miscellaneous/determineVersionType";
+import determineVersionType from "src/functions/versioning/determineVersionType";
 import { DataError } from "src/types";
 
 describe("determineVersionType", () => {

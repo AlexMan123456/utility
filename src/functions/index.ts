@@ -6,6 +6,7 @@ export * from "src/functions/parsers";
 export * from "src/functions/recursive";
 export * from "src/functions/stringHelpers";
 export * from "src/functions/taggedTemplate";
+export * from "src/functions/versioning";
 
 export type {
   FormDataNullableResolutionStrategy,
