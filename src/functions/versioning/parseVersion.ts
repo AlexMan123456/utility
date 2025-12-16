@@ -2,6 +2,7 @@ import { VERSION_NUMBER_REGEX } from "src/constants";
 import { DataError } from "src/types";
 
 export interface ParseVersionOptions {
+  /** Whether to omit the `v` prefix from the output version or not. */
   omitPrefix?: boolean;
 }
 
