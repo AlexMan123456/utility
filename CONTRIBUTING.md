@@ -90,6 +90,57 @@ describe("removeDuplicates", () => {
 
 Note the use of `.toBe()` over `.toEqual()` here. This is because in this case, we are comparing the variable's memory reference to the output's memory reference rather than the actual contents of the array.
 
+### Documenting
+
+Every exported function must also have JSDoc comments. This gives each function a human-readable summary of its purpose that shows in the editor, and (once I get around to it), automatic documentation generating from those comments.
+
+The comments should be structured something like this for functions:
+
+```typescript
+/**
+ * A high-level summary of the function.
+ * 
+ * @template FirstTypeArg - Details about the first type argument.
+ * @template SecondTypeArg - Details about the second type argument.
+ * 
+ * @param firstArg - Details about the first function argument.
+ * @param secondArg - Details about the second function argument.
+ * 
+ * @throws {ErrorType} If the function is expected to error.
+ * 
+ * @returns What the function is expected to return.
+ */
+function myFunction<FirstTypeArg, SecondTypeArg>(firstArg: FirstTypeArg, secondArg: SecondTypeArg): ReturnType {
+    // ...
+}
+```
+
+For classes, the message and parameters may need to be broken down such that the summary annotates the class declaration, and the template, params, throws, and returns annotates the constructor.
+
+```
+/**
+ * A high-level summary of the class
+ *
+ * @template FirstTypeArg - Details about the first type argument.
+ * @template SecondTypeArg - Details about the second type argument.
+ */
+class Class<FirstTypeArg, SecondTypeArg> {
+  /**
+   * @param firstArg - Details about the first function argument.
+   * @param secondArg - Details about the second function argument.
+   *
+   * @throws {ErrorType} If the function is expected to error.
+   *
+   * @returns What the function is expected to return.
+   */
+  public constructor(firstArg: FirstTypeArg, secondArg: SecondTypeArg) {
+    
+  }
+}
+```
+
+If a comment is missing, it will fail the linting process. Every function, class, and type must be commented. This ensures a good developer experience all around, making the intent of the addition clearer.
+
 ### Creating a type
 
 Creating a type works in a similar way to creating a function, in the sense that you create a new file for it, add it to `src/types/index.ts`, and test it. Yes, test it. It is possible to test type declarations using `expectTypeOf`. As an example:
