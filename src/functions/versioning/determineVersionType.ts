@@ -1,6 +1,6 @@
-import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
+import type { VersionType } from "src/types/VersionType";
 
-export type VersionType = "major" | "minor" | "patch";
+import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
 
 /**
  * Determines whether the given version is a major, minor, or patch version.

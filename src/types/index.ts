@@ -13,3 +13,4 @@ export type { NonUndefined } from "src/types/NonUndefined";
 export type { OptionalOnCondition } from "src/types/OptionalOnCondition";
 export type { RecordKey } from "src/types/RecordKey";
 export type { UUID } from "src/types/UUID";
+export type { VersionType } from "src/types/VersionType";
