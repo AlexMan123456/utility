@@ -17,10 +17,10 @@
   ],
   "scripts": {
     "build": "tsdown",
-    "change-major": "pnpm version major -m \"Change version number to v%s\"",
-    "change-minor": "pnpm version minor -m \"Change version number to v%s\"",
-    "change-patch": "pnpm version patch -m \"Change version number to v%s\"",
     "create-local-package": "pnpm run build && rm -f alextheman-utility-*.tgz && pnpm pack",
+    "create-release-note-major": "alex-c-line create-release-note major",
+    "create-release-note-minor": "alex-c-line create-release-note minor",
+    "create-release-note-patch": "alex-c-line create-release-note patch",
     "format": "pnpm run format-prettier && pnpm run format-eslint",
     "format-eslint": "eslint --fix --suppress-all \"package.json\" \"src/**/*.ts\" \"tests/**/*.ts\" && rm -f eslint-suppressions.json",
     "format-prettier": "pnpm run format-prettier-typescript && pnpm run format-prettier-javascript",
@@ -47,6 +47,7 @@
   "devDependencies": {
     "@alextheman/eslint-plugin": "^4.8.6",
     "@types/node": "^25.0.1",
+    "alex-c-line": "^1.8.0",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",
     "globals": "^16.5.0",
