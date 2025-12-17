@@ -2,6 +2,8 @@ export { default as parseBoolean, stringToBoolean } from "src/functions/parsers/
 export { default as parseEnv } from "src/functions/parsers/parseEnv";
 export { default as parseFormData } from "src/functions/parsers/parseFormData";
 export { default as parseIntStrict } from "src/functions/parsers/parseIntStrict";
+export { default as parseVersionType } from "src/functions/parsers/parseVersionType";
 export { default as parseZodSchema } from "src/functions/parsers/parseZodSchema";
 
 export type { Env } from "src/functions/parsers/parseEnv";
+export type { VersionType } from "src/functions/parsers/parseVersionType";
