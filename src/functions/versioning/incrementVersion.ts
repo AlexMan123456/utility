@@ -1,4 +1,4 @@
-import type { VersionType } from "src/types";
+import type { VersionType } from "src/functions/parsers";
 
 import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
 import parseVersion from "src/functions/versioning/parseVersion";
