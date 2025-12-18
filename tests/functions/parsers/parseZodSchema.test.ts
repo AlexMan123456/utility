@@ -19,12 +19,9 @@ describe("parseZodSchema", () => {
       }
     }
   });
-  test("Takes an optional error argument to allow us to customise the code and message", () => {
+  test("Takes an optional error argument to allow us to customise the error", () => {
     try {
-      parseZodSchema(z.string(), 1, {
-        message: "Test message",
-        code: "TEST_CODE",
-      });
+      parseZodSchema(z.string(), 1, new DataError(1, "TEST_CODE", "Test message"));
     } catch (error) {
       if (DataError.check(error)) {
         expect(error.data).toBe(1);
