@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 
 import { parseIntStrict } from "src/functions";
+import { DataError } from "src/types";
 
 describe("parseIntStrict", () => {
   test("Returns the parsed integer", () => {
@@ -21,8 +22,10 @@ describe("parseIntStrict", () => {
       parseIntStrict("Hello");
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (error instanceof DataError) {
+        expect(error.data).toBe("Hello");
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
+        expect(error.message).toBe("Only numeric values are allowed.");
       } else {
         throw error;
       }
@@ -35,8 +38,10 @@ describe("parseIntStrict", () => {
         parseIntStrict(stringToParse);
         throw new Error("TEST_FAILED");
       } catch (error) {
-        if (error instanceof TypeError) {
-          expect(error.message).toBe("INTEGER_PARSING_ERROR");
+        if (error instanceof DataError) {
+          expect(error.data).toBe(stringToParse);
+          expect(error.code).toBe("INTEGER_PARSING_ERROR");
+          expect(error.message).toBe("Only numeric values are allowed.");
         } else {
           throw error;
         }
@@ -48,8 +53,10 @@ describe("parseIntStrict", () => {
       parseIntStrict("1g", 16);
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (error instanceof DataError) {
+        expect(error.data).toEqual({ string: "1g", radix: 16 });
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
+        expect(error.message).toBe("Only numeric values or characters A-F are allowed.");
       } else {
         throw error;
       }
@@ -60,8 +67,12 @@ describe("parseIntStrict", () => {
       parseIntStrict("12", 2);
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (error instanceof DataError) {
+        expect(error.data).toEqual({ string: "12", radix: 2 });
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
+        expect(error.message).toBe(
+          "Value contains one or more digits outside of the range of the given radix.",
+        );
       } else {
         throw error;
       }
@@ -72,8 +83,10 @@ describe("parseIntStrict", () => {
       parseIntStrict("");
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (error instanceof DataError) {
+        expect(error.data).toBe("");
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
+        expect(error.message).toBe("Only numeric values are allowed.");
       } else {
         throw error;
       }
@@ -84,8 +97,10 @@ describe("parseIntStrict", () => {
       parseIntStrict(" ");
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (error instanceof DataError) {
+        expect(error.data).toBe(" ");
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
+        expect(error.message).toBe("Only numeric values are allowed.");
       } else {
         throw error;
       }
