@@ -1,9 +1,9 @@
 import type { Env } from "src/functions/parsers/parseEnv";
 
 import { describe, expect, test } from "vitest";
-import { z, ZodError } from "zod";
 
 import parseEnv from "src/functions/parsers/parseEnv";
+import { DataError } from "src/types";
 
 describe("parseEnv", () => {
   test("Is successful when input is a valid environment", () => {
@@ -19,15 +19,17 @@ describe("parseEnv", () => {
   test("Throws an error when input is not a valid environment", () => {
     try {
       parseEnv("Invalid env");
+      throw new Error("DID_NOT_THROW");
     } catch (error: unknown) {
-      if (error instanceof ZodError) {
-        expect(z.treeifyError(error).errors[0]).toBe(
-          'Invalid option: expected one of "test"|"development"|"production"',
+      if (error instanceof DataError) {
+        expect(error.data).toBe("Invalid env");
+        expect(error.code).toBe("INVALID_ENV");
+        expect(error.message).toBe(
+          "The provided environment type must be one of `test | development | production`",
         );
-        return;
+      } else {
+        throw error;
       }
-      throw error;
     }
-    throw new Error("TEST_FAILED");
   });
 });
