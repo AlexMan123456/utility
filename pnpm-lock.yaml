@@ -13,8 +13,8 @@ importers:
         version: 4.1.13
     devDependencies:
       '@alextheman/eslint-plugin':
-        specifier: ^4.8.6
-        version: 4.8.6(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.25(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))
+        specifier: ^4.9.0
+        version: 4.9.0(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.25(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))
       '@types/node':
         specifier: ^25.0.1
         version: 25.0.1
@@ -27,6 +27,9 @@ importers:
       eslint:
         specifier: ^9.39.1
         version: 9.39.1
+      eslint-plugin-perfectionist:
+        specifier: ^5.0.0
+        version: 5.0.0(eslint@9.39.1)(typescript@5.9.3)
       globals:
         specifier: ^16.5.0
         version: 16.5.0
@@ -57,8 +60,8 @@ packages:
   '@acemir/cssom@0.9.29':
     resolution: {integrity: sha512-G90x0VW+9nW4dFajtjCoT+NM0scAfH9Mb08IcjgFHYbfiL/lU04dTF9JuVOi3/OH+DJCQdcIseSXkdCB9Ky6JA==}
 
-  '@alextheman/eslint-plugin@4.8.6':
-    resolution: {integrity: sha512-Pdpj6gkgBhyau1iPcoY0M6Hel5oXzpsgTa6fFm1CcO4st5dm87DGUvAtixhmSrSD/tVFMDXIOzAmXcjlnsL06A==}
+  '@alextheman/eslint-plugin@4.9.0':
+    resolution: {integrity: sha512-K8ASGaJo4em3P3PO9d/cH00TSanIL4kLme/y1yib3r+56G4jMcABOrAyh/wQaY/DjID0vWe4q02A8vSa3pDweA==}
     peerDependencies:
       '@eslint/js': '>=9.0.0'
       eslint: '>=9.0.0'
@@ -80,8 +83,8 @@ packages:
   '@alextheman/utility@3.10.0':
     resolution: {integrity: sha512-7Ji8Q+iw1U/XZlH9XA5Kynz/gsESMCYIFoidtORfTfO2KKpO+pjzC4zcSr+JxPXSh4llttz3+31lbb+FmfSGAw==}
 
-  '@alextheman/utility@3.6.0':
-    resolution: {integrity: sha512-sEs/8WaOnwO0YzzcrxWlcOSPKg2yZq4RGaxnR9T9BxS+RUF7DIrrH1IGH8leSAtZ9khwy98qv5Ne5Ui2dC35+g==}
+  '@alextheman/utility@3.10.1':
+    resolution: {integrity: sha512-0hVFGxGch5nUrNPtY2np7NU28M74qOtdYzyb7Nj8Q+Ofs2PWUKvEhWwYcXh2gfbbX7duGVfMmVNWorE54mrGXw==}
 
   '@altano/repository-tools@2.0.1':
     resolution: {integrity: sha512-YE/52CkFtb+YtHPgbWPai7oo5N9AKnMuP5LM+i2AG7G1H2jdYBCO1iDnkDE3dZ3C1MIgckaF+d5PNRulgt0bdw==}
@@ -1035,8 +1038,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.9.7:
-    resolution: {integrity: sha512-k9xFKplee6KIio3IDbwj+uaCLpqzOwakOgmqzPezM0sFJlFKcg30vk2wOiAJtkTSfx0SSQDSe8q+mWA/fSH5Zg==}
+  baseline-browser-mapping@2.9.9:
+    resolution: {integrity: sha512-V8fbOCSeOFvlDj7LLChUcqbZrdKD9RU/VR260piF1790vT0mfLSwGc/Qzxv3IqiTukOpNtItePa0HBpMAj7MDg==}
     hasBin: true
 
   bidi-js@1.0.3:
@@ -1423,9 +1426,9 @@ packages:
       eslint: '>=8.0.0'
       jsonc-eslint-parser: ^2.0.0
 
-  eslint-plugin-perfectionist@4.15.1:
-    resolution: {integrity: sha512-MHF0cBoOG0XyBf7G0EAFCuJJu4I18wy0zAoT1OHfx2o6EOx1EFTIzr2HGeuZa1kDcusoX0xJ9V7oZmaeFd773Q==}
-    engines: {node: ^18.0.0 || >=20.0.0}
+  eslint-plugin-perfectionist@5.0.0:
+    resolution: {integrity: sha512-a8PgR2AgCxEVmpIU+vd3nsYWTa8LfyXXJ0gXkPoj1gVW/sfj23BSTtNFBexGysTRNDwuMGLSzejHY+S3qj0EDg==}
+    engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       eslint: '>=8.45.0'
 
@@ -2584,8 +2587,8 @@ packages:
       synckit:
         optional: true
 
-  update-browserslist-db@1.2.2:
-    resolution: {integrity: sha512-E85pfNzMQ9jpKkA7+TJAi4TJN+tBCuWh5rUcS/sv6cFi+1q9LYDwDI5dpUL0u/73EElyQ8d3TEaeW4sPedBqYA==}
+  update-browserslist-db@1.2.3:
+    resolution: {integrity: sha512-Js0m9cx+qOgDxo0eMiFGEueWztz+d4+M3rGlmKPT+T4IS/jP4ylw3Nwpu6cpTTP8R1MAC1kF4VbdLt3ARf209w==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
@@ -2805,15 +2808,18 @@ packages:
   zod@4.2.0:
     resolution: {integrity: sha512-Bd5fw9wlIhtqCCxotZgdTOMwGm1a0u75wARVEY9HMs1X17trvA/lMi4+MGK5EUfYkXVTbX8UDiDKW4OgzHVUZw==}
 
+  zod@4.2.1:
+    resolution: {integrity: sha512-0wZ1IRqGGhMP76gLqz8EyfBXKk0J2qo2+H3fi4mcUP/KtTocoX08nmIAHl1Z2kJIZbZee8KOpBCSNPRgauucjw==}
+
 snapshots:
 
   '@acemir/cssom@0.9.29': {}
 
-  '@alextheman/eslint-plugin@4.8.6(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.25(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))':
+  '@alextheman/eslint-plugin@4.9.0(@eslint/js@9.39.1)(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.1))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.1))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.1)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.1))(eslint-plugin-react-refresh@0.4.25(eslint@9.39.1))(eslint-plugin-react@7.37.5(eslint@9.39.1))(eslint@9.39.1)(typescript-eslint@8.49.0(eslint@9.39.1)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@5.1.4(typescript@5.9.3)(vite@7.2.7(@types/node@25.0.1)))(vitest@4.0.15(@types/node@25.0.1)(jsdom@27.3.0(postcss@8.5.6)))':
     dependencies:
-      '@alextheman/utility': 3.6.0
+      '@alextheman/utility': 3.10.1
       '@eslint/js': 9.39.1
-      '@typescript-eslint/utils': 8.49.0(eslint@9.39.1)(typescript@5.9.3)
+      '@typescript-eslint/utils': 8.50.0(eslint@9.39.1)(typescript@5.9.3)
       common-tags: 1.8.2
       eslint: 9.39.1
       eslint-config-prettier: 10.1.8(eslint@9.39.1)
@@ -2822,7 +2828,7 @@ snapshots:
       eslint-plugin-jsdoc: 61.5.0(eslint@9.39.1)
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.1)
       eslint-plugin-package-json: 0.85.0(@types/estree@1.0.8)(eslint@9.39.1)(jsonc-eslint-parser@2.4.2)
-      eslint-plugin-perfectionist: 4.15.1(eslint@9.39.1)(typescript@5.9.3)
+      eslint-plugin-perfectionist: 5.0.0(eslint@9.39.1)(typescript@5.9.3)
       eslint-plugin-prettier: 5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.1))(eslint@9.39.1)(prettier@3.7.4)
       eslint-plugin-react: 7.37.5(eslint@9.39.1)
       eslint-plugin-react-hooks: 7.0.1(eslint@9.39.1)
@@ -2839,7 +2845,7 @@ snapshots:
     dependencies:
       zod: 4.2.0
 
-  '@alextheman/utility@3.6.0':
+  '@alextheman/utility@3.10.1':
     dependencies:
       zod: 4.1.13
 
@@ -3372,8 +3378,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.49.0(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.49.0(typescript@5.9.3)
-      '@typescript-eslint/types': 8.49.0
+      '@typescript-eslint/tsconfig-utils': 8.50.0(typescript@5.9.3)
+      '@typescript-eslint/types': 8.50.0
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -3721,7 +3727,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.9.7: {}
+  baseline-browser-mapping@2.9.9: {}
 
   bidi-js@1.0.3:
     dependencies:
@@ -3751,11 +3757,11 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.7
+      baseline-browser-mapping: 2.9.9
       caniuse-lite: 1.0.30001760
       electron-to-chromium: 1.5.267
       node-releases: 2.0.27
-      update-browserslist-db: 1.2.2(browserslist@4.28.1)
+      update-browserslist-db: 1.2.3(browserslist@4.28.1)
 
   cac@6.7.14: {}
 
@@ -4224,9 +4230,8 @@ snapshots:
     transitivePeerDependencies:
       - '@types/estree'
 
-  eslint-plugin-perfectionist@4.15.1(eslint@9.39.1)(typescript@5.9.3):
+  eslint-plugin-perfectionist@5.0.0(eslint@9.39.1)(typescript@5.9.3):
     dependencies:
-      '@typescript-eslint/types': 8.50.0
       '@typescript-eslint/utils': 8.50.0(eslint@9.39.1)(typescript@5.9.3)
       eslint: 9.39.1
       natural-orderby: 5.0.0
@@ -4249,8 +4254,8 @@ snapshots:
       '@babel/parser': 7.28.5
       eslint: 9.39.1
       hermes-parser: 0.25.1
-      zod: 4.2.0
-      zod-validation-error: 4.0.2(zod@4.2.0)
+      zod: 4.2.1
+      zod-validation-error: 4.0.2(zod@4.2.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -5527,7 +5532,7 @@ snapshots:
     optionalDependencies:
       synckit: 0.11.11
 
-  update-browserslist-db@1.2.2(browserslist@4.28.1):
+  update-browserslist-db@1.2.3(browserslist@4.28.1):
     dependencies:
       browserslist: 4.28.1
       escalade: 3.2.0
@@ -5726,10 +5731,12 @@ snapshots:
 
   yoctocolors@2.1.2: {}
 
-  zod-validation-error@4.0.2(zod@4.2.0):
+  zod-validation-error@4.0.2(zod@4.2.1):
     dependencies:
-      zod: 4.2.0
+      zod: 4.2.1
 
   zod@4.1.13: {}
 
   zod@4.2.0: {}
+
+  zod@4.2.1: {}
