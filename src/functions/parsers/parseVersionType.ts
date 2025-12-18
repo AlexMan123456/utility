@@ -16,7 +16,10 @@ export type VersionType = z.infer<typeof versionTypeSchema>;
  * @returns The given version type if allowed.
  */
 function parseVersionType(data: unknown): VersionType {
-  return parseZodSchema(versionTypeSchema, data);
+  return parseZodSchema(versionTypeSchema, data, {
+    code: "INVALID_VERSION_TYPE",
+    message: "The provided version type must be one of `major | minor | patch`",
+  });
 }
 
 export default parseVersionType;
