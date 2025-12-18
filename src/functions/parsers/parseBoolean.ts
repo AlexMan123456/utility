@@ -5,7 +5,7 @@ import { DataError } from "src/types";
  *
  * @param inputString - The string to parse.
  *
- * @throws {TypeError} If the string is not either `true` or `false` (case insensitive).
+ * @throws {DataError} If the string is not either `true` or `false` (case insensitive).
  *
  * @returns The string parsed as an actual boolean.
  */

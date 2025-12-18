@@ -11,7 +11,7 @@ export type Env = z.infer<typeof envSchema>;
  *
  * @param data - The data to parse.
  *
- * @throws {ZodError} If the data does not match one of the environments allowed by the Env types ("test" | "development" | "production").
+ * @throws {DataError} If the data does not match one of the environments allowed by the Env types ("test" | "development" | "production").
  *
  * @returns The specified environment if allowed.
  */
