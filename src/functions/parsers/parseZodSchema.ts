@@ -31,7 +31,7 @@ function parseZodSchema<Output, Input, Internals extends core.$ZodTypeInternals<
 ): core.output<ZodType<Output, Input, Internals>> {
   const parsedResult = schema.safeParse(data);
   if (!parsedResult.success) {
-    throw new DataError(data, error?.message, error?.code, error?.options);
+    throw new DataError(data, error?.code, error?.message, error?.options);
   }
   return parsedResult.data;
 }

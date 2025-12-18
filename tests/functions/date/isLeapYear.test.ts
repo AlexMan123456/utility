@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 
 import { isLeapYear } from "src/functions/date";
+import { DataError } from "src/types";
 
 describe("isLeapYear", () => {
   test("Returns false if the year is not a leap year", () => {
@@ -16,8 +17,8 @@ describe("isLeapYear", () => {
     try {
       isLeapYear(2025.5);
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        expect(error.message).toBe("INTEGER_PARSING_ERROR");
+      if (DataError.check(error)) {
+        expect(error.code).toBe("INTEGER_PARSING_ERROR");
         return;
       }
     }

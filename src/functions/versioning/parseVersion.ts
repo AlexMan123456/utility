@@ -22,8 +22,8 @@ function parseVersion(input: string, options?: ParseVersionOptions): string {
   if (!RegExp(VERSION_NUMBER_REGEX).test(input)) {
     throw new DataError(
       input,
-      `"${input}" is not a valid version number. Version numbers must be of the format "X.Y.Z" or "vX.Y.Z", where X, Y, and Z are non-negative integers.`,
       "INVALID_VERSION",
+      `"${input}" is not a valid version number. Version numbers must be of the format "X.Y.Z" or "vX.Y.Z", where X, Y, and Z are non-negative integers.`,
     );
   }
   if (options?.omitPrefix) {

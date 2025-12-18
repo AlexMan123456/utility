@@ -5,8 +5,8 @@ import { DataError } from "src/types";
 function testDataError(
   error: DataError,
   expectedData: unknown,
-  expectedMessage: string,
   expectedCode: string,
+  expectedMessage: string,
 ) {
   try {
     throw error;
@@ -30,18 +30,18 @@ function testDataError(
 describe("DataError", () => {
   test("Takes an error with the given data", () => {
     testDataError(
-      new DataError({ testData: "Hello" }, "This is not valid", "NOT_VALID"),
+      new DataError({ testData: "Hello" }, "NOT_VALID", "This is not valid"),
       { testData: "Hello" },
-      "This is not valid",
       "NOT_VALID",
+      "This is not valid",
     );
   });
   test("Provides sensible default message and code", () => {
     testDataError(
       new DataError({ testData: "Hello" }),
       { testData: "Hello" },
-      "The data provided is invalid",
       "INVALID_DATA",
+      "The data provided is invalid",
     );
   });
 });

@@ -14,8 +14,8 @@ function parseBoolean(inputString: string): boolean {
   if (!["true", "false"].includes(normalisedString)) {
     throw new DataError(
       inputString,
-      "The provided boolean string must be one of `true | false`",
       "INVALID_BOOLEAN_STRING",
+      "The provided boolean string must be one of `true | false`",
     );
   }
   return normalisedString === "true";
