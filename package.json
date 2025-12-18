@@ -45,11 +45,12 @@
     "zod": "^4.1.13"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^4.8.6",
+    "@alextheman/eslint-plugin": "^4.9.0",
     "@types/node": "^25.0.1",
     "alex-c-line": "^1.8.0",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.1",
+    "eslint-plugin-perfectionist": "^5.0.0",
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jsdom": "^27.3.0",
