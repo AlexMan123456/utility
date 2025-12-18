@@ -1,3 +1,5 @@
+import { DataError } from "src/types";
+
 /**
  * Takes a stringly-typed boolean and converts it to an actual boolean type.
  *
@@ -10,7 +12,11 @@
 function parseBoolean(inputString: string): boolean {
   const normalisedString = inputString.toLowerCase();
   if (!["true", "false"].includes(normalisedString)) {
-    throw new TypeError("INVALID_BOOLEAN_STRING");
+    throw new DataError(
+      inputString,
+      "The provided boolean string must be one of `true | false`",
+      "INVALID_BOOLEAN_STRING",
+    );
   }
   return normalisedString === "true";
 }
