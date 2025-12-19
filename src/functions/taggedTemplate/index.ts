@@ -5,7 +5,6 @@ export {
   default as normaliseIndents,
   normalizeIndents,
 } from "src/functions/taggedTemplate/normaliseIndents";
-export { default as removeIndents } from "src/functions/taggedTemplate/removeIndents";
 
 export type {
   NormaliseIndentsOptions,
@@ -13,7 +12,3 @@ export type {
   NormalizeIndentsOptions,
   NormalizeIndentsFunction,
 } from "src/functions/taggedTemplate/normaliseIndents";
-export type {
-  RemoveIndentsOptions,
-  RemoveIndentsFunction,
-} from "src/functions/taggedTemplate/removeIndents";

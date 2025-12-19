@@ -1,4 +1,4 @@
-export { default as parseBoolean, stringToBoolean } from "src/functions/parsers/parseBoolean";
+export { default as parseBoolean } from "src/functions/parsers/parseBoolean";
 export { default as parseEnv } from "src/functions/parsers/parseEnv";
 export { default as parseFormData } from "src/functions/parsers/parseFormData";
 export { default as parseIntStrict } from "src/functions/parsers/parseIntStrict";
