@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 
 import { parseBoolean } from "src/functions/parsers";
+import { DataError } from "src/types";
 
 describe("parseBoolean", () => {
   test("Returns true when given a string of true", () => {
@@ -14,8 +15,10 @@ describe("parseBoolean", () => {
       parseBoolean("Yes");
       throw new Error("TEST_FAILED");
     } catch (error) {
-      if (error instanceof TypeError) {
-        expect(error.message).toBe("INVALID_BOOLEAN_STRING");
+      if (DataError.check(error)) {
+        expect(error.data).toBe("Yes");
+        expect(error.code).toBe("INVALID_BOOLEAN_STRING");
+        expect(error.message).toBe("The provided boolean string must be one of `true | false`");
       } else {
         throw error;
       }

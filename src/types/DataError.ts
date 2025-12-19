@@ -5,14 +5,14 @@ class DataError extends Error {
 
   /**
    * @param data - The data that caused the error.
-   * @param message  - A human-readable error message (e.g. The data provided is invalid).
    * @param code - A standardised code (e.g. UNEXPECTED_DATA).
+   * @param message  - A human-readable error message (e.g. The data provided is invalid).
    * @param options - Extra options to pass to super Error constructor.
    */
   public constructor(
     data: unknown,
-    message: string = "The data provided is invalid",
     code: string = "INVALID_DATA",
+    message: string = "The data provided is invalid",
     options?: ErrorOptions,
   ) {
     super(message, options);

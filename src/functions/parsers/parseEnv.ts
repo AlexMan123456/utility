@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+import parseZodSchema from "src/functions/parsers/parseZodSchema";
+import { DataError } from "src/types";
+
 const envSchema = z.enum(["test", "development", "production"]);
 /** Represents the most common development environments */
 export type Env = z.infer<typeof envSchema>;
@@ -9,12 +12,20 @@ export type Env = z.infer<typeof envSchema>;
  *
  * @param data - The data to parse.
  *
- * @throws {ZodError} If the data does not match one of the environments allowed by the Env types ("test" | "development" | "production").
+ * @throws {DataError} If the data does not match one of the environments allowed by the Env types ("test" | "development" | "production").
  *
  * @returns The specified environment if allowed.
  */
 function parseEnv(data: unknown): Env {
-  return envSchema.parse(data);
+  return parseZodSchema(
+    envSchema,
+    data,
+    new DataError(
+      data,
+      "INVALID_ENV",
+      "The provided environment type must be one of `test | development | production`",
+    ),
+  );
 }
 
 export default parseEnv;
