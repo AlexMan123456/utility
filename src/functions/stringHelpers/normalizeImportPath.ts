@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 
 /**
  * Normalizes an import path meant for use in an import statement in JavaScript.

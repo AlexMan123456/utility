@@ -1,8 +1,9 @@
-import { version } from "package.json" with { type: "json" };
 import { describe, expect, test } from "vitest";
 
 import { parseVersion } from "src/functions";
 import { DataError } from "src/types";
+
+import { version } from "package.json" with { type: "json" };
 
 describe("parseVersion", () => {
   test('Returns the version prefixed with "v" if not already prefixed', () => {
