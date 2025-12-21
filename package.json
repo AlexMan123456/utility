@@ -45,7 +45,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^4.10.0",
+    "@alextheman/eslint-plugin": "^5.0.0",
     "@types/node": "^25.0.3",
     "alex-c-line": "^1.10.0",
     "dotenv-cli": "^11.0.0",
@@ -61,6 +61,9 @@
     "vitest": "^4.0.16"
   },
   "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa",
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "esbuild",
