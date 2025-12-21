@@ -6,4 +6,3 @@ export { default as parseVersionType } from "src/functions/parsers/parseVersionT
 export { default as parseZodSchema } from "src/functions/parsers/parseZodSchema";
 
 export type { Env } from "src/functions/parsers/parseEnv";
-export type { VersionType } from "src/functions/parsers/parseVersionType";

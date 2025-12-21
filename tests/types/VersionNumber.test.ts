@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 
-import { DataError, VersionNumber } from "src/types";
+import { DataError, VersionNumber, VersionType } from "src/types";
 
 describe("VersionNumber", () => {
   describe("constructor", () => {
@@ -112,6 +112,22 @@ describe("VersionNumber", () => {
     test("Allows for an option to omit the prefix", () => {
       const version = new VersionNumber([1, 2, 3]);
       expect(version.toString({ omitPrefix: true })).toBe("1.2.3");
+    });
+  });
+
+  describe(".type", () => {
+    test("Considers it a major version if minor and patch numbers are zero", () => {
+      expect(new VersionNumber([1, 0, 0]).type).toBe(VersionType.major);
+    });
+    test("Considers it a minor version if only patch is zero", () => {
+      expect(new VersionNumber([1, 2, 0]).type).toBe(VersionType.minor);
+    });
+    test("Considers it a patch version if no numbers are zero", () => {
+      expect(new VersionNumber([1, 2, 3]).type).toBe(VersionType.patch);
+    });
+    test("Ignores zero major version", () => {
+      expect(new VersionNumber([0, 1, 0]).type).toBe(VersionType.minor);
+      expect(new VersionNumber([0, 1, 2]).type).toBe(VersionType.patch);
     });
   });
 });

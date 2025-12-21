@@ -1,6 +1,7 @@
 import { VERSION_NUMBER_REGEX } from "src/constants";
 import { parseIntStrict } from "src/functions";
 import DataError from "src/types/DataError";
+import { VersionType } from "src/types/VersionType";
 
 export interface ToStringOptions {
   omitPrefix?: boolean;
@@ -77,6 +78,21 @@ class VersionNumber {
   public toString(options?: ToStringOptions): string {
     const rawString = `${this.major}.${this.minor}.${this.patch}`;
     return VersionNumber.formatString(rawString, options);
+  }
+
+  /**
+   * Gets the current version type of the current instance of the class.
+   *
+   * @returns Either `"major"`, `"minor"`, or `"patch"`, depending on the version type.
+   */
+  public get type(): VersionType {
+    if (this.minor === 0 && this.patch === 0) {
+      return VersionType.major;
+    }
+    if (this.patch === 0) {
+      return VersionType.minor;
+    }
+    return VersionType.patch;
   }
 }
 
