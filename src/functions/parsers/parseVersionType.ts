@@ -1,11 +1,7 @@
 import z from "zod";
 
 import parseZodSchema from "src/functions/parsers/parseZodSchema";
-import { DataError } from "src/types";
-
-const versionTypeSchema = z.enum(["major", "minor", "patch"]);
-
-export type VersionType = z.infer<typeof versionTypeSchema>;
+import { DataError, VersionType } from "src/types";
 
 /**
  * Parses the input and verifies it is a valid software version type (i.e. `"major" | "minor" | "patch"`)
@@ -18,7 +14,7 @@ export type VersionType = z.infer<typeof versionTypeSchema>;
  */
 function parseVersionType(data: unknown): VersionType {
   return parseZodSchema(
-    versionTypeSchema,
+    z.enum(VersionType),
     data,
     new DataError(
       data,
