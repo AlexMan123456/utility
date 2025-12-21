@@ -9,7 +9,12 @@ describe("camelToKebab", () => {
   test("Ignores non-alphabetic characters", () => {
     expect(camelToKebab("hello-worldString2")).toBe("hello-world-string2");
   });
-  test("Handles consecutive capital letters", () => {
+  test("Handles consecutive capital letters as its own group", () => {
     expect(camelToKebab("validateAPIUser")).toBe("validate-api-user");
+  });
+  test("Leaves consecutive capital letters alone if option is provided", () => {
+    expect(camelToKebab("validateAPIUser", { preserveConsecutiveCapitals: false })).toBe(
+      "validate-a-p-i-user",
+    );
   });
 });

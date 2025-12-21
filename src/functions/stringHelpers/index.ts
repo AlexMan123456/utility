@@ -7,4 +7,5 @@ export {
 } from "src/functions/stringHelpers/normalizeImportPath";
 export { default as truncate } from "src/functions/stringHelpers/truncate";
 
+export type { CamelToKebabOptions } from "src/functions/stringHelpers/camelToKebab";
 export type { KebabToCamelOptions } from "src/functions/stringHelpers/kebabToCamel";
