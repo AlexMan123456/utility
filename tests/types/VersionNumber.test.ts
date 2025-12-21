@@ -130,4 +130,43 @@ describe("VersionNumber", () => {
       expect(new VersionNumber([0, 1, 2]).type).toBe(VersionType.patch);
     });
   });
+
+  describe(".increment()", () => {
+    const version = new VersionNumber([1, 2, 3]);
+    test("Increments the major version", () => {
+      const newVersion = version.increment(VersionType.major);
+      expect(newVersion.major).toBe(2);
+      expect(newVersion.minor).toBe(0);
+      expect(newVersion.patch).toBe(0);
+    });
+    test("Increments the minor version", () => {
+      const newVersion = version.increment(VersionType.minor);
+      expect(newVersion.major).toBe(1);
+      expect(newVersion.minor).toBe(3);
+      expect(newVersion.patch).toBe(0);
+    });
+    test("Increments the patch version", () => {
+      const newVersion = version.increment(VersionType.patch);
+      expect(newVersion.major).toBe(1);
+      expect(newVersion.minor).toBe(2);
+      expect(newVersion.patch).toBe(4);
+    });
+    test("Can also pass in a raw string instead of `VersionType.type`", () => {
+      const newVersion = version.increment("minor");
+      expect(newVersion.major).toBe(1);
+      expect(newVersion.minor).toBe(3);
+      expect(newVersion.patch).toBe(0);
+    });
+    test("Does not mutate the original version", () => {
+      // Increment by major because I know for a fact that this will affect all numbers
+      version.increment("major");
+      expect(version.major).toBe(1);
+      expect(version.minor).toBe(2);
+      expect(version.patch).toBe(3);
+    });
+    test("Returns a new reference in memory", () => {
+      const newVersion = version.increment("major");
+      expect(newVersion).not.toBe(version);
+    });
+  });
 });

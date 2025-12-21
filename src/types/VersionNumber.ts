@@ -81,7 +81,7 @@ class VersionNumber {
   }
 
   /**
-   * Gets the current version type of the current instance of the class.
+   * Gets the current version type of the current instance of `VersionNumber`.
    *
    * @returns Either `"major"`, `"minor"`, or `"patch"`, depending on the version type.
    */
@@ -93,6 +93,28 @@ class VersionNumber {
       return VersionType.minor;
     }
     return VersionType.patch;
+  }
+
+  /**
+   * Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
+   *
+   * @param incrementType - The type of increment. Can be one of the following:
+   * - `"major"`: Change the major version `v1.2.3` → `v2.0.0`
+   * - `"minor"`: Change the minor version `v1.2.3` → `v1.3.0`
+   * - `"patch"`: Change the patch version `v1.2.3` → `v1.2.4`
+   *
+   * @returns A new instance of `VersionNumber` with the increment applied.
+   */
+  public increment(incrementType: VersionType): VersionNumber {
+    const versionLookup: Record<VersionType, [number, number, number]> = {
+      major: [this.major + 1, 0, 0],
+      minor: [this.major, this.minor + 1, 0],
+      patch: [this.major, this.minor, this.patch + 1],
+    };
+
+    const newVersion = versionLookup[incrementType];
+
+    return new VersionNumber(newVersion);
   }
 }
 
