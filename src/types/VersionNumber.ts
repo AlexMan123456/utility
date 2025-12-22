@@ -87,12 +87,12 @@ class VersionNumber {
    */
   public get type(): VersionType {
     if (this.minor === 0 && this.patch === 0) {
-      return VersionType.major;
+      return VersionType.MAJOR;
     }
     if (this.patch === 0) {
-      return VersionType.minor;
+      return VersionType.MINOR;
     }
-    return VersionType.patch;
+    return VersionType.PATCH;
   }
 
   /**

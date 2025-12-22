@@ -117,36 +117,36 @@ describe("VersionNumber", () => {
 
   describe(".type", () => {
     test("Considers it a major version if minor and patch numbers are zero", () => {
-      expect(new VersionNumber([1, 0, 0]).type).toBe(VersionType.major);
+      expect(new VersionNumber([1, 0, 0]).type).toBe(VersionType.MAJOR);
     });
     test("Considers it a minor version if only patch is zero", () => {
-      expect(new VersionNumber([1, 2, 0]).type).toBe(VersionType.minor);
+      expect(new VersionNumber([1, 2, 0]).type).toBe(VersionType.MINOR);
     });
     test("Considers it a patch version if no numbers are zero", () => {
-      expect(new VersionNumber([1, 2, 3]).type).toBe(VersionType.patch);
+      expect(new VersionNumber([1, 2, 3]).type).toBe(VersionType.PATCH);
     });
     test("Ignores zero major version", () => {
-      expect(new VersionNumber([0, 1, 0]).type).toBe(VersionType.minor);
-      expect(new VersionNumber([0, 1, 2]).type).toBe(VersionType.patch);
+      expect(new VersionNumber([0, 1, 0]).type).toBe(VersionType.MINOR);
+      expect(new VersionNumber([0, 1, 2]).type).toBe(VersionType.PATCH);
     });
   });
 
   describe(".increment()", () => {
     const version = new VersionNumber([1, 2, 3]);
     test("Increments the major version", () => {
-      const newVersion = version.increment(VersionType.major);
+      const newVersion = version.increment(VersionType.MAJOR);
       expect(newVersion.major).toBe(2);
       expect(newVersion.minor).toBe(0);
       expect(newVersion.patch).toBe(0);
     });
     test("Increments the minor version", () => {
-      const newVersion = version.increment(VersionType.minor);
+      const newVersion = version.increment(VersionType.MINOR);
       expect(newVersion.major).toBe(1);
       expect(newVersion.minor).toBe(3);
       expect(newVersion.patch).toBe(0);
     });
     test("Increments the patch version", () => {
-      const newVersion = version.increment(VersionType.patch);
+      const newVersion = version.increment(VersionType.PATCH);
       expect(newVersion.major).toBe(1);
       expect(newVersion.minor).toBe(2);
       expect(newVersion.patch).toBe(4);
