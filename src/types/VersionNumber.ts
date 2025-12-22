@@ -9,15 +9,15 @@ export interface ToStringOptions {
 
 /** Represents a software version number, considered to be made up of a major, minor, and patch part. */
 class VersionNumber {
+  private static readonly NON_NEGATIVE_TUPLE_ERROR =
+    "Input array must be a tuple of three non-negative integers.";
+
   /** The major number. Increments when a feature is removed or changed in a way that is not backwards-compatible with the previous release. */
   public readonly major: number = 0;
   /** The minor number. Increments when a new feature is added/deprecated and is expected to be backwards-compatible with the previous release. */
   public readonly minor: number = 0;
   /** The patch number. Increments when the next release is fixing a bug or doing a small refactor that should not be noticeable in practice. */
   public readonly patch: number = 0;
-
-  private static readonly NON_NEGATIVE_TUPLE_ERROR =
-    "Input array must be a tuple of three non-negative integers.";
 
   /**
    * @param input - The input to create a new instance of `VersionNumber` from.
@@ -61,25 +61,6 @@ class VersionNumber {
     }
   }
 
-  private static formatString(input: string, options?: ToStringOptions) {
-    if (options?.omitPrefix) {
-      return input.startsWith("v") ? input.slice(1) : input;
-    }
-    return input.startsWith("v") ? input : `v${input}`;
-  }
-
-  /**
-   * Get a string representation of the current version number.
-   *
-   * @param options - Extra additional options to apply.
-   *
-   * @returns A stringified representation of the current version number, leaving out the prefix if `omitPrefix` option was set to true.
-   */
-  public toString(options?: ToStringOptions): string {
-    const rawString = `${this.major}.${this.minor}.${this.patch}`;
-    return VersionNumber.formatString(rawString, options);
-  }
-
   /**
    * Gets the current version type of the current instance of `VersionNumber`.
    *
@@ -93,6 +74,29 @@ class VersionNumber {
       return VersionType.MINOR;
     }
     return VersionType.PATCH;
+  }
+
+  private static formatString(input: string, options?: ToStringOptions) {
+    if (options?.omitPrefix) {
+      return input.startsWith("v") ? input.slice(1) : input;
+    }
+    return input.startsWith("v") ? input : `v${input}`;
+  }
+
+  /**
+   * Checks if the provided version numbers have the exact same major, minor, and patch numbers.
+   *
+   * @param firstVersion - The first version number to compare.
+   * @param secondVersion - The second version number to compare.
+   *
+   * @returns `true` if the provided version numbers have exactly the same major, minor, and patch numbers, and returns `false` otherwise.
+   */
+  public static isEqual(firstVersion: VersionNumber, secondVersion: VersionNumber): boolean {
+    return (
+      firstVersion.major === secondVersion.major &&
+      firstVersion.minor === secondVersion.minor &&
+      firstVersion.patch === secondVersion.patch
+    );
   }
 
   /**
@@ -116,21 +120,16 @@ class VersionNumber {
 
     return new VersionNumber(newVersion);
   }
-
   /**
-   * Checks if the provided version numbers have the exact same major, minor, and patch numbers.
+   * Get a string representation of the current version number.
    *
-   * @param firstVersion - The first version number to compare.
-   * @param secondVersion - The second version number to compare.
+   * @param options - Extra additional options to apply.
    *
-   * @returns `true` if the provided version numbers have exactly the same major, minor, and patch numbers, and returns `false` otherwise.
+   * @returns A stringified representation of the current version number, leaving out the prefix if `omitPrefix` option was set to true.
    */
-  public static isEqual(firstVersion: VersionNumber, secondVersion: VersionNumber): boolean {
-    return (
-      firstVersion.major === secondVersion.major &&
-      firstVersion.minor === secondVersion.minor &&
-      firstVersion.patch === secondVersion.patch
-    );
+  public toString(options?: ToStringOptions): string {
+    const rawString = `${this.major}.${this.minor}.${this.patch}`;
+    return VersionNumber.formatString(rawString, options);
   }
 }
 

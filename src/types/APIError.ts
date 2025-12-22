@@ -14,6 +14,7 @@ export const httpErrorCodeLookup: Record<HTTPErrorCode, string> = {
 /** Represents common errors you may get from a HTTP API request. */
 class APIError extends Error {
   public status: number;
+
   /**
    * @param status - A HTTP status code. Can be any number, but numbers between 400 and 600 are encouraged to fit with HTTP status code conventions.
    * @param message - An error message to display alongside the status code.
