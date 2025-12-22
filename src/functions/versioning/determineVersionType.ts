@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import type { VersionType } from "src/types";
 
 import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
 
 /**
  * Determines whether the given version is a major, minor, or patch version.
+ *
+ * @deprecated This function does not support the new class-based handling of VersionNumber. Please use `new VersionNumber(version).type` instead.
  *
  * @param version - The version number.
  *

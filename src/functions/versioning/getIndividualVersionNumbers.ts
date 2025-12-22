@@ -1,8 +1,16 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import { parseIntStrict } from "src/functions/parsers";
 import parseVersion from "src/functions/versioning/parseVersion";
 
 /**
  * Gets the individual version numbers from a given version number as a tuple of numbers.
+ *
+ * @deprecated This function does not support the new class-based handling of VersionNumber. Please use one of the following instead:
+ *      ```typescript
+ *      new VersionNumber(version).major
+ *      new VersionNumber(version).minor
+ *      new VersionNumber(version).patch
+ *      ```
  *
  * @param version - The version number.
  *

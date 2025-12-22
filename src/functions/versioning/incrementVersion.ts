@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import type { VersionType } from "src/types";
 
 import getIndividualVersionNumbers from "src/functions/versioning/getIndividualVersionNumbers";
@@ -10,6 +11,8 @@ export interface IncrementVersionOptions {
 
 /**
  * Increments the given input version depending on the given increment type.
+ *
+ * @deprecated This function does not support the new class-based handling of VersionNumber. Please use `new VersionNumber(version).increment(incrementType)` instead.
  *
  * @param version - The version to increment
  * @param incrementType - The type of increment. Can be one of the following:
