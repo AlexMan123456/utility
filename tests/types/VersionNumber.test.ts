@@ -51,6 +51,41 @@ describe("VersionNumber", () => {
         }
       }
     });
+    describe("VersionNumber.isEqual()", () => {
+      test("Considers the same instance of VersionNumber to be equal", () => {
+        const version = new VersionNumber([1, 2, 3]);
+        expect(VersionNumber.isEqual(version, version)).toBe(true);
+      });
+      test("Considers two different instances with matching version numbers to be equal", () => {
+        const firstVersion = new VersionNumber([1, 2, 3]);
+        const secondVersion = new VersionNumber([1, 2, 3]);
+        expect(VersionNumber.isEqual(firstVersion, secondVersion)).toBe(true);
+        // Test the other way for commutativity
+        expect(VersionNumber.isEqual(secondVersion, firstVersion)).toBe(true);
+      });
+      test("Considers differences instances that were initialised in different ways but resolve to the same version to be equal", () => {
+        const versions = [
+          new VersionNumber([1, 2, 3]),
+          new VersionNumber("1.2.3"),
+          new VersionNumber("v1.2.3"),
+          new VersionNumber(new VersionNumber([1, 2, 3])),
+        ];
+
+        // Test all permutations
+        for (const outerVersion of versions) {
+          for (const innerVersion of versions) {
+            expect(VersionNumber.isEqual(outerVersion, innerVersion)).toBe(true);
+          }
+        }
+      });
+      test("Considers two different instances that are actually different to be different", () => {
+        const firstVersion = new VersionNumber([1, 2, 3]);
+        const secondVersion = new VersionNumber([4, 5, 6]);
+
+        expect(VersionNumber.isEqual(firstVersion, secondVersion)).toBe(false);
+        expect(VersionNumber.isEqual(secondVersion, firstVersion)).toBe(false);
+      });
+    });
     test("Does not allow an invalid tuple.", () => {
       try {
         // @ts-expect-error: Not numbers
@@ -95,7 +130,7 @@ describe("VersionNumber", () => {
         throw new Error("DID_NOT_THROW");
       } catch (error) {
         if (DataError.check(error)) {
-          expect(error.code).toBe("NON_POSITIVE_INPUTS");
+          expect(error.code).toBe("NEGATIVE_INPUTS");
           expect(error.message).toBe("Input array must be a tuple of three non-negative integers.");
         } else {
           throw error;
@@ -135,34 +170,24 @@ describe("VersionNumber", () => {
     const version = new VersionNumber([1, 2, 3]);
     test("Increments the major version", () => {
       const newVersion = version.increment(VersionType.MAJOR);
-      expect(newVersion.major).toBe(2);
-      expect(newVersion.minor).toBe(0);
-      expect(newVersion.patch).toBe(0);
+      expect(VersionNumber.isEqual(newVersion, new VersionNumber([2, 0, 0]))).toBe(true);
     });
     test("Increments the minor version", () => {
       const newVersion = version.increment(VersionType.MINOR);
-      expect(newVersion.major).toBe(1);
-      expect(newVersion.minor).toBe(3);
-      expect(newVersion.patch).toBe(0);
+      expect(VersionNumber.isEqual(newVersion, new VersionNumber([1, 3, 0]))).toBe(true);
     });
     test("Increments the patch version", () => {
       const newVersion = version.increment(VersionType.PATCH);
-      expect(newVersion.major).toBe(1);
-      expect(newVersion.minor).toBe(2);
-      expect(newVersion.patch).toBe(4);
+      expect(VersionNumber.isEqual(newVersion, new VersionNumber([1, 2, 4]))).toBe(true);
     });
     test("Can also pass in a raw string instead of `VersionType.type`", () => {
       const newVersion = version.increment("minor");
-      expect(newVersion.major).toBe(1);
-      expect(newVersion.minor).toBe(3);
-      expect(newVersion.patch).toBe(0);
+      expect(VersionNumber.isEqual(newVersion, new VersionNumber([1, 3, 0]))).toBe(true);
     });
     test("Does not mutate the original version", () => {
       // Increment by major because I know for a fact that this will affect all numbers
       version.increment("major");
-      expect(version.major).toBe(1);
-      expect(version.minor).toBe(2);
-      expect(version.patch).toBe(3);
+      expect(VersionNumber.isEqual(version, new VersionNumber([1, 2, 3]))).toBe(true);
     });
     test("Returns a new reference in memory", () => {
       const newVersion = version.increment("major");
