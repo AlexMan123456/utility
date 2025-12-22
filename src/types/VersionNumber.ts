@@ -116,6 +116,22 @@ class VersionNumber {
 
     return new VersionNumber(newVersion);
   }
+
+  /**
+   * Checks if the provided version numbers have the exact same major, minor, and patch numbers.
+   *
+   * @param firstVersion - The first version number to compare.
+   * @param secondVersion - The second version number to compare.
+   *
+   * @returns `true` if the provided version numbers have exactly the same major, minor, and patch numbers, and returns `false` otherwise.
+   */
+  public static isEqual(firstVersion: VersionNumber, secondVersion: VersionNumber): boolean {
+    return (
+      firstVersion.major === secondVersion.major &&
+      firstVersion.minor === secondVersion.minor &&
+      firstVersion.patch === secondVersion.patch
+    );
+  }
 }
 
 export default VersionNumber;
