@@ -16,7 +16,7 @@ class VersionNumber {
   /** The patch number. Increments when the next release is fixing a bug or doing a small refactor that should not be noticeable in practice. */
   public readonly patch: number = 0;
 
-  private readonly nonNegativeTupleError =
+  private static readonly NON_NEGATIVE_TUPLE_ERROR =
     "Input array must be a tuple of three non-negative integers.";
 
   /**
@@ -46,12 +46,12 @@ class VersionNumber {
       this.patch = patch;
     } else if (Array.isArray(input)) {
       if (input.length !== 3) {
-        throw new DataError(input, "INVALID_LENGTH", this.nonNegativeTupleError);
+        throw new DataError(input, "INVALID_LENGTH", VersionNumber.NON_NEGATIVE_TUPLE_ERROR);
       }
       const [major, minor, patch] = input.map((number) => {
         const parsedInteger = parseIntStrict(number?.toString());
         if (parsedInteger < 0) {
-          throw new DataError(input, "NON_POSITIVE_INPUTS", this.nonNegativeTupleError);
+          throw new DataError(input, "NON_POSITIVE_INPUTS", VersionNumber.NON_NEGATIVE_TUPLE_ERROR);
         }
         return parsedInteger;
       });
