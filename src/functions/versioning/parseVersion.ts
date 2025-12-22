@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import { VERSION_NUMBER_REGEX } from "src/constants";
 import { DataError } from "src/types";
 
@@ -10,6 +11,8 @@ export interface ParseVersionOptions {
  * Parses a string and verifies it is a valid package version number.
  *
  * Valid formats: `X.Y.Z` or `vX.Y.Z`, where X, Y, and Z are non-negative integers.
+ *
+ * @deprecated This function does not support the new class-based handling of VersionNumber. Please use `new VersionNumber(input)` instead.
  *
  * @param input - The version string to parse.
  * @param options - Extra options to apply.
