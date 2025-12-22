@@ -110,15 +110,11 @@ class VersionNumber {
    * @returns A new instance of `VersionNumber` with the increment applied.
    */
   public increment(incrementType: VersionType): VersionNumber {
-    const versionLookup: Record<VersionType, [number, number, number]> = {
-      major: [this.major + 1, 0, 0],
-      minor: [this.major, this.minor + 1, 0],
-      patch: [this.major, this.minor, this.patch + 1],
-    };
-
-    const newVersion = versionLookup[incrementType];
-
-    return new VersionNumber(newVersion);
+    return {
+      major: new VersionNumber([this.major + 1, 0, 0]),
+      minor: new VersionNumber([this.major, this.minor + 1, 0]),
+      patch: new VersionNumber([this.major, this.minor, this.patch + 1]),
+    }[incrementType];
   }
   /**
    * Get a string representation of the current version number.
