@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "build": "tsdown",
+    "create-feature-docs": "typedoc",
     "create-local-package": "pnpm run build && rm -f alextheman-utility-*.tgz && pnpm pack",
     "create-release-note-major": "git pull origin main && alex-c-line create-release-note major",
     "create-release-note-minor": "git pull origin main && alex-c-line create-release-note minor",
@@ -24,12 +25,12 @@
     "format": "pnpm run format-prettier && pnpm run format-eslint",
     "format-eslint": "eslint --fix --suppress-all \"package.json\" \"src/**/*.ts\" \"tests/**/*.ts\" && rm -f eslint-suppressions.json",
     "format-prettier": "pnpm run format-prettier-typescript && pnpm run format-prettier-javascript",
-    "format-prettier-javascript": "prettier --write \"./**/*.js\"",
+    "format-prettier-javascript": "prettier --write \"./**/*.js\" \"!docs\"",
     "format-prettier-typescript": "prettier --write --parser typescript \"./**/*.ts\"",
     "lint": "pnpm run lint-tsc && pnpm run lint-eslint && pnpm run lint-prettier",
     "lint-eslint": "eslint \"package.json\" \"src/**/*.ts\" \"tests/**/*.ts\"",
     "lint-prettier": "pnpm run lint-prettier-typescript && pnpm run lint-prettier-javascript",
-    "lint-prettier-javascript": "prettier --check \"./**/*.js\"",
+    "lint-prettier-javascript": "prettier --check \"./**/*.js\" \"!docs\"",
     "lint-prettier-typescript": "prettier --check --parser typescript \"./**/*.ts\"",
     "lint-tsc": "tsc --noEmit",
     "prepare": "husky",
@@ -45,7 +46,7 @@
     "zod": "^4.2.1"
   },
   "devDependencies": {
-    "@alextheman/eslint-plugin": "^5.1.1",
+    "@alextheman/eslint-plugin": "^5.2.0",
     "@types/node": "^25.0.3",
     "alex-c-line": "^1.10.0",
     "dotenv-cli": "^11.0.0",
@@ -55,6 +56,7 @@
     "jsdom": "^27.3.0",
     "prettier": "^3.7.4",
     "tsdown": "^0.18.1",
+    "typedoc": "^0.28.15",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^6.0.3",
     "vitest": "^4.0.16"
