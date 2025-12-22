@@ -3,6 +3,8 @@ import parseIntStrict from "src/functions/parsers/parseIntStrict";
 /**
  * Gets a random number between the given bounds.
  *
+ * @category Miscellaneous
+ *
  * @param lowerBound - The lowest number that can be chosen.
  * @param upperBound - The highest number that can be chosen.
  *

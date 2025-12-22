@@ -1,6 +1,8 @@
 /**
  * Allows case-insensitive variants of a known string type.
  *
+ * @category Types
+ *
  * @template StringType - The input string type.
  */
 export type IgnoreCase<StringType extends string> = string extends StringType

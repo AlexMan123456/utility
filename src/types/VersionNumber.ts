@@ -7,7 +7,11 @@ export interface ToStringOptions {
   omitPrefix?: boolean;
 }
 
-/** Represents a software version number, considered to be made up of a major, minor, and patch part. */
+/**
+ * Represents a software version number, considered to be made up of a major, minor, and patch part.
+ *
+ * @category Types
+ */
 class VersionNumber {
   private static readonly NON_NEGATIVE_TUPLE_ERROR =
     "Input array must be a tuple of three non-negative integers.";

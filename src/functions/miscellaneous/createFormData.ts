@@ -54,6 +54,8 @@ function getNullableResolutionStrategy(
 /**
  * Creates FormData from a given object, resolving non-string types as appropriate.
  *
+ * @category Miscellaneous
+ *
  * @template DataType - The type of the given data.
  *
  * @param data - The data to create FormData from.

@@ -3,6 +3,8 @@ import type { RecordKey } from "src/types";
 /**
  * Gets the keys from a given record object, properly typed to be an array of the key of the input object's type.
  *
+ * @category Object Helpers
+ *
  * @template InputRecordType - The type of the input object.
  *
  * @param record - The record to get the keys from.

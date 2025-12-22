@@ -1,6 +1,8 @@
 /**
  * Adds a given number of days to the provided date, returning the result as a new instance of Date.
  *
+ * @category Date
+ *
  * @param currentDate - The starting date (defaults to today).
  * @param dayIncrement - The amount of days you want to add (defaults to 1)
  *

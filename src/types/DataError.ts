@@ -1,4 +1,8 @@
-/** Represents errors you may get that may've been caused by a specific piece of data. */
+/**
+ * Represents errors you may get that may've been caused by a specific piece of data.
+ *
+ * @category Types
+ */
 class DataError extends Error {
   public code: string;
   public data: unknown;

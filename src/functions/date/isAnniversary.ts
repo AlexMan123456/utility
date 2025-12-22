@@ -14,6 +14,8 @@ function checkLeapYear(firstDate: Date, secondDate: Date): boolean {
 /**
  * Checks if the provided dates are exactly a whole number of years apart.
  *
+ * @category Date
+ *
  * @param firstDate - The first date to compare.
  * @param secondDate - The second date to compare.
  *

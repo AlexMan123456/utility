@@ -6,6 +6,8 @@ import { DataError, VersionType } from "src/types";
 /**
  * Parses the input and verifies it is a valid software version type (i.e. `"major" | "minor" | "patch"`)
  *
+ * @category Parsers
+ *
  * @param data - The data to parse.
  *
  * @throws {DataError} If the data does not match one of the allowed version types (`"major" | "minor" | "patch"`).

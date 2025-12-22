@@ -4,6 +4,8 @@
  * - The range is inclusive of `start` and exclusive of `stop`.
  * - The sign of `step` must match the direction of the range.
  *
+ * @category Array Helpers
+ *
  * @param start - The number to start at (inclusive).
  * @param stop - The number to stop at (exclusive).
  * @param step - The step size between numbers, defaulting to 1.

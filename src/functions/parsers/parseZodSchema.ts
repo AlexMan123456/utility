@@ -5,6 +5,8 @@ import { DataError } from "src/types";
 /**
  * An alternative function to zodSchema.parse() that can be used to strictly parse Zod schemas.
  *
+ * @category Parsers
+ *
  * @template Output - The Zod output type.
  * @template Input - The Zod input type.
  * @template Internals - The Zod internal types based on the output and input types.

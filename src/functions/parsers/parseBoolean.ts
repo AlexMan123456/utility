@@ -3,6 +3,8 @@ import { DataError } from "src/types";
 /**
  * Takes a stringly-typed boolean and converts it to an actual boolean type.
  *
+ * @category Parsers
+ *
  * @param inputString - The string to parse.
  *
  * @throws {DataError} If the string is not either `true` or `false` (case insensitive).

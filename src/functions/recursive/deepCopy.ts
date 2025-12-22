@@ -5,6 +5,8 @@ function callDeepCopy<ObjectType>(input: ObjectType) {
 /**
  * Deeply copies an object or array such that all child objects/arrays are also copied.
  *
+ * @category Recursive
+ *
  * @template ObjectType - The type of the input object.
  *
  * @param object - The object to copy. May also be an array.

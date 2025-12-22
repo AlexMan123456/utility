@@ -1,6 +1,8 @@
 /**
  * Removes duplicate values from an array.
  *
+ * @category Array Helpers
+ *
  * @template ItemType - The type of the array items.
  *
  * @param array - The array to remove duplicates from.

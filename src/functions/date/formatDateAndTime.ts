@@ -4,6 +4,8 @@ import isSameDate from "src/functions/date/isSameDate";
 /**
  * Creates a human-readable string with information about the input date.
  *
+ * @category Date
+ *
  * @param inputDate - The date to base the string on.
  *
  * @returns A new string with information about the given date.

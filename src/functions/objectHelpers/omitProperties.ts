@@ -1,6 +1,8 @@
 /**
  * Omits properties from a given object.
  *
+ * @category Object Helpers
+ *
  * @template ObjectType - The type of the input object.
  * @template KeysToOmit - A type representing the keys to omit from the object.
  *

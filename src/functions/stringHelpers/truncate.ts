@@ -1,6 +1,8 @@
 /**
  * Truncates a string and appends `...` to the end of it
  *
+ * @category String Helpers
+ *
  * @param stringToTruncate - The string to truncate.
  * @param maxLength - The length at which to start truncating. Note that this does not include the `...` part that would be appended.
  *
