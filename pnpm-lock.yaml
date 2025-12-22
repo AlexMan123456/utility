@@ -13,8 +13,8 @@ importers:
         version: 4.2.1
     devDependencies:
       '@alextheman/eslint-plugin':
-        specifier: ^5.0.1
-        version: 5.0.1(@eslint/js@9.39.2)(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.2)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint@9.39.2)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.2))(eslint-plugin-react-refresh@0.4.26(eslint@9.39.2))(eslint-plugin-react@7.37.5(eslint@9.39.2))(eslint@9.39.2)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)))(vitest@4.0.16(@types/node@25.0.3)(jsdom@27.3.0))
+        specifier: ^5.1.0
+        version: 5.1.0(@eslint/js@9.39.2)(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.2)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint@9.39.2)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.2))(eslint-plugin-react-refresh@0.4.26(eslint@9.39.2))(eslint-plugin-react@7.37.5(eslint@9.39.2))(eslint@9.39.2)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)))(vitest@4.0.16(@types/node@25.0.3)(jsdom@27.3.0))
       '@types/node':
         specifier: ^25.0.3
         version: 25.0.3
@@ -27,9 +27,6 @@ importers:
       eslint:
         specifier: ^9.39.2
         version: 9.39.2
-      eslint-plugin-perfectionist:
-        specifier: ^5.0.0
-        version: 5.0.0(eslint@9.39.2)(typescript@5.9.3)
       globals:
         specifier: ^16.5.0
         version: 16.5.0
@@ -60,8 +57,8 @@ packages:
   '@acemir/cssom@0.9.29':
     resolution: {integrity: sha512-G90x0VW+9nW4dFajtjCoT+NM0scAfH9Mb08IcjgFHYbfiL/lU04dTF9JuVOi3/OH+DJCQdcIseSXkdCB9Ky6JA==}
 
-  '@alextheman/eslint-plugin@5.0.1':
-    resolution: {integrity: sha512-ekIwmQlKs7Om8INE7DwxgGm67F2hZbTYrgBHAdCnf3HYj+qCENEdDFdWGlL97fUJIicaq072i6hzsmLoHZcaoQ==}
+  '@alextheman/eslint-plugin@5.1.0':
+    resolution: {integrity: sha512-Y2JBqQ9411o9pN8szAByJjdrbGtQ2AQJO5qjZqYgG6F2AuQ977cIgDfWJDkUciMHqZr/w6YOpAtJQzN/xEh4mg==}
     peerDependencies:
       '@eslint/js': '>=9.0.0'
       eslint: '>=9.0.0'
@@ -72,7 +69,7 @@ packages:
       eslint-plugin-jsx-a11y: '>=6.0.0'
       eslint-plugin-n: '>=17.23.1'
       eslint-plugin-package-json: '>=0.85.0'
-      eslint-plugin-perfectionist: '>=4.0.0'
+      eslint-plugin-perfectionist: '>=5.0.0'
       eslint-plugin-prettier: '>=5.0.0'
       eslint-plugin-react: '>=7.0.0'
       eslint-plugin-react-hooks: '>=7.0.0'
@@ -2806,7 +2803,7 @@ snapshots:
 
   '@acemir/cssom@0.9.29': {}
 
-  '@alextheman/eslint-plugin@5.0.1(@eslint/js@9.39.2)(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.2)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint@9.39.2)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.2))(eslint-plugin-react-refresh@0.4.26(eslint@9.39.2))(eslint-plugin-react@7.37.5(eslint@9.39.2))(eslint@9.39.2)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)))(vitest@4.0.16(@types/node@25.0.3)(jsdom@27.3.0))':
+  '@alextheman/eslint-plugin@5.1.0(@eslint/js@9.39.2)(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint-import-resolver-typescript@4.4.4)(eslint-plugin-import@2.32.0)(eslint-plugin-jsdoc@61.5.0(eslint@9.39.2))(eslint-plugin-jsx-a11y@6.10.2(eslint@9.39.2))(eslint-plugin-n@17.23.1(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-package-json@0.85.0(@types/estree@1.0.8)(eslint@9.39.2)(jsonc-eslint-parser@2.4.2))(eslint-plugin-perfectionist@5.0.0(eslint@9.39.2)(typescript@5.9.3))(eslint-plugin-prettier@5.5.4(eslint-config-prettier@10.1.8(eslint@9.39.2))(eslint@9.39.2)(prettier@3.7.4))(eslint-plugin-react-hooks@7.0.1(eslint@9.39.2))(eslint-plugin-react-refresh@0.4.26(eslint@9.39.2))(eslint-plugin-react@7.37.5(eslint@9.39.2))(eslint@9.39.2)(typescript-eslint@8.50.0(eslint@9.39.2)(typescript@5.9.3))(typescript@5.9.3)(vite-tsconfig-paths@6.0.3(typescript@5.9.3)(vite@7.3.0(@types/node@25.0.3)))(vitest@4.0.16(@types/node@25.0.3)(jsdom@27.3.0))':
     dependencies:
       '@alextheman/utility': 4.1.0
       '@eslint/js': 9.39.2
