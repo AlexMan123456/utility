@@ -95,7 +95,7 @@ describe("VersionNumber", () => {
         throw new Error("DID_NOT_THROW");
       } catch (error) {
         if (DataError.check(error)) {
-          expect(error.code).toBe("NON_POSITIVE_INPUTS");
+          expect(error.code).toBe("NEGATIVE_INPUTS");
           expect(error.message).toBe("Input array must be a tuple of three non-negative integers.");
         } else {
           throw error;

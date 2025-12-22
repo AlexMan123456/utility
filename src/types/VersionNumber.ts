@@ -51,7 +51,7 @@ class VersionNumber {
       const [major, minor, patch] = input.map((number) => {
         const parsedInteger = parseIntStrict(number?.toString());
         if (parsedInteger < 0) {
-          throw new DataError(input, "NON_POSITIVE_INPUTS", VersionNumber.NON_NEGATIVE_TUPLE_ERROR);
+          throw new DataError(input, "NEGATIVE_INPUTS", VersionNumber.NON_NEGATIVE_TUPLE_ERROR);
         }
         return parsedInteger;
       });
