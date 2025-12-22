@@ -9,15 +9,15 @@ export interface ToStringOptions {
 
 /** Represents a software version number, considered to be made up of a major, minor, and patch part. */
 class VersionNumber {
+  private static readonly NON_NEGATIVE_TUPLE_ERROR =
+    "Input array must be a tuple of three non-negative integers.";
+
   /** The major number. Increments when a feature is removed or changed in a way that is not backwards-compatible with the previous release. */
   public readonly major: number = 0;
   /** The minor number. Increments when a new feature is added/deprecated and is expected to be backwards-compatible with the previous release. */
   public readonly minor: number = 0;
   /** The patch number. Increments when the next release is fixing a bug or doing a small refactor that should not be noticeable in practice. */
   public readonly patch: number = 0;
-
-  private static readonly NON_NEGATIVE_TUPLE_ERROR =
-    "Input array must be a tuple of three non-negative integers.";
 
   /**
    * @param input - The input to create a new instance of `VersionNumber` from.
@@ -61,25 +61,6 @@ class VersionNumber {
     }
   }
 
-  private static formatString(input: string, options?: ToStringOptions) {
-    if (options?.omitPrefix) {
-      return input.startsWith("v") ? input.slice(1) : input;
-    }
-    return input.startsWith("v") ? input : `v${input}`;
-  }
-
-  /**
-   * Get a string representation of the current version number.
-   *
-   * @param options - Extra additional options to apply.
-   *
-   * @returns A stringified representation of the current version number, leaving out the prefix if `omitPrefix` option was set to true.
-   */
-  public toString(options?: ToStringOptions): string {
-    const rawString = `${this.major}.${this.minor}.${this.patch}`;
-    return VersionNumber.formatString(rawString, options);
-  }
-
   /**
    * Gets the current version type of the current instance of `VersionNumber`.
    *
@@ -95,26 +76,11 @@ class VersionNumber {
     return VersionType.PATCH;
   }
 
-  /**
-   * Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
-   *
-   * @param incrementType - The type of increment. Can be one of the following:
-   * - `"major"`: Change the major version `v1.2.3` → `v2.0.0`
-   * - `"minor"`: Change the minor version `v1.2.3` → `v1.3.0`
-   * - `"patch"`: Change the patch version `v1.2.3` → `v1.2.4`
-   *
-   * @returns A new instance of `VersionNumber` with the increment applied.
-   */
-  public increment(incrementType: VersionType): VersionNumber {
-    const versionLookup: Record<VersionType, [number, number, number]> = {
-      major: [this.major + 1, 0, 0],
-      minor: [this.major, this.minor + 1, 0],
-      patch: [this.major, this.minor, this.patch + 1],
-    };
-
-    const newVersion = versionLookup[incrementType];
-
-    return new VersionNumber(newVersion);
+  private static formatString(input: string, options?: ToStringOptions) {
+    if (options?.omitPrefix) {
+      return input.startsWith("v") ? input.slice(1) : input;
+    }
+    return input.startsWith("v") ? input : `v${input}`;
   }
 
   /**
@@ -131,6 +97,35 @@ class VersionNumber {
       firstVersion.minor === secondVersion.minor &&
       firstVersion.patch === secondVersion.patch
     );
+  }
+
+  /**
+   * Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
+   *
+   * @param incrementType - The type of increment. Can be one of the following:
+   * - `"major"`: Change the major version `v1.2.3` → `v2.0.0`
+   * - `"minor"`: Change the minor version `v1.2.3` → `v1.3.0`
+   * - `"patch"`: Change the patch version `v1.2.3` → `v1.2.4`
+   *
+   * @returns A new instance of `VersionNumber` with the increment applied.
+   */
+  public increment(incrementType: VersionType): VersionNumber {
+    return {
+      major: new VersionNumber([this.major + 1, 0, 0]),
+      minor: new VersionNumber([this.major, this.minor + 1, 0]),
+      patch: new VersionNumber([this.major, this.minor, this.patch + 1]),
+    }[incrementType];
+  }
+  /**
+   * Get a string representation of the current version number.
+   *
+   * @param options - Extra additional options to apply.
+   *
+   * @returns A stringified representation of the current version number, leaving out the prefix if `omitPrefix` option was set to true.
+   */
+  public toString(options?: ToStringOptions): string {
+    const rawString = `${this.major}.${this.minor}.${this.patch}`;
+    return VersionNumber.formatString(rawString, options);
   }
 }
 

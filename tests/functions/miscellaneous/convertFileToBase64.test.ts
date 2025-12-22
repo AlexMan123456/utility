@@ -22,8 +22,8 @@ describe("convertFileToBase64", () => {
     vi.stubGlobal(
       "FileReader",
       class MockFileReader extends FileReader {
-        public override onload: ((this: FileReader, event: ProgressEvent) => any) | null = null;
         public override onerror: ((this: FileReader, event: ProgressEvent) => any) | null = null;
+        public override onload: ((this: FileReader, event: ProgressEvent) => any) | null = null;
 
         public override readAsDataURL = () => {
           queueMicrotask(() => {

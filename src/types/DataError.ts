@@ -1,7 +1,7 @@
 /** Represents errors you may get that may've been caused by a specific piece of data. */
 class DataError extends Error {
-  public data: unknown;
   public code: string;
+  public data: unknown;
 
   /**
    * @param data - The data that caused the error.
