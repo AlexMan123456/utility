@@ -177,6 +177,5 @@ Once your change gets merged in, run the `commit-version-change` workflow to gen
 5. If intending to release, create a release note, carefully deciding if it's a major, minor, or patch release (if adding to a release that is about to happen, add to the existing note)
 6. Commit the release note separately from the feature.
 7. Create a feature pull request and wait for it to be merged, choosing the appropriate template.
-8. Run the commit-version-change workflow to create a pull request to change just the version.
-9. Merge it in once CI passes.
-10. All done!
+8. Wait for the pull request generated from the `commit-version-change` workflow to be merged in.
+9. All done!
