@@ -8,6 +8,7 @@ import DataError from "src/types/DataError";
  * @category Class Options
  */
 export interface VersionNumberToStringOptions {
+  /** Whether you want to omit the "v" prefix or not (defaults to false). */
   omitPrefix?: boolean;
 }
 
