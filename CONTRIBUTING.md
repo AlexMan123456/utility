@@ -90,7 +90,28 @@ describe("removeDuplicates", () => {
 
 Note the use of `.toBe()` over `.toEqual()` here. This is because in this case, we are comparing the variable's memory reference to the output's memory reference rather than the actual contents of the array.
 
-### Documenting
+### Creating a type
+
+Creating a type works in a similar way to creating a function, in the sense that you create a new file for it, add it to `src/types/index.ts`, and test it. Yes, test it. It is possible to test type declarations using `expectTypeOf`. As an example:
+
+```typescript
+import type { OptionalOnCondition } from "src/types";
+
+import { describe, expectTypeOf, test } from "vitest";
+
+describe("OptionalOnCondition", () => {
+  test("Resolves to the type of the second type argument if first type argument is true", () => {
+    expectTypeOf<OptionalOnCondition<true, string>>().toEqualTypeOf<string>();
+  });
+  test("Resolves to a union of the second type and undefined if first type argument is false", () => {
+    expectTypeOf<OptionalOnCondition<false, string>>().toEqualTypeOf<string | undefined>();
+  });
+});
+```
+
+Note that when you actually run the tests using `npm test`, the tests will always pass even if the logic is incorrect. This is because type tests run with the TypeScript compiler so it will error in your editor and in linting, but it will never fail in runtime. As such, just remember to be extra careful with these type tests and remember that the actual test results for these show in the editor and not in runtime.
+
+## Documenting
 
 Every exported function must also have JSDoc comments. This gives each function a human-readable summary of its purpose that shows in the editor, and (once I get around to it), automatic documentation generating from those comments.
 
@@ -141,26 +162,36 @@ class Class<FirstTypeArg, SecondTypeArg> {
 
 If a comment is missing, it will fail the linting process. Every function, class, and type must be commented. This ensures a good developer experience all around, making the intent of the addition clearer.
 
-### Creating a type
+### Release Notes
 
-Creating a type works in a similar way to creating a function, in the sense that you create a new file for it, add it to `src/types/index.ts`, and test it. Yes, test it. It is possible to test type declarations using `expectTypeOf`. As an example:
+In order for a release of the package to be made, a release note must be created in `docs/releases`. You do not need to manually add the file yourself - you can instead run one of the following commands to generate a template already:
 
-```typescript
-import type { OptionalOnCondition } from "src/types";
-
-import { describe, expectTypeOf, test } from "vitest";
-
-describe("OptionalOnCondition", () => {
-  test("Resolves to the type of the second type argument if first type argument is true", () => {
-    expectTypeOf<OptionalOnCondition<true, string>>().toEqualTypeOf<string>();
-  });
-  test("Resolves to a union of the second type and undefined if first type argument is false", () => {
-    expectTypeOf<OptionalOnCondition<false, string>>().toEqualTypeOf<string | undefined>();
-  });
-});
+```bash
+pnpm run create-release-note-major # Creates a release note template for the next major version (v1.2.3 → v2.0.0)
+```
+```bash
+pnpm run create-release-note-minor # Creates a release note template for the next minor version (v1.2.3 → v1.3.0)
+```
+```bash
+pnpm run create-release-note-patch # Creates a release note template for the next minor version (v1.2.3 → v1.2.4)
 ```
 
-Note that when you actually run the tests using `npm test`, the tests will always pass even if the logic is incorrect. This is because type tests run with the TypeScript compiler so it will error in your editor and in linting, but it will never fail in runtime. As such, just remember to be extra careful with these type tests and remember that the actual test results for these show in the editor and not in runtime.
+From there, you should edit the **Description of Changes** section, the **Migration Notes** section if it's a major version (or a minor version that deprecates things), and optionally the **Additional Notes** section.
+
+Never manually edit anything else beyond that. This includes:
+- The main header
+- **Status**: In progress (**VERY IMPORTANT** you do not edit this! This will mess with the automation otherwise.)
+- The summary paragraph below the **Status** but above **Description of Changes**
+- The **Description of Changes** header itself
+- The **Migration Notes** header
+
+You may delete the **Additional Notes** header and/or add extra headers if needed, though, but never edit any of the things mentioned above.
+
+### Document Generation
+
+Documentation is generated from the JSDoc comments, using TypeDoc. It will generate Markdown files for each function in `docs/features/markdown`, as well as HTML files for the (eventual) hosted docs site in `docs/features/html`. Please do NOT ever manually edit files in these directories. They are automatically generated and will most likely end up getting replaced whenever someone runs the `pnpm run create-feature-docs` script.
+
+Furthermore, there is an action that runs on every push to main that will run this script and put up a pull request. As such, there should never really be a need for you to run that script yourself given that the docs will automatically be kept up-to-date by that action anyway.
 
 ## Publishing
 
@@ -177,6 +208,5 @@ Once your change gets merged in, run the `commit-version-change` workflow to gen
 5. If intending to release, create a release note, carefully deciding if it's a major, minor, or patch release (if adding to a release that is about to happen, add to the existing note)
 6. Commit the release note separately from the feature.
 7. Create a feature pull request and wait for it to be merged, choosing the appropriate template.
-8. Run the commit-version-change workflow to create a pull request to change just the version.
-9. Merge it in once CI passes.
-10. All done!
+8. Wait for the pull request generated from the `commit-version-change` workflow to be merged in.
+9. All done!
