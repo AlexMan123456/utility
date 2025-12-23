@@ -10,15 +10,19 @@ Applies any options if provided, then removes any extraneous indents from a mult
 
 You can pass a template string directly by doing:
 
-     normaliseIndents`Template string here
-         with a new line
-         and another new line`.
+```typescript
+normaliseIndents`Template string here
+    with a new line
+    and another new line`.
+```
 
 You may also pass the options first, then invoke the resulting function with a template string:
 
-     normaliseIndents({ preserveTabs: false })`Template string here
-         with a new line
-         and another new line`.
+```typescript
+normaliseIndents({ preserveTabs: false })`Template string here
+    with a new line
+    and another new line`.
+```
 
 ## Param
 
@@ -56,9 +60,11 @@ Removes any extraneous indents from a multi-line template string.
 
 You can pass a template string directly by doing:
 
-     normaliseIndents`Template string here
-         with a new line
-         and another new line`.
+```typescript
+normaliseIndents`Template string here
+    with a new line
+    and another new line`.
+```
 
 ### Parameters
 
