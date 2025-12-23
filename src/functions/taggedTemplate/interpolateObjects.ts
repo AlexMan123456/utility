@@ -3,7 +3,9 @@
  *
  * You can pass a template string directly by doing:
  *
- *      interpolateObjects`Template string here ${{ my: "object" }}`.
+ * ```typescript
+ * interpolateObjects`Template string here ${{ my: "object" }}`.
+ * ```
  *
  * @category Tagged Template
  *

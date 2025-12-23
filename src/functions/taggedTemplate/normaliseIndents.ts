@@ -72,9 +72,11 @@ function normaliseIndents(options: NormaliseIndentsOptions): NormaliseIndentsFun
  *
  * You can pass a template string directly by doing:
  *
- *      normaliseIndents`Template string here
- *          with a new line
- *          and another new line`.
+ * ```typescript
+ * normaliseIndents`Template string here
+ *     with a new line
+ *     and another new line`.
+ * ```
  *
  *@category Tagged Template
  *
@@ -90,15 +92,19 @@ function normaliseIndents(strings: TemplateStringsArray, ...interpolations: unkn
  *
  * You can pass a template string directly by doing:
  *
- *      normaliseIndents`Template string here
- *          with a new line
- *          and another new line`.
+ * ```typescript
+ * normaliseIndents`Template string here
+ *     with a new line
+ *     and another new line`.
+ * ```
  *
  * You may also pass the options first, then invoke the resulting function with a template string:
  *
- *      normaliseIndents({ preserveTabs: false })`Template string here
- *          with a new line
- *          and another new line`.
+ * ```typescript
+ * normaliseIndents({ preserveTabs: false })`Template string here
+ *     with a new line
+ *     and another new line`.
+ * ```
  *
  *@category Tagged Template
  *
@@ -135,15 +141,19 @@ function normaliseIndents(
  *
  * You can pass a template string directly by doing:
  *
- *      normalizeIndents`Template string here
- *          with a new line
- *          and another new line`.
+ * ```typescript
+ * normalizeIndents`Template string here
+ *     with a new line
+ *     and another new line`.
+ * ```
  *
  * You may also pass the options first, then invoke the resulting function with a template string:
  *
- *      normalizeIndents({ preserveTabs: false })`Template string here
- *          with a new line
- *          and another new line`.
+ * ```typescript
+ * normalizeIndents({ preserveTabs: false })`Template string here
+ *     with a new line
+ *     and another new line`.
+ * ```
  *
  * @param first - The strings from the template to process, or the options to apply.
  * @param args - An array of all interpolations from the template.
