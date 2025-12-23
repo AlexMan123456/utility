@@ -1,5 +1,12 @@
 # @alextheman/utility
 
+![npm version](https://img.shields.io/npm/v/@alextheman/utility)
+![npm downloads](https://img.shields.io/npm/dm/@alextheman/utility)
+![npm license](https://img.shields.io/npm/l/@alextheman/utility)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/74fd3eaf-3002-472b-ae5e-2bd0ab984b9e/deploy-status)](https://app.netlify.com/projects/alextheman-utility-docs/deploys)
+
+
 This is my personal utility package. It provides custom utility functions that can be used in more or less any TypeScript or JavaScript project, using either the browser or Node environment.
 
 ## Installation
