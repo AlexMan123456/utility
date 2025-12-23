@@ -27,6 +27,9 @@ jobs:
         with:
           node-version: 22
           cache: "pnpm"
+      
+      - name: Install netlify-cli
+        run: npm install -g netlify-cli
 
       - name: Install dependencies
         run: pnpm install
@@ -38,4 +41,4 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: pnpm run release-feature-docs
+        run: netlify deploy --prod --no-build --dir docs/features/html
