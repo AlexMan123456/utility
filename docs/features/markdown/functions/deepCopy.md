@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **deepCopy**\<`ObjectType`\>(`object`): `ObjectType`
 
-Defined in: [src/functions/recursive/deepCopy.ts:16](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/recursive/deepCopy.ts#L16)
+Defined in: [src/functions/recursive/deepCopy.ts:16](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/recursive/deepCopy.ts#L16)
 
 Deeply copies an object or array such that all child objects/arrays are also copied.
 

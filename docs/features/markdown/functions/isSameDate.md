@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **isSameDate**(`firstDate`, `secondDate`): `boolean`
 
-Defined in: [src/functions/date/isSameDate.ts:11](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/date/isSameDate.ts#L11)
+Defined in: [src/functions/date/isSameDate.ts:11](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/date/isSameDate.ts#L11)
 
 Checks if the provided dates happen on the exact same day, month, and year.
 

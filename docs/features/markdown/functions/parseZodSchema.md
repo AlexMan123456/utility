@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **parseZodSchema**\<`Output`, `Input`, `Internals`, `ErrorType`\>(`schema`, `data`, `error?`): `output`\<`ZodType`\<`Output`, `Input`, `Internals`\>\>
 
-Defined in: [src/functions/parsers/parseZodSchema.ts:23](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/parsers/parseZodSchema.ts#L23)
+Defined in: [src/functions/parsers/parseZodSchema.ts:23](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/parsers/parseZodSchema.ts#L23)
 
 An alternative function to zodSchema.parse() that can be used to strictly parse Zod schemas.
 

@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: DataError
 
-Defined in: [src/types/DataError.ts:6](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/DataError.ts#L6)
+Defined in: [src/types/DataError.ts:6](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/DataError.ts#L6)
 
 Represents errors you may get that may've been caused by a specific piece of data.
 
@@ -20,7 +20,7 @@ Represents errors you may get that may've been caused by a specific piece of dat
 
 > **new DataError**(`data`, `code`, `message`, `options?`): `DataError`
 
-Defined in: [src/types/DataError.ts:16](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/DataError.ts#L16)
+Defined in: [src/types/DataError.ts:16](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/DataError.ts#L16)
 
 #### Parameters
 
@@ -154,7 +154,7 @@ a();
 
 > `static` **check**(`input`): `input is DataError`
 
-Defined in: [src/types/DataError.ts:42](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/DataError.ts#L42)
+Defined in: [src/types/DataError.ts:42](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/DataError.ts#L42)
 
 Checks whether the given input may have been caused by a DataError.
 

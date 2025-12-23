@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -8,7 +8,7 @@
 
 > **interpolateObjects**(`strings`, ...`interpolations`): `string`
 
-Defined in: [src/functions/taggedTemplate/interpolateObjects.ts:15](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/taggedTemplate/interpolateObjects.ts#L15)
+Defined in: [src/functions/taggedTemplate/interpolateObjects.ts:15](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/taggedTemplate/interpolateObjects.ts#L15)
 
 Returns the result of interpolating a template string, also stringifying objects.
 

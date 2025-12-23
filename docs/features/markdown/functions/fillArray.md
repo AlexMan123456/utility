@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -25,7 +25,7 @@ The desired length of the resulting array.
 
 > **fillArray**\<`ItemType`\>(`callback`, `length?`): `Promise`\<`ItemType`[]\>
 
-Defined in: [src/functions/arrayHelpers/fillArray.ts:14](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/arrayHelpers/fillArray.ts#L14)
+Defined in: [src/functions/arrayHelpers/fillArray.ts:14](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/arrayHelpers/fillArray.ts#L14)
 
 Creates a new array where each element is the resolved result of the provided asynchronous callback.
 
@@ -62,7 +62,7 @@ A Promise resolving to an array of the callback results.
 
 > **fillArray**\<`ItemType`\>(`callback`, `length?`): `ItemType`[]
 
-Defined in: [src/functions/arrayHelpers/fillArray.ts:32](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/arrayHelpers/fillArray.ts#L32)
+Defined in: [src/functions/arrayHelpers/fillArray.ts:32](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/functions/arrayHelpers/fillArray.ts#L32)
 
 Creates a new array where each element is the result of the provided synchronous callback.
 

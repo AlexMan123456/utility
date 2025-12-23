@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -6,7 +6,7 @@
 
 # Class: APIError
 
-Defined in: [src/types/APIError.ts:19](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/APIError.ts#L19)
+Defined in: [src/types/APIError.ts:19](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/APIError.ts#L19)
 
 Represents common errors you may get from a HTTP API request.
 
@@ -20,7 +20,7 @@ Represents common errors you may get from a HTTP API request.
 
 > **new APIError**(`status`, `message?`, `options?`): `APIError`
 
-Defined in: [src/types/APIError.ts:27](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/APIError.ts#L27)
+Defined in: [src/types/APIError.ts:27](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/APIError.ts#L27)
 
 #### Parameters
 
@@ -148,7 +148,7 @@ a();
 
 > `static` **check**(`input`): `input is APIError`
 
-Defined in: [src/types/APIError.ts:50](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/APIError.ts#L50)
+Defined in: [src/types/APIError.ts:50](https://github.com/AlexMan123456/utility/blob/441c598afb775373389b58c3b3535b36cada9467/src/types/APIError.ts#L50)
 
 Checks whether the given input may have been caused by an APIError.
 
