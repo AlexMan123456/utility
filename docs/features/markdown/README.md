@@ -38,3 +38,5 @@ const myVariable: NonUndefined<string> = formatDateAndTime(new Date());
 ## Documentation
 
 You can find the relevant documentation of all features of the package in the [docs/features/markdown](https://github.com/AlexMan123456/utility/tree/main/docs/features/markdown) directory of the repository. The hosted documentation site can be found [here](https://utility-docs.netlify.app/).
+
+Testing
