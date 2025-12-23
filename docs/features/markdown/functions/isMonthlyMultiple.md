@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # Function: isMonthlyMultiple()
 
 > **isMonthlyMultiple**(`firstDate`, `secondDate`): `boolean`
-
-Defined in: [src/functions/date/isMonthlyMultiple.ts:38](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/date/isMonthlyMultiple.ts#L38)
 
 Checks if the provided dates are exactly a whole number of months apart.
 

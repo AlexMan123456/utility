@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # Function: parseBoolean()
 
 > **parseBoolean**(`inputString`): `boolean`
-
-Defined in: [src/functions/parsers/parseBoolean.ts:14](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/parsers/parseBoolean.ts#L14)
 
 Takes a stringly-typed boolean and converts it to an actual boolean type.
 

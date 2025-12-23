@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -23,8 +23,6 @@ An optional parser to call on the object before it gets returned.
 ## Call Signature
 
 > **parseFormData**\<`DataType`\>(`formData`, `dataParser`): `DataType`
-
-Defined in: [src/functions/parsers/parseFormData.ts:11](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/parsers/parseFormData.ts#L11)
 
 Returns a parsed object given FormData and a data parser function to call on the resulting object.
 
@@ -59,8 +57,6 @@ A parsed object based on the contents of the input formData and the result of pa
 ## Call Signature
 
 > **parseFormData**(`formData`): `Record`\<`string`, `string` \| `Blob`\>
-
-Defined in: [src/functions/parsers/parseFormData.ts:22](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/parsers/parseFormData.ts#L22)
 
 Returns an object given FormData.
 

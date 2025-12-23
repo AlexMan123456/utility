@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # Function: stringListToArray()
 
 > **stringListToArray**(`stringList`, `options`): `string`[]
-
-Defined in: [src/functions/miscellaneous/stringListToArray.ts:20](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/miscellaneous/stringListToArray.ts#L20)
 
 Converts a stringly-typed list to a proper array.
 
