@@ -10,3 +10,4 @@ export type { IgnoreCase } from "src/types/IgnoreCase";
 export type { NonUndefined } from "src/types/NonUndefined";
 export type { OptionalOnCondition } from "src/types/OptionalOnCondition";
 export type { RecordKey } from "src/types/RecordKey";
+export type { VersionNumberToStringOptions } from "src/types/VersionNumber";

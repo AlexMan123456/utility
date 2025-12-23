@@ -1,6 +1,11 @@
 import fillArray from "src/functions/arrayHelpers/fillArray";
 import interpolate from "src/functions/taggedTemplate/interpolate";
 
+/**
+ * Options to apply to the normalisation of indents in multi-line template strings
+ *
+ * @category Function Options
+ */
 export interface NormaliseIndentsOptions {
   /** Whether to preserve extra tabs or not (defaults to true) */
   preserveTabs?: boolean;

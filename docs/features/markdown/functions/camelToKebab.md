@@ -20,7 +20,7 @@ The string to convert.
 
 ### options
 
-`CamelToKebabOptions` = `...`
+[`CamelToKebabOptions`](../interfaces/CamelToKebabOptions.md) = `...`
 
 Options to apply to the conversion.
 

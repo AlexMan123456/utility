@@ -28,7 +28,7 @@ The data to create FormData from.
 
 ### options
 
-`CreateFormDataOptions`\<keyof `DataType`\> = `...`
+[`CreateFormDataOptions`](../type-aliases/CreateFormDataOptions.md)\<keyof `DataType`\> = `...`
 
 Options to apply to the conversion.
 

@@ -12,6 +12,10 @@
 - [range](functions/range.md)
 - [removeDuplicates](functions/removeDuplicates.md)
 
+## Class Options
+
+- [VersionNumberToStringOptions](interfaces/VersionNumberToStringOptions.md)
+
 ## Date
 
 - [addDaysToDate](functions/addDaysToDate.md)
@@ -20,6 +24,16 @@
 - [isLeapYear](functions/isLeapYear.md)
 - [isMonthlyMultiple](functions/isMonthlyMultiple.md)
 - [isSameDate](functions/isSameDate.md)
+
+## Function Options
+
+- [CamelToKebabOptions](interfaces/CamelToKebabOptions.md)
+- [CreateFormDataOptionsNullableResolution](interfaces/CreateFormDataOptionsNullableResolution.md)
+- [CreateFormDataOptionsUndefinedOrNullResolution](interfaces/CreateFormDataOptionsUndefinedOrNullResolution.md)
+- [KebabToCamelOptions](interfaces/KebabToCamelOptions.md)
+- [NormaliseIndentsOptions](interfaces/NormaliseIndentsOptions.md)
+- [StringListToArrayOptions](interfaces/StringListToArrayOptions.md)
+- [CreateFormDataOptions](type-aliases/CreateFormDataOptions.md)
 
 ## Miscellaneous
 
@@ -81,9 +95,9 @@
 - [ArrayElement](type-aliases/ArrayElement.md)
 - [CreateEnumType](type-aliases/CreateEnumType.md)
 - [DisallowUndefined](type-aliases/DisallowUndefined.md)
-- [Env](type-aliases/Env.md)
 - [IgnoreCase](type-aliases/IgnoreCase.md)
 - [NonUndefined](type-aliases/NonUndefined.md)
 - [OptionalOnCondition](type-aliases/OptionalOnCondition.md)
 - [RecordKey](type-aliases/RecordKey.md)
+- [Env](variables/Env.md)
 - [VersionType](variables/VersionType.md)
