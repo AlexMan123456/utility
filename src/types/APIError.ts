@@ -11,7 +11,11 @@ export const httpErrorCodeLookup: Record<HTTPErrorCode, string> = {
   500: "INTERNAL_SERVER_ERROR",
 };
 
-/** Represents common errors you may get from a HTTP API request. */
+/**
+ * Represents common errors you may get from a HTTP API request.
+ *
+ * @category Types
+ */
 class APIError extends Error {
   public status: number;
 

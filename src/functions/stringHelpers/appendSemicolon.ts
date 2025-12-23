@@ -1,6 +1,8 @@
 /**
  * Appends a semicolon to the end of a string, trimming where necessary first.
  *
+ * @category String Helpers
+ *
  * @param stringToAppendTo - The string to append a semicolon to.
  *
  * @throws {Error} If the string contains multiple lines.

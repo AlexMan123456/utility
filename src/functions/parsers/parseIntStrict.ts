@@ -3,6 +3,8 @@ import { DataError } from "src/types";
 /**
  * Converts a string to an integer and throws an error if it cannot be converted.
  *
+ * @category Parsers
+ *
  * @param string - A string to convert into a number.
  * @param radix - A value between 2 and 36 that specifies the base of the number in string. If this argument is not supplied, strings with a prefix of '0x' are considered hexadecimal. All other strings are considered decimal.
  *

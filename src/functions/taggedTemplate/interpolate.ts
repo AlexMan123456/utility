@@ -9,6 +9,8 @@ import paralleliseArrays from "src/functions/arrayHelpers/paralleliseArrays";
  *
  * In this case, it will be functionally the same as if you just wrote the template string by itself.
  *
+ * @category Tagged Template
+ *
  * @param strings - The strings from the template to process.
  * @param interpolations - An array of all interpolations from the template.
  *

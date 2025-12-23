@@ -6,6 +6,8 @@ export type ParallelTuple<A, B> = [A, B | undefined];
  * If `secondArray` is shorter than `firstArray`, the second position in the tuple
  * will be `undefined`. Iteration always uses the length of the first array.
  *
+ * @category Array Helpers
+ *
  * @template FirstArrayItem
  * @template SecondArrayItem
  *

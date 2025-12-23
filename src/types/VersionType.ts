@@ -1,5 +1,10 @@
 import type { CreateEnumType } from "src/types/CreateEnumType";
 
+/**
+ * Represents the three common software version types.
+ *
+ * @category Types
+ */
 export const VersionType = {
   MAJOR: "major",
   MINOR: "minor",

@@ -8,6 +8,8 @@ export interface KebabToCamelOptions {
 /**
  * Converts a string from kebab-case to camelCase
  *
+ * @category String Helpers
+ *
  * @param string - The string to convert.
  * @param options - Options to apply to the conversion.
  *

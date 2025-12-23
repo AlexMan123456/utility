@@ -5,6 +5,8 @@
  *
  *      interpolateObjects`Template string here ${{ my: "object" }}`.
  *
+ * @category Tagged Template
+ *
  * @param strings - The strings from the template to process.
  * @param interpolations - An array of all interpolations from the template.
  *

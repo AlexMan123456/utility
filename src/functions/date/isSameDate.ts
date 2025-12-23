@@ -1,6 +1,8 @@
 /**
  * Checks if the provided dates happen on the exact same day, month, and year.
  *
+ * @category Date
+ *
  * @param firstDate - The first date to compare.
  * @param secondDate - The second date to compare.
  *

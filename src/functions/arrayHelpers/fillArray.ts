@@ -37,6 +37,8 @@ function fillArray<ItemType>(callback: (index: number) => ItemType, length?: num
  * If the callback returns at least one Promise, the entire result will be wrapped
  * in a `Promise` and resolved with `Promise.all`. Otherwise, a plain array is returned.
  *
+ * @category Array Helpers
+ *
  * @template ItemType
  *
  * @param callback - A function invoked with the current index. May return a value or a Promise.

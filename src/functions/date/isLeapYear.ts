@@ -3,6 +3,8 @@ import parseIntStrict from "src/functions/parsers/parseIntStrict";
 /**
  * Checks if the provided year is a leap year.
  *
+ * @category Date
+ *
  * @param year - The year to check as a number.
  *
  * @throws {TypeError} If the year provided is not an integer.

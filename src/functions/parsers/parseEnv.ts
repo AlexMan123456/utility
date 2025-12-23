@@ -4,11 +4,17 @@ import parseZodSchema from "src/functions/parsers/parseZodSchema";
 import { DataError } from "src/types";
 
 const envSchema = z.enum(["test", "development", "production"]);
-/** Represents the most common development environments */
+/**
+ * Represents the most common development environments
+ *
+ * @category Types
+ */
 export type Env = z.infer<typeof envSchema>;
 
 /**
  * Parses the input and verifies it matches one of the environments allowed by the Env types ("test" | "development" | "production").
+ *
+ * @category Parsers
  *
  * @param data - The data to parse.
  *

@@ -8,6 +8,8 @@ export interface StringListToArrayOptions {
 /**
  * Converts a stringly-typed list to a proper array.
  *
+ * @category Miscellaneous
+ *
  * @param stringList - The stringly-typed list to convert.
  * @param options - The options to apply to the conversion.
  * @param options.separator - What each item in the list is separated by.

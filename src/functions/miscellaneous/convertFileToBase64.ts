@@ -1,6 +1,8 @@
 /**
  * Asynchronously converts a file to a base 64 string
  *
+ * @category Miscellaneous
+ *
  * @param file - The file to convert.
  *
  * @throws {Error} If the file reader gives an error.

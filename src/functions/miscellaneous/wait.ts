@@ -1,6 +1,8 @@
 /**
  * Waits for the given number of seconds
  *
+ * @category Miscellaneous
+ *
  * @param seconds - The number of seconds to wait.
  *
  * @returns A Promise that resolves after the given number of seconds.

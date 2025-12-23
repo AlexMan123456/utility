@@ -24,6 +24,8 @@ function parseFormData(formData: FormData): Record<string, string | Blob>;
 /**
  * Returns an object given FormData and an optional data parser function to call on the resulting object.
  *
+ * @category Parsers
+ *
  * @template DataType - The type of the resulting object when called from the dataParser.
  *
  * @param formData - The FormData to parse.

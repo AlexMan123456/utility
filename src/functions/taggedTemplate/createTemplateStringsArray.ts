@@ -3,6 +3,8 @@ import deepFreeze from "src/functions/recursive/deepFreeze";
 /**
  * Creates a template strings array given a regular array of strings
  *
+ * @category Tagged Template
+ *
  * @param strings - The array of strings.
  *
  * @returns A template strings array that can be passed as the first argument of any tagged template function.
