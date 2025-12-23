@@ -28,7 +28,3 @@ import { formatDateAndTime } from "@alextheman/utility";
 const myVariable: NonUndefined<string> = formatDateAndTime(new Date());
 // ...
 ```
-
-## Documentation
-
-You can find the relevant documentation of all features of the package in the [docs/features/markdown](_media/markdown) directory of the repository. The hosted documentation site will be coming soon.
