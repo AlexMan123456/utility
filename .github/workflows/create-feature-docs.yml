@@ -1,0 +1,51 @@
+on:
+  push:
+    branches: ["main"]
+    
+permissions:
+  contents: write
+  pull-requests: write
+            
+            
+jobs:
+  create-feature-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
+        
+      - name: Setup GitHub user
+        run: |
+          git config --global user.name "AlexUpBot"
+          git config --global user.email "alexupbot@bot.com"
+
+      - name: Use PNPM
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+        with:
+          run_install: false
+
+      - name: Use Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Create feature docs
+        run: pnpm run create-feature-docs
+      
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@98357b18bf14b5342f975ff684046ec3b2a07725 # v8.0.0
+        with:
+          token: ${{ secrets.PAT_GITHUB }}
+          author: AlexUpBot <alexupbot@bot.com>
+          committer: AlexUpBot <alexupbot@bot.com>
+          branch: alex-up-bot/create-feature-docs
+          base: main
+          commit-message: Create feature docs
+          title: "Create feature docs"
+          body-path: .github/PULL_REQUEST_TEMPLATE/documentation_change.md
