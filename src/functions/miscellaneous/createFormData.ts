@@ -3,6 +3,13 @@ import type { RecordKey } from "src/types";
 export type FormDataNullableResolutionStrategy = "stringify" | "empty" | "omit";
 export type FormDataArrayResolutionStrategy = "stringify" | "multiple";
 
+/**
+ * Base options for resolving form data.
+ *
+ * @category Function Options
+ *
+ * @template Key - The type of the key of the input record.
+ */
 export interface CreateFormDataOptionsBase<Key extends RecordKey> {
   /** How to resolve any arrays provided in the data (can either stringify them or add them multiple times). */
   arrayResolution?:
@@ -10,6 +17,13 @@ export interface CreateFormDataOptionsBase<Key extends RecordKey> {
     | Partial<Record<Key, FormDataArrayResolutionStrategy>>;
 }
 
+/**
+ * Options for resolving form data when it may be undefined or null, but not both.
+ *
+ * @category Function Options
+ *
+ * @template Key - The type of the key of the input record.
+ */
 export interface CreateFormDataOptionsUndefinedOrNullResolution<
   Key extends RecordKey,
 > extends CreateFormDataOptionsBase<Key> {
@@ -25,6 +39,13 @@ export interface CreateFormDataOptionsUndefinedOrNullResolution<
   nullableResolution?: never;
 }
 
+/**
+ * Options for resolving form data when it may be nullable, but not both.
+ *
+ * @category Function Options
+ *
+ * @template Key - The type of the key of the input record.
+ */
 export interface CreateFormDataOptionsNullableResolution<
   Key extends RecordKey,
 > extends CreateFormDataOptionsBase<Key> {
@@ -38,6 +59,13 @@ export interface CreateFormDataOptionsNullableResolution<
     | Partial<Record<Key, FormDataNullableResolutionStrategy>>;
 }
 
+/**
+ * Options for resolving form data.
+ *
+ * @category Function Options
+ *
+ * @template Key - The type of the key of the input record.
+ */
 export type CreateFormDataOptions<Key extends RecordKey> =
   | CreateFormDataOptionsUndefinedOrNullResolution<Key>
   | CreateFormDataOptionsNullableResolution<Key>;

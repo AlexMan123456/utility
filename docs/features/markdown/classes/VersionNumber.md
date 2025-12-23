@@ -103,7 +103,7 @@ Get a string representation of the current version number.
 
 ##### options?
 
-`ToStringOptions`
+[`VersionNumberToStringOptions`](../interfaces/VersionNumberToStringOptions.md)
 
 Extra additional options to apply.
 

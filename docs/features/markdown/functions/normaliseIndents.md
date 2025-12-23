@@ -38,7 +38,7 @@ Provides a new function that removes any extraneous indents from a multi-line te
 
 #### options
 
-`NormaliseIndentsOptions`
+[`NormaliseIndentsOptions`](../interfaces/NormaliseIndentsOptions.md)
 
 The options to apply.
 

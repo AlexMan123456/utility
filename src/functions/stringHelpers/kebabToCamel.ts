@@ -1,5 +1,10 @@
 import parseIntStrict from "src/functions/parsers/parseIntStrict";
 
+/**
+ * Options to apply to the conversion from kebab-case to camelCase
+ *
+ * @category Function Options
+ */
 export interface KebabToCamelOptions {
   /** Whether or not the converted string should start with an uppercase (e.g. CamelCase instead of camelCase). */
   startWithUpper?: boolean;

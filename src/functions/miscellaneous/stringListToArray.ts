@@ -1,3 +1,8 @@
+/**
+ * Options to apply to the conversion of a string list to an array.
+ *
+ * @category Function Options
+ */
 export interface StringListToArrayOptions {
   /** What each item in the list is separated by. */
   separator?: string;

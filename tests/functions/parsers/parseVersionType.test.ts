@@ -1,4 +1,4 @@
-import type { VersionType } from "src/types";
+import type { VersionType } from "src/functions";
 
 import { describe, expect, test } from "vitest";
 

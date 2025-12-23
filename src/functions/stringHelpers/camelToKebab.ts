@@ -1,3 +1,8 @@
+/**
+ * Options to apply to the conversion from camelCase to kebab-case
+ *
+ * @category Function Options
+ */
 export interface CamelToKebabOptions {
   /** Whether to leave consecutive capitals alone in the conversion or not (e.g. `validateAPIUser` becomes `validate-a-p-i-user` if `false`, and `validate-api-user` if `true`) */
   preserveConsecutiveCapitals?: boolean;

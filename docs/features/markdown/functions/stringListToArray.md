@@ -20,7 +20,7 @@ The stringly-typed list to convert.
 
 ### options
 
-`StringListToArrayOptions` = `{}`
+[`StringListToArrayOptions`](../interfaces/StringListToArrayOptions.md) = `{}`
 
 The options to apply to the conversion.
 

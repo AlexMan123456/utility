@@ -1,9 +1,13 @@
 import { VERSION_NUMBER_REGEX } from "src/constants";
-import { parseIntStrict } from "src/functions";
+import { parseIntStrict, VersionType } from "src/functions";
 import DataError from "src/types/DataError";
-import { VersionType } from "src/types/VersionType";
 
-export interface ToStringOptions {
+/**
+ * Options to apply to the stringification of the version number.
+ *
+ * @category Class Options
+ */
+export interface VersionNumberToStringOptions {
   omitPrefix?: boolean;
 }
 
@@ -80,7 +84,7 @@ class VersionNumber {
     return VersionType.PATCH;
   }
 
-  private static formatString(input: string, options?: ToStringOptions) {
+  private static formatString(input: string, options?: VersionNumberToStringOptions) {
     if (options?.omitPrefix) {
       return input.startsWith("v") ? input.slice(1) : input;
     }
@@ -127,7 +131,7 @@ class VersionNumber {
    *
    * @returns A stringified representation of the current version number, leaving out the prefix if `omitPrefix` option was set to true.
    */
-  public toString(options?: ToStringOptions): string {
+  public toString(options?: VersionNumberToStringOptions): string {
     const rawString = `${this.major}.${this.minor}.${this.patch}`;
     return VersionNumber.formatString(rawString, options);
   }

@@ -1,15 +1,23 @@
+import type { CreateEnumType } from "src/types";
+
 import { z } from "zod";
 
 import parseZodSchema from "src/functions/parsers/parseZodSchema";
 import { DataError } from "src/types";
 
-const envSchema = z.enum(["test", "development", "production"]);
 /**
- * Represents the most common development environments
+ * Represents the three common development environments.
  *
  * @category Types
  */
-export type Env = z.infer<typeof envSchema>;
+export const Env = {
+  TEST: "test",
+  DEVELOPMENT: "development",
+  PRODUCTION: "production",
+};
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export type Env = CreateEnumType<typeof Env>;
 
 /**
  * Parses the input and verifies it matches one of the environments allowed by the Env types ("test" | "development" | "production").
@@ -24,7 +32,7 @@ export type Env = z.infer<typeof envSchema>;
  */
 function parseEnv(data: unknown): Env {
   return parseZodSchema(
-    envSchema,
+    z.enum(Env),
     data,
     new DataError(
       data,

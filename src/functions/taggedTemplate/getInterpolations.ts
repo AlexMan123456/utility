@@ -2,7 +2,9 @@
  * Gets the strings and interpolations separately from a template string.
  * You can pass a template string directly by doing:
  *
- *      getInterpolations`Template string here`.
+ * ```typescript
+ * getInterpolations`Template string here`.
+ * ```
  *
  * @category Tagged Template
  *
