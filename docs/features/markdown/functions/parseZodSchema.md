@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.2**](../README.md)
+[**@alextheman/utility v4.3.3**](../README.md)
 
 ***
 
