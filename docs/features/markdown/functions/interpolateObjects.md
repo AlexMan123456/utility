@@ -12,7 +12,9 @@ Returns the result of interpolating a template string, also stringifying objects
 
 You can pass a template string directly by doing:
 
-     interpolateObjects`Template string here ${{ my: "object" }}`.
+```typescript
+interpolateObjects`Template string here ${{ my: "object" }}`.
+```
 
 ## Parameters
 
