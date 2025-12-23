@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 
-import { DataError, VersionNumber, VersionType } from "src/types";
+import { VersionType } from "src/functions";
+import { DataError, VersionNumber } from "src/types";
 
 describe("VersionNumber", () => {
   describe("constructor", () => {

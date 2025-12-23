@@ -1,7 +1,23 @@
+import type { CreateEnumType } from "src/types";
+
 import z from "zod";
 
 import parseZodSchema from "src/functions/parsers/parseZodSchema";
-import { DataError, VersionType } from "src/types";
+import { DataError } from "src/types";
+
+/**
+ * Represents the three common software version types.
+ *
+ * @category Types
+ */
+export const VersionType = {
+  MAJOR: "major",
+  MINOR: "minor",
+  PATCH: "patch",
+} as const;
+
+// eslint-disable-next-line @typescript-eslint/no-redeclare
+export type VersionType = CreateEnumType<typeof VersionType>;
 
 /**
  * Parses the input and verifies it is a valid software version type (i.e. `"major" | "minor" | "patch"`)

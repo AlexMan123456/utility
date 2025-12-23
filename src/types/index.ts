@@ -1,7 +1,6 @@
 export { default as APIError, httpErrorCodeLookup } from "src/types/APIError";
 export { default as DataError } from "src/types/DataError";
 export { default as VersionNumber } from "src/types/VersionNumber";
-export { VersionType } from "src/types/VersionType";
 
 export type { HTTPErrorCode } from "src/types/APIError";
 export type { ArrayElement } from "src/types/ArrayElement";

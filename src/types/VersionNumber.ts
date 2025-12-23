@@ -1,7 +1,6 @@
 import { VERSION_NUMBER_REGEX } from "src/constants";
-import { parseIntStrict } from "src/functions";
+import { parseIntStrict, VersionType } from "src/functions";
 import DataError from "src/types/DataError";
-import { VersionType } from "src/types/VersionType";
 
 export interface ToStringOptions {
   omitPrefix?: boolean;
