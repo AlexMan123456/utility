@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # Function: createTemplateStringsArray()
 
 > **createTemplateStringsArray**(`strings`): `TemplateStringsArray`
-
-Defined in: [src/functions/taggedTemplate/createTemplateStringsArray.ts:12](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/taggedTemplate/createTemplateStringsArray.ts#L12)
 
 Creates a template strings array given a regular array of strings
 

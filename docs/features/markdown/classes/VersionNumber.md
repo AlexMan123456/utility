@@ -1,12 +1,10 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
 [@alextheman/utility](../globals.md) / VersionNumber
 
 # Class: VersionNumber
-
-Defined in: [src/types/VersionNumber.ts:15](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L15)
 
 Represents a software version number, considered to be made up of a major, minor, and patch part.
 
@@ -15,8 +13,6 @@ Represents a software version number, considered to be made up of a major, minor
 ### Constructor
 
 > **new VersionNumber**(`input`): `VersionNumber`
-
-Defined in: [src/types/VersionNumber.ts:29](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L29)
 
 #### Parameters
 
@@ -36,8 +32,6 @@ The input to create a new instance of `VersionNumber` from.
 
 > `readonly` **major**: `number` = `0`
 
-Defined in: [src/types/VersionNumber.ts:20](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L20)
-
 The major number. Increments when a feature is removed or changed in a way that is not backwards-compatible with the previous release.
 
 ***
@@ -46,8 +40,6 @@ The major number. Increments when a feature is removed or changed in a way that 
 
 > `readonly` **minor**: `number` = `0`
 
-Defined in: [src/types/VersionNumber.ts:22](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L22)
-
 The minor number. Increments when a new feature is added/deprecated and is expected to be backwards-compatible with the previous release.
 
 ***
@@ -55,8 +47,6 @@ The minor number. Increments when a new feature is added/deprecated and is expec
 ### patch
 
 > `readonly` **patch**: `number` = `0`
-
-Defined in: [src/types/VersionNumber.ts:24](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L24)
 
 The patch number. Increments when the next release is fixing a bug or doing a small refactor that should not be noticeable in practice.
 
@@ -67,8 +57,6 @@ The patch number. Increments when the next release is fixing a bug or doing a sm
 #### Get Signature
 
 > **get** **type**(): [`VersionType`](../variables/VersionType.md)
-
-Defined in: [src/types/VersionNumber.ts:73](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L73)
 
 Gets the current version type of the current instance of `VersionNumber`.
 
@@ -83,8 +71,6 @@ Either `"major"`, `"minor"`, or `"patch"`, depending on the version type.
 ### increment()
 
 > **increment**(`incrementType`): `VersionNumber`
-
-Defined in: [src/types/VersionNumber.ts:116](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L116)
 
 Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
 
@@ -111,8 +97,6 @@ A new instance of `VersionNumber` with the increment applied.
 
 > **toString**(`options?`): `string`
 
-Defined in: [src/types/VersionNumber.ts:130](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L130)
-
 Get a string representation of the current version number.
 
 #### Parameters
@@ -134,8 +118,6 @@ A stringified representation of the current version number, leaving out the pref
 ### isEqual()
 
 > `static` **isEqual**(`firstVersion`, `secondVersion`): `boolean`
-
-Defined in: [src/types/VersionNumber.ts:98](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/types/VersionNumber.ts#L98)
 
 Checks if the provided version numbers have the exact same major, minor, and patch numbers.
 

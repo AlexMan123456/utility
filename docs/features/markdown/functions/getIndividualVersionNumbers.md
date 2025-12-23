@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # ~~Function: getIndividualVersionNumbers()~~
 
 > **getIndividualVersionNumbers**(`version`): \[`number`, `number`, `number`\]
-
-Defined in: [src/functions/versioning/getIndividualVersionNumbers.ts:19](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/versioning/getIndividualVersionNumbers.ts#L19)
 
 Gets the individual version numbers from a given version number as a tuple of numbers.
 

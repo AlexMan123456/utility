@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.0**](../README.md)
+[**@alextheman/utility v4.3.1**](../README.md)
 
 ***
 
@@ -7,8 +7,6 @@
 # Function: omitProperties()
 
 > **omitProperties**\<`ObjectType`, `KeysToOmit`\>(`object`, `keysToOmit`): `Omit`\<`ObjectType`, `KeysToOmit`\>
-
-Defined in: [src/functions/objectHelpers/omitProperties.ts:14](https://github.com/AlexMan123456/utility/blob/49fec60392d50593b382751de378cac855cd7ab3/src/functions/objectHelpers/omitProperties.ts#L14)
 
 Omits properties from a given object.
 
