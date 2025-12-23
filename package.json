@@ -36,6 +36,7 @@
     "prepare": "husky",
     "prepare-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
     "prepare-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev file:\"$ESLINT_PLUGIN_PATH\"'",
+    "release-feature-docs": "netlify deploy --prod --no-build --dir docs/features/html",
     "test": "vitest run",
     "test-watch": "vitest",
     "update-dependencies": "pnpm update --latest && pnpm update",
@@ -54,6 +55,7 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "jsdom": "^27.3.0",
+    "netlify-cli": "^23.13.0",
     "prettier": "^3.7.4",
     "tsdown": "^0.18.1",
     "typedoc": "^0.28.15",
@@ -67,7 +69,11 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
+      "@parcel/watcher",
       "esbuild",
+      "netlify-cli",
+      "sharp",
+      "unix-dgram",
       "unrs-resolver"
     ]
   }
