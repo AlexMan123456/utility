@@ -109,7 +109,7 @@ class VersionNumber {
   }
 
   /**
-   * Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
+   * Increments the current version number by the given increment type, returning the result as a new reference in memory.
    *
    * @param incrementType - The type of increment. Can be one of the following:
    * - `"major"`: Change the major version `v1.2.3` → `v2.0.0`
