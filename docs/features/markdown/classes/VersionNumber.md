@@ -68,11 +68,33 @@ Either `"major"`, `"minor"`, or `"patch"`, depending on the version type.
 
 ## Methods
 
+### \[toPrimitive\]()
+
+> **\[toPrimitive\]**(`hint`): `string`
+
+Ensures that the VersionNumber behaves correctly when attempted to be coerced to a string.
+
+#### Parameters
+
+##### hint
+
+Not used as of now, but generally used to help with numeric coercion, I think (which we most likely do not need for version numbers).
+
+`"string"` | `"number"` | `"default"`
+
+#### Returns
+
+`string`
+
+A stringified representation of the current version number, prefixed with `v`.
+
+***
+
 ### increment()
 
 > **increment**(`incrementType`): `VersionNumber`
 
-Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
+Increments the current version number by the given increment type, returning the result as a new reference in memory.
 
 #### Parameters
 
@@ -90,6 +112,20 @@ The type of increment. Can be one of the following:
 `VersionNumber`
 
 A new instance of `VersionNumber` with the increment applied.
+
+***
+
+### toJSON()
+
+> **toJSON**(): `string`
+
+Ensures that the VersionNumber behaves correctly when attempted to be converted to JSON.
+
+#### Returns
+
+`string`
+
+A stringified representation of the current version number, prefixed with `v`.
 
 ***
 
