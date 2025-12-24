@@ -149,6 +149,30 @@ describe("VersionNumber", () => {
       const version = new VersionNumber([1, 2, 3]);
       expect(version.toString({ omitPrefix: true })).toBe("1.2.3");
     });
+    test("Implemented in a [Symbol.toPrimitive] method to allow it to nicely be coerced to the right string", () => {
+      const version = new VersionNumber([1, 2, 3]);
+      expect(`Version: ${version}`).toBe("Version: v1.2.3");
+      // eslint-disable-next-line prefer-template
+      expect("Version: " + version).toBe("Version: v1.2.3");
+      expect(String(version)).toBe("v1.2.3");
+
+      try {
+        Number(new VersionNumber([1, 2, 3]));
+        throw new Error("DID_NOT_THROW");
+      } catch (error) {
+        if (DataError.check(error)) {
+          expect(error.code).toBe("INVALID_COERCION");
+          expect(error.message).toBe("VersionNumber cannot be coerced to a number type.");
+        } else {
+          throw error;
+        }
+      }
+    });
+    test("Implemented in a .toJSON() method to allow it to nicely be coerced to the right string", () => {
+      const version = new VersionNumber([1, 2, 3]);
+      expect(JSON.stringify({ version })).toBe('{"version":"v1.2.3"}');
+      expect(JSON.parse(JSON.stringify({ version })).version).toBe("v1.2.3");
+    });
   });
 
   describe(".type", () => {

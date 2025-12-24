@@ -109,7 +109,7 @@ class VersionNumber {
   }
 
   /**
-   * Determines whether the current instance of `VersionNumber` is a major, minor, or patch version.
+   * Increments the current version number by the given increment type, returning the result as a new reference in memory.
    *
    * @param incrementType - The type of increment. Can be one of the following:
    * - `"major"`: Change the major version `v1.2.3` → `v2.0.0`
@@ -124,6 +124,31 @@ class VersionNumber {
       minor: new VersionNumber([this.major, this.minor + 1, 0]),
       patch: new VersionNumber([this.major, this.minor, this.patch + 1]),
     }[incrementType];
+  }
+  /**
+   * Ensures that the VersionNumber behaves correctly when attempted to be coerced to a string.
+   *
+   * @param hint - Not used as of now, but generally used to help with numeric coercion, I think (which we most likely do not need for version numbers).
+   *
+   * @returns A stringified representation of the current version number, prefixed with `v`.
+   */
+  public [Symbol.toPrimitive](hint: "default" | "string" | "number"): string {
+    if (hint === "number") {
+      throw new DataError(
+        this.toString(),
+        "INVALID_COERCION",
+        "VersionNumber cannot be coerced to a number type.",
+      );
+    }
+    return this.toString();
+  }
+  /**
+   * Ensures that the VersionNumber behaves correctly when attempted to be converted to JSON.
+   *
+   * @returns A stringified representation of the current version number, prefixed with `v`.
+   */
+  public toJSON(): string {
+    return this.toString();
   }
   /**
    * Get a string representation of the current version number.
