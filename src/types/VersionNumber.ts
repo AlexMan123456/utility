@@ -126,6 +126,23 @@ class VersionNumber {
     }[incrementType];
   }
   /**
+   * Ensures that the VersionNumber behaves correctly when attempted to be coerced to a string.
+   *
+   * @param hint - Not used as of now, but generally used to help with numeric coercion, I think (which we most likely do not need for version numbers).
+   *
+   * @returns A stringified representation of the current version number, prefixed with `v`.
+   */
+  public [Symbol.toPrimitive](hint: "default" | "string" | "number"): string {
+    if (hint === "number") {
+      throw new DataError(
+        this.toString(),
+        "INVALID_COERCION",
+        "VersionNumber cannot be coerced to a number type.",
+      );
+    }
+    return this.toString();
+  }
+  /**
    * Get a string representation of the current version number.
    *
    * @param options - Extra additional options to apply.
