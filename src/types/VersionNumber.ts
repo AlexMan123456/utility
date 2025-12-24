@@ -143,6 +143,14 @@ class VersionNumber {
     return this.toString();
   }
   /**
+   * Ensures that the VersionNumber behaves correctly when attempted to be converted to JSON.
+   *
+   * @returns A stringified representation of the current version number, prefixed with `v`.
+   */
+  public toJSON(): string {
+    return this.toString();
+  }
+  /**
    * Get a string representation of the current version number.
    *
    * @param options - Extra additional options to apply.

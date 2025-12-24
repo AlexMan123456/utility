@@ -168,6 +168,11 @@ describe("VersionNumber", () => {
         }
       }
     });
+    test("Implemented in a .toJSON() method to allow it to nicely be coerced to the right string", () => {
+      const version = new VersionNumber([1, 2, 3]);
+      expect(JSON.stringify({ version })).toBe('{"version":"v1.2.3"}');
+      expect(JSON.parse(JSON.stringify({ version })).version).toBe("v1.2.3");
+    });
   });
 
   describe(".type", () => {
