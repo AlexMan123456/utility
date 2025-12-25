@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.4**](../README.md)
+[**@alextheman/utility v4.3.5**](../README.md)
 
 ***
 
@@ -12,6 +12,8 @@ If the callback returns at least one Promise, the entire result will be wrapped
 in a `Promise` and resolved with `Promise.all`. Otherwise, a plain array is returned.
 
 ## Template
+
+The return type of the callback (awaited if any items are a Promise) that becomes the type of the array items.
 
 ## Param
 
@@ -35,6 +37,8 @@ If no length is provided, a single-element array will be produced.
 #### ItemType
 
 `ItemType`
+
+The awaited return type of the callback that becomes the type of the array items.
 
 ### Parameters
 
@@ -70,6 +74,8 @@ If no length is provided, a single-element array will be produced.
 #### ItemType
 
 `ItemType`
+
+The return type of the callback that becomes the type of the array items.
 
 ### Parameters
 
