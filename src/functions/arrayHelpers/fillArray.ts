@@ -4,7 +4,7 @@
  * The callback will be invoked once for each index from `0` to `length - 1`.
  * If no length is provided, a single-element array will be produced.
  *
- * @template ItemType
+ * @template ItemType - The awaited return type of the callback that becomes the type of the array items.
  *
  * @param callback - An asynchronous function invoked with the current index.
  * @param length - The desired length of the resulting array.
@@ -22,7 +22,7 @@ function fillArray<ItemType>(
  * The callback will be invoked once for each index from `0` to `length - 1`.
  * If no length is provided, a single-element array will be produced.
  *
- * @template ItemType
+ * @template ItemType - The return type of the callback that becomes the type of the array items.
  *
  * @param callback - A synchronous function invoked with the current index.
  * @param length - The desired length of the resulting array.
@@ -39,7 +39,7 @@ function fillArray<ItemType>(callback: (index: number) => ItemType, length?: num
  *
  * @category Array Helpers
  *
- * @template ItemType
+ * @template ItemType - The return type of the callback (awaited if any items are a Promise) that becomes the type of the array items.
  *
  * @param callback - A function invoked with the current index. May return a value or a Promise.
  * @param length - The desired length of the resulting array.
