@@ -18,6 +18,10 @@ describe("VERSION_NUMBER_REGEX", () => {
     expect(constructedRegex.test("01.2.3")).toBe(false);
     expect(constructedRegex.test("v1.02.3")).toBe(false);
   });
+  test("Matches version numbers with significant zeroes", () => {
+    expect(constructedRegex.test("1.10.1")).toBe(true);
+    expect(constructedRegex.test("v1.10.1")).toBe(true);
+  });
   test("Does not match obviously nonsensical version numbers", () => {
     expect(constructedRegex.test("hello")).toBe(false);
   });
