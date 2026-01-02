@@ -33,6 +33,7 @@
     "lint-prettier-javascript": "prettier --check \"./**/*.js\"",
     "lint-prettier-typescript": "prettier --check --parser typescript \"./**/*.ts\"",
     "lint-tsc": "tsc --noEmit",
+    "pre-commit": "alex-c-line pre-commit",
     "prepare": "husky",
     "prepare-live-eslint-plugin": "pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev @alextheman/eslint-plugin",
     "prepare-local-eslint-plugin": "dotenv -e .env -- sh -c 'ESLINT_PLUGIN_PATH=${LOCAL_ESLINT_PLUGIN_PATH:-../eslint-plugin}; pnpm --prefix \"$ESLINT_PLUGIN_PATH\" run build && pnpm uninstall @alextheman/eslint-plugin && pnpm install --save-dev file:\"$ESLINT_PLUGIN_PATH\"'",
@@ -48,7 +49,7 @@
   "devDependencies": {
     "@alextheman/eslint-plugin": "^5.4.2",
     "@types/node": "^25.0.3",
-    "alex-c-line": "^1.12.0",
+    "alex-c-line": "^1.13.0",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
