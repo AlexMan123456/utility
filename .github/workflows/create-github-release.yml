@@ -1,0 +1,14 @@
+name: Publish to NPM Registry
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+
+jobs:
+  publish:
+    if: ${{ github.repository == 'AlexMan123456/utility' }}
+    uses: AlexMan123456/github-actions/.github/workflows/create-github-release.yml@569f2d1549eda3be7a0928d33e50abb16291e327 # v4.0.1
