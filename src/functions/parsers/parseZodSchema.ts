@@ -1,4 +1,4 @@
-import type { core, ZodType } from "zod";
+import type { core, ZodError, ZodType } from "zod";
 
 import { DataError } from "src/types";
 
@@ -14,7 +14,7 @@ import { DataError } from "src/types";
  *
  * @param schema - The Zod schema to use in parsing.
  * @param data - The data to parse.
- * @param error - A custom error to throw on invalid data (defaults to `DataError`).
+ * @param error - A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error.
  *
  * @throws {DataError} If the given data cannot be parsed according to the schema.
  *
@@ -28,11 +28,23 @@ function parseZodSchema<
 >(
   schema: ZodType<Output, Input, Internals>,
   data: unknown,
-  error?: ErrorType,
+  error?: ErrorType | ((zodError: ZodError) => ErrorType),
 ): core.output<ZodType<Output, Input, Internals>> {
   const parsedResult = schema.safeParse(data);
   if (!parsedResult.success) {
-    throw error ?? new DataError(data);
+    if (error) {
+      if (error instanceof Error) {
+        throw error;
+      } else if (typeof error === "function") {
+        throw error(parsedResult.error);
+      }
+    }
+
+    throw new DataError(
+      data,
+      parsedResult.error.issues[0]?.code.toUpperCase(),
+      parsedResult.error.issues[0].message,
+    );
   }
   return parsedResult.data;
 }
