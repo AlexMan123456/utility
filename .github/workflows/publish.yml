@@ -1,4 +1,4 @@
-name: Create GitHub Release
+name: Publish the package
 
 on:
   push:
@@ -6,11 +6,15 @@ on:
       - main
 
 permissions:
-  contents: write
+  id-token: write
 
 jobs:
-  create-github-release:
+  npm-registry-publish:
     if: ${{ github.repository == 'AlexMan123456/utility' }}
+    uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@78be199abfba7efedbc8a151b98a58963038cad7 # v4.0.4
+  
+  create-github-release:
+    needs: npm-registry-publish
     uses: AlexMan123456/github-actions/.github/workflows/create-github-release.yml@78be199abfba7efedbc8a151b98a58963038cad7 # v4.0.4
     secrets:
       PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
