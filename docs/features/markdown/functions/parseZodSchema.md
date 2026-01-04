@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.3.6**](../README.md)
+[**@alextheman/utility v4.4.0**](../README.md)
 
 ***
 
@@ -52,9 +52,9 @@ The data to parse.
 
 ### error?
 
-`ErrorType`
+A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error.
 
-A custom error to throw on invalid data (defaults to `DataError`).
+`ErrorType` | (`zodError`) => `ErrorType`
 
 ## Returns
 
