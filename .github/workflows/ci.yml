@@ -10,5 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  ci:
+  project-ci:
     uses: AlexMan123456/github-actions/.github/workflows/pnpm-ci.yml@351e9300f94bd9c648fe7367f518abe0e449a0e3 # v4.0.5
+  
+  actions-ci:
+    uses: AlexMan123456/github-actions/.github/workflows/actions-ci.yml@v4.1.0
