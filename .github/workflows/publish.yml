@@ -11,7 +11,7 @@ jobs:
       id-token: write
     if: ${{ github.repository == 'AlexMan123456/utility' }}
     uses: AlexMan123456/github-actions/.github/workflows/npm-registry-publish.yml@15f945caadf76b8408942fa118f99da7fd2554e3 # v4.1.0
-  
+
   create-github-release:
     needs: npm-registry-publish
     permissions:
