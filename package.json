@@ -44,7 +44,7 @@
     "use-local-eslint-plugin": "pnpm run prepare-local-eslint-plugin && pnpm run lint"
   },
   "dependencies": {
-    "zod": "^4.3.4"
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@alextheman/eslint-plugin": "^5.4.2",
@@ -56,7 +56,7 @@
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
     "prettier": "^3.7.4",
-    "tsdown": "0.19.0-beta.1",
+    "tsdown": "0.19.0-beta.3",
     "typedoc": "^0.28.15",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^6.0.3",
