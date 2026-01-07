@@ -71,10 +71,10 @@
   "pnpm": {
     "overrides": {
       "tsdown": "<0.19"
-    }
-  },
-  "onlyBuiltDependencies": [
-    "esbuild",
-    "unrs-resolver"
-  ]
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
+    ]
+  }
 }
