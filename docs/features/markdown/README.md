@@ -1,4 +1,4 @@
-**@alextheman/utility v4.4.1**
+**@alextheman/utility v4.4.2**
 
 ***
 
@@ -9,7 +9,7 @@
 ![npm license](https://img.shields.io/npm/l/@alextheman/utility)
 
 [![CI](https://github.com/alextheman231/utility/actions/workflows/ci.yml/badge.svg)](https://github.com/alextheman231/utility/actions/workflows/ci.yml)
-[![Publish to NPM Registry](https://github.com/alextheman231/utility/actions/workflows/npm-publish.yml/badge.svg)](https://github.com/alextheman231/utility/actions/workflows/npm-publish.yml)
+[![Publish to NPM Registry and GitHub Releases](https://github.com/alextheman231/utility/actions/workflows/publish.yml/badge.svg)](https://github.com/alextheman231/utility/actions/workflows/publish.yml)
 [![Publish to Netlify](https://github.com/alextheman231/utility/actions/workflows/netlify-docs-publish.yml/badge.svg)](https://github.com/alextheman231/utility/actions/workflows/netlify-docs-publish.yml)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/74fd3eaf-3002-472b-ae5e-2bd0ab984b9e/deploy-status)](https://app.netlify.com/projects/alextheman-utility-docs/deploys)
