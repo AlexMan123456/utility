@@ -19,4 +19,4 @@ jobs:
     if: needs.npm-registry-publish.outputs.did_publish == 'true'
     uses: alextheman231/github-actions/.github/workflows/create-github-release.yml@f00ea95a57c8d8e9810149d2b5c5dca1af7d8058 # v6.0.0
     secrets:
-      PAT_GITHUB: ${{ secrets.ALEX_UP_BOT_GITHUB_TOKEN }}
+      GITHUB_ACTIONS_TOKEN: ${{ secrets.ALEX_UP_BOT_GITHUB_TOKEN }}
