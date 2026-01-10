@@ -21,6 +21,9 @@ importers:
       '@types/node':
         specifier: ^25.0.5
         version: 25.0.5
+      '@typescript-eslint/types':
+        specifier: ^8.52.0
+        version: 8.52.0
       alex-c-line:
         specifier: ^1.17.0
         version: 1.17.0
