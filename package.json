@@ -46,10 +46,12 @@
     "use-local-eslint-plugin": "pnpm run prepare-local-eslint-plugin && pnpm run lint"
   },
   "dependencies": {
+    "libsodium-wrappers": "^0.8.0",
     "zod": "^4.3.5"
   },
   "devDependencies": {
     "@alextheman/eslint-plugin": "^5.4.2",
+    "@types/libsodium-wrappers": "^0.7.14",
     "@types/node": "^25.0.5",
     "@typescript-eslint/types": "^8.52.0",
     "alex-c-line": "^1.17.0",

@@ -1,0 +1,114 @@
+import sodium from "libsodium-wrappers";
+import { beforeAll, describe, expect, test } from "vitest";
+
+import encryptWithKey from "src/functions/security/encryptWithKey";
+import { DataError } from "src/types";
+
+function assertNoPlaintextLeak(value: unknown, plaintext: string, seen = new Set<unknown>()) {
+  if (value === null || value === undefined) {
+    return;
+  }
+
+  if (typeof value === "string") {
+    expect(value).not.toContain(plaintext);
+    return;
+  }
+
+  if (typeof value === "object") {
+    if (seen.has(value)) {
+      return;
+    }
+    seen.add(value);
+
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        assertNoPlaintextLeak(item, plaintext, seen);
+      }
+      return;
+    }
+
+    for (const [key, objectValue] of Object.entries(value as Record<string, unknown>)) {
+      expect(key).not.toContain(plaintext);
+      assertNoPlaintextLeak(objectValue, plaintext, seen);
+    }
+    return;
+  }
+
+  expect(String(value)).not.toContain(plaintext);
+}
+
+describe("encryptWithKey", () => {
+  beforeAll(async () => {
+    await sodium.ready;
+  });
+
+  test("Encrypts the value and responds with the encrypted value, NOT the plaintext", async () => {
+    const { publicKey, privateKey } = sodium.crypto_box_keypair();
+
+    const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
+    const plaintextValue = "Hello world";
+
+    const encryptedValue = await encryptWithKey(publicKeyBase64, plaintextValue);
+
+    const decryptedValue = sodium.to_string(
+      sodium.crypto_box_seal_open(
+        sodium.from_base64(encryptedValue, sodium.base64_variants.ORIGINAL),
+        publicKey,
+        privateKey,
+      ),
+    );
+
+    expect(decryptedValue).toBe(plaintextValue);
+    expect(encryptedValue).not.toBe(plaintextValue);
+  });
+
+  test("Returns different encrypted strings per run that still resolve to the same value", async () => {
+    const { publicKey, privateKey } = sodium.crypto_box_keypair();
+
+    const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
+    const plaintextValue = "Hello world";
+
+    const firstEncryptedValue = await encryptWithKey(publicKeyBase64, plaintextValue);
+    expect(firstEncryptedValue).not.toBe(plaintextValue);
+
+    const secondEncryptedValue = await encryptWithKey(publicKeyBase64, plaintextValue);
+    expect(secondEncryptedValue).not.toBe(plaintextValue);
+
+    expect(firstEncryptedValue).not.toBe(secondEncryptedValue);
+
+    const firstDecryptedValue = sodium.to_string(
+      sodium.crypto_box_seal_open(
+        sodium.from_base64(firstEncryptedValue, sodium.base64_variants.ORIGINAL),
+        publicKey,
+        privateKey,
+      ),
+    );
+    const secondDecryptedValue = sodium.to_string(
+      sodium.crypto_box_seal_open(
+        sodium.from_base64(secondEncryptedValue, sodium.base64_variants.ORIGINAL),
+        publicKey,
+        privateKey,
+      ),
+    );
+
+    expect(firstDecryptedValue).toBe(plaintextValue);
+    expect(secondDecryptedValue).toBe(plaintextValue);
+  });
+
+  test("If any of this errors, the error message MUST NOT display the plaintext value", async () => {
+    const plaintextValue = "gdfssdehrhrt";
+    try {
+      await encryptWithKey("Invalid public key", plaintextValue);
+      throw new Error("DID_NOT_THROW");
+    } catch (error) {
+      if (DataError.check(error)) {
+        assertNoPlaintextLeak(error, plaintextValue);
+        expect(error.message).toBe(
+          "Encryption failed. Please double-check that the given key is a valid base 64 string.",
+        );
+      } else {
+        throw error;
+      }
+    }
+  });
+});

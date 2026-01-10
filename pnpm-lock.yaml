@@ -11,6 +11,9 @@ importers:
 
   .:
     dependencies:
+      libsodium-wrappers:
+        specifier: ^0.8.0
+        version: 0.8.0
       zod:
         specifier: ^4.3.5
         version: 4.3.5
@@ -18,6 +21,9 @@ importers:
       '@alextheman/eslint-plugin':
         specifier: ^5.4.2
         version: 5.4.2(d035bb0de3f9402cfd4dc2f51f281772)
+      '@types/libsodium-wrappers':
+        specifier: ^0.7.14
+        version: 0.7.14
       '@types/node':
         specifier: ^25.0.5
         version: 25.0.5
@@ -832,6 +838,9 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/libsodium-wrappers@0.7.14':
+    resolution: {integrity: sha512-5Kv68fXuXK0iDuUir1WPGw2R9fOZUlYlSAa0ztMcL0s0BfIDTqg9GXz8K30VJpPP3sxWhbolnQma2x+/TfkzDQ==}
 
   '@types/node@25.0.5':
     resolution: {integrity: sha512-FuLxeLuSVOqHPxSN1fkcD8DLU21gAP7nCKqGRJ/FglbCUBs0NYN6TpHcdmyLeh8C0KwGIaZQJSv+OYG+KZz+Gw==}
@@ -3654,6 +3663,8 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/libsodium-wrappers@0.7.14': {}
 
   '@types/node@25.0.5':
     dependencies:
