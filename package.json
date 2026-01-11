@@ -46,6 +46,7 @@
     "use-local-eslint-plugin": "pnpm run prepare-local-eslint-plugin && pnpm run lint"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "libsodium-wrappers": "^0.8.0",
     "zod": "^4.3.5"
   },
