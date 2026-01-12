@@ -1,10 +1,14 @@
 import type { DotenvParseOutput } from "dotenv";
 
-import { DataError, type RecordKey } from "src/types";
+import type { RecordKey } from "src/types";
+
+import { DataError } from "src/types";
+
+export type QuoteStyle = "double" | "single" | "none";
 
 export interface StringifyDotenvOptions {
   /** The quote style to use for the values (defaults to `"double"`) */
-  quoteStyle: "double" | "single" | "none";
+  quoteStyle: QuoteStyle;
 }
 
 /**
@@ -22,33 +26,47 @@ function stringifyDotenv(
   const { ...contentsCopy } = contents;
   const { quoteStyle = "double" } = options ?? {};
 
-  const quoteCharacter = {
-    double: '"',
-    single: "'",
-    none: "",
-  }[quoteStyle];
-
   let result = "";
 
   for (const key in contentsCopy) {
-    if (
-      quoteStyle === "none" &&
-      (/[ \t\r\n]/.test(contentsCopy[key]) || contentsCopy[key].includes("#"))
-    ) {
+    if (/[ \t\r\n]/.test(key)) {
       throw new DataError(
         { [key]: contentsCopy[key] },
-        "INCOMPATIBLE_QUOTE_STYLE",
-        'Cannot use `{ quoteStyle: "none" }` when value has whitespace or #',
+        "INVALID_KEY",
+        "Environment variables are not allowed to have whitespace.",
       );
     }
+    if (quoteStyle === "none") {
+      if (/[ \t\r\n]/.test(contentsCopy[key]) || contentsCopy[key].includes("#")) {
+        throw new DataError(
+          { [key]: contentsCopy[key] },
+          "INCOMPATIBLE_QUOTE_STYLE",
+          'Cannot use `{ quoteStyle: "none" }` when value has whitespace or #',
+        );
+      } else {
+        result += `${key}=${contentsCopy[key]}\n`;
+        continue;
+      }
+    }
 
-    const finalValue = (
-      quoteStyle === "none"
-        ? contentsCopy[key]
-        : contentsCopy[key].replace(RegExp(quoteCharacter, "g"), `\\${quoteCharacter}`)
-    ).replace(/\r?\n/g, String.raw`\n`);
+    const rawValue = contentsCopy[key].replace(/\r?\n/g, String.raw`\n`);
 
-    result += `${key}=${quoteCharacter}${finalValue}${quoteCharacter}\n`;
+    const chosenQuoteCharacter = {
+      double: '"',
+      single: "'",
+    }[quoteStyle];
+    const otherQuoteCharacter = {
+      double: "'",
+      single: '"',
+    }[quoteStyle];
+
+    const finalQuoteCharacter = /[\r\n]/.test(contentsCopy[key])
+      ? `"`
+      : rawValue.includes(chosenQuoteCharacter)
+        ? otherQuoteCharacter
+        : chosenQuoteCharacter;
+
+    result += `${key}=${finalQuoteCharacter}${rawValue}${finalQuoteCharacter}\n`;
   }
 
   return result;
