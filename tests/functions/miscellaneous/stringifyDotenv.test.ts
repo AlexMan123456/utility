@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import { describe, expect, test } from "vitest";
 
 import { normaliseIndents } from "src/functions";
@@ -72,9 +73,10 @@ describe("stringifyDotenv", () => {
   });
 
   test.each<"double" | "single">(["double", "single"])(
-    "Escape %s-quotes characters correctly",
+    "Chooses the other quote style when the value contains the preferred quote",
     (quoteStyle) => {
       const quoteCharacter = { double: '"', single: "'" }[quoteStyle];
+      const otherQuoteCharacter = { double: "'", single: '"' }[quoteStyle];
 
       expect(
         stringifyDotenv(
@@ -84,7 +86,7 @@ describe("stringifyDotenv", () => {
           { quoteStyle },
         ),
       ).toBe(normaliseIndents`
-            HELLO=${quoteCharacter}world \\${quoteCharacter}test\\${quoteCharacter}${quoteCharacter}
+            HELLO=${otherQuoteCharacter}world ${quoteCharacter}test${quoteCharacter}${otherQuoteCharacter}
         `);
     },
   );
@@ -98,5 +100,48 @@ describe("stringifyDotenv", () => {
             newlines`,
       }),
     ).toBe(`${String.raw`HELLO="world\ntesting\nnewlines"`}\n`);
+  });
+
+  test("Does not allow spaces in key names", () => {
+    try {
+      stringifyDotenv({
+        "HELLO WORLD": "my world",
+      });
+      throw new Error("DID_NOT_THROW");
+    } catch (error) {
+      if (DataError.check(error)) {
+        expect(error.data).toEqual({ "HELLO WORLD": "my world" });
+        expect(error.code).toBe("INVALID_KEY");
+      } else {
+        throw error;
+      }
+    }
+  });
+
+  test.each<"double" | "single">(["double", "single"])(
+    "Is compatible with dotenv.parse() (testing nested %s-quotes)",
+    (quoteStyle) => {
+      const quoteCharacter = { double: '"', single: "'" }[quoteStyle];
+
+      const inputObject = {
+        HELLO: "world",
+        BACKSLASH_TEST: String.raw`String with \ backslash`,
+        NEWLINE_TEST: normaliseIndents`
+        testing
+        newlines
+        here`,
+        NESTED_QUOTES: `Hello, ${quoteCharacter}Alex${quoteCharacter}!`,
+      };
+      expect(dotenv.parse(stringifyDotenv(inputObject, { quoteStyle }))).toEqual(inputObject);
+    },
+  );
+
+  test("Is compatible with dotenv.parse() (testing no quotes)", () => {
+    const inputObject = {
+      HELLO: "world",
+      DATABASE_URL: "postgres://test@localhost:5432/test", // Not a real database URL, don't worry!
+    };
+
+    expect(dotenv.parse(stringifyDotenv(inputObject, { quoteStyle: "none" }))).toEqual(inputObject);
   });
 });
