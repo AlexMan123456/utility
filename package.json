@@ -53,20 +53,20 @@
   "devDependencies": {
     "@alextheman/eslint-plugin": "^5.4.2",
     "@types/libsodium-wrappers": "^0.7.14",
-    "@types/node": "^25.0.5",
-    "@typescript-eslint/types": "^8.52.0",
-    "alex-c-line": "^1.17.0",
+    "@types/node": "^25.0.9",
+    "@typescript-eslint/types": "^8.53.0",
+    "alex-c-line": "^1.17.3",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "tsdown": "^0.18.4",
-    "typedoc": "^0.28.15",
+    "typedoc": "^0.28.16",
     "typescript": "^5.9.3",
     "vite-tsconfig-paths": "^6.0.4",
-    "vitest": "^4.0.16"
+    "vitest": "^4.0.17"
   },
   "packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
   "engines": {
