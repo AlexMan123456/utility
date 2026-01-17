@@ -51,4 +51,21 @@ describe("parseZodSchema", () => {
       }
     }
   });
+  test("The error function can return nothing", () => {
+    let wasCalled = false;
+    try {
+      expect(wasCalled).toBe(false);
+      parseZodSchema(z.string(), 1, () => {
+        wasCalled = true;
+      });
+      throw new Error("DID_NOT_THROW");
+    } catch (error) {
+      expect(wasCalled).toBe(true);
+      if (DataError.check(error)) {
+        expect(error.data).toBe(1);
+        expect(error.message).toBe("Invalid input: expected string, received number");
+        expect(error.code).toBe("INVALID_TYPE");
+      }
+    }
+  });
 });

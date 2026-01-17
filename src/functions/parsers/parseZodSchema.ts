@@ -12,7 +12,7 @@ import { DataError } from "src/types";
  *
  * @param schema - The Zod schema to use in parsing.
  * @param data - The data to parse.
- * @param error - A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error.
+ * @param onError - A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error or nothing. If nothing is returned, the default error is thrown instead.
  *
  * @throws {DataError} If the given data cannot be parsed according to the schema.
  *
@@ -21,22 +21,25 @@ import { DataError } from "src/types";
 function parseZodSchema<SchemaType extends ZodType, ErrorType extends Error>(
   schema: SchemaType,
   data: unknown,
-  error?: ErrorType | ((zodError: ZodError) => ErrorType),
+  onError?: ErrorType | ((zodError: ZodError) => ErrorType | void),
 ): z.infer<SchemaType> {
   const parsedResult = schema.safeParse(data);
   if (!parsedResult.success) {
-    if (error) {
-      if (error instanceof Error) {
-        throw error;
-      } else if (typeof error === "function") {
-        throw error(parsedResult.error);
+    if (onError) {
+      if (onError instanceof Error) {
+        throw onError;
+      } else if (typeof onError === "function") {
+        const evaluatedError = onError(parsedResult.error);
+        if (evaluatedError instanceof Error) {
+          throw evaluatedError;
+        }
       }
     }
 
     throw new DataError(
       data,
-      parsedResult.error.issues[0]?.code.toUpperCase(),
-      parsedResult.error.issues[0].message,
+      parsedResult.error.issues[0]?.code?.toUpperCase(),
+      parsedResult.error.issues[0]?.message,
     );
   }
   return parsedResult.data;
