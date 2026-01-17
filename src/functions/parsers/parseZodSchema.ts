@@ -1,4 +1,4 @@
-import type { core, ZodError, ZodType } from "zod";
+import type { z, ZodError, ZodType } from "zod";
 
 import { DataError } from "src/types";
 
@@ -7,9 +7,7 @@ import { DataError } from "src/types";
  *
  * @category Parsers
  *
- * @template Output - The Zod output type.
- * @template Input - The Zod input type.
- * @template Internals - The Zod internal types based on the output and input types.
+ * @template SchemaType - The Zod schema type.
  * @template ErrorType - The type of error to throw on invalid data.
  *
  * @param schema - The Zod schema to use in parsing.
@@ -20,16 +18,11 @@ import { DataError } from "src/types";
  *
  * @returns The parsed data from the Zod schema.
  */
-function parseZodSchema<
-  Output,
-  Input,
-  Internals extends core.$ZodTypeInternals<Output, Input>,
-  ErrorType extends Error,
->(
-  schema: ZodType<Output, Input, Internals>,
+function parseZodSchema<SchemaType extends ZodType, ErrorType extends Error>(
+  schema: SchemaType,
   data: unknown,
   error?: ErrorType | ((zodError: ZodError) => ErrorType),
-): core.output<ZodType<Output, Input, Internals>> {
+): z.infer<SchemaType> {
   const parsedResult = schema.safeParse(data);
   if (!parsedResult.success) {
     if (error) {
