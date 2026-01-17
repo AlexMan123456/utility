@@ -1,4 +1,4 @@
-[**@alextheman/utility v4.6.0**](../README.md)
+[**@alextheman/utility v4.7.0**](../README.md)
 
 ***
 
@@ -6,29 +6,17 @@
 
 # Function: parseZodSchema()
 
-> **parseZodSchema**\<`Output`, `Input`, `Internals`, `ErrorType`\>(`schema`, `data`, `error?`): `output`\<`ZodType`\<`Output`, `Input`, `Internals`\>\>
+> **parseZodSchema**\<`SchemaType`, `ErrorType`\>(`schema`, `data`, `onError?`): `output`\<`SchemaType`\>
 
 An alternative function to zodSchema.parse() that can be used to strictly parse Zod schemas.
 
 ## Type Parameters
 
-### Output
+### SchemaType
 
-`Output`
+`SchemaType` *extends* `ZodType`\<`unknown`, `unknown`, `$ZodTypeInternals`\<`unknown`, `unknown`\>\>
 
-The Zod output type.
-
-### Input
-
-`Input`
-
-The Zod input type.
-
-### Internals
-
-`Internals` *extends* `$ZodTypeInternals`\<`Output`, `Input`\>
-
-The Zod internal types based on the output and input types.
+The Zod schema type.
 
 ### ErrorType
 
@@ -40,7 +28,7 @@ The type of error to throw on invalid data.
 
 ### schema
 
-`ZodType`\<`Output`, `Input`, `Internals`\>
+`SchemaType`
 
 The Zod schema to use in parsing.
 
@@ -50,15 +38,15 @@ The Zod schema to use in parsing.
 
 The data to parse.
 
-### error?
+### onError?
 
-A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error.
+A custom error to throw on invalid data (defaults to `DataError`). May either be the error itself, or a function that returns the error or nothing. If nothing is returned, the default error is thrown instead.
 
-`ErrorType` | (`zodError`) => `ErrorType`
+`ErrorType` | (`zodError`) => `void` \| `ErrorType`
 
 ## Returns
 
-`output`\<`ZodType`\<`Output`, `Input`, `Internals`\>\>
+`output`\<`SchemaType`\>
 
 The parsed data from the Zod schema.
 
