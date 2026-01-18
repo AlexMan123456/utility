@@ -55,7 +55,7 @@
     "@types/libsodium-wrappers": "^0.7.14",
     "@types/node": "^25.0.9",
     "@typescript-eslint/types": "^8.53.0",
-    "alex-c-line": "^1.18.4",
+    "alex-c-line": "^1.19.1",
     "dotenv-cli": "^11.0.0",
     "eslint": "^9.39.2",
     "globals": "^17.0.0",
