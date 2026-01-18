@@ -2,15 +2,13 @@
 
 ***
 
-[@alextheman/utility](../globals.md) / parseZodSchema
+[@alextheman/utility](../globals.md) / parseZodSchemaAsync
 
-# Function: parseZodSchema()
+# Function: parseZodSchemaAsync()
 
-> **parseZodSchema**\<`SchemaType`, `ErrorType`\>(`schema`, `data`, `onError?`): `output`\<`SchemaType`\>
+> **parseZodSchemaAsync**\<`SchemaType`, `ErrorType`\>(`schema`, `data`, `onError?`): `Promise`\<`output`\<`SchemaType`\>\>
 
-An alternative function to zodSchema.parse() that can be used to strictly parse Zod schemas.
-
-NOTE: Use `parseZodSchemaAsync` if your schema includes an asynchronous function.
+An alternative function to zodSchema.parseAsync() that can be used to strictly parse asynchronous Zod schemas.
 
 ## Type Parameters
 
@@ -48,7 +46,7 @@ A custom error to throw on invalid data (defaults to `DataError`). May either be
 
 ## Returns
 
-`output`\<`SchemaType`\>
+`Promise`\<`output`\<`SchemaType`\>\>
 
 The parsed data from the Zod schema.
 

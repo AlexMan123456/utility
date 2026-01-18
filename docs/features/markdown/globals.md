@@ -1,8 +1,8 @@
-[**@alextheman/utility v4.8.0**](README.md)
+[**@alextheman/utility v4.9.0**](README.md)
 
 ***
 
-# @alextheman/utility v4.8.0
+# @alextheman/utility v4.9.0
 
 ## Array Helpers
 
@@ -66,6 +66,7 @@
 - [parseIntStrict](functions/parseIntStrict.md)
 - [parseVersionType](functions/parseVersionType.md)
 - [parseZodSchema](functions/parseZodSchema.md)
+- [parseZodSchemaAsync](functions/parseZodSchemaAsync.md)
 
 ## Recursive
 
