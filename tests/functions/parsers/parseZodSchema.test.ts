@@ -14,7 +14,6 @@ describe("parseZodSchema", () => {
     } catch (error) {
       if (DataError.check(error)) {
         expect(error.data).toBe(1);
-        expect(error.message).toBe("Invalid input: expected string, received number");
         expect(error.code).toBe("INVALID_TYPE");
       } else {
         throw error;
@@ -28,8 +27,8 @@ describe("parseZodSchema", () => {
     } catch (error) {
       if (DataError.check(error)) {
         expect(error.data).toBe(1);
-        expect(error.message).toBe("Test message");
         expect(error.code).toBe("TEST_CODE");
+        expect(error.message).toBe("Test message");
       } else {
         throw error;
       }
@@ -63,8 +62,28 @@ describe("parseZodSchema", () => {
       expect(wasCalled).toBe(true);
       if (DataError.check(error)) {
         expect(error.data).toBe(1);
-        expect(error.message).toBe("Invalid input: expected string, received number");
         expect(error.code).toBe("INVALID_TYPE");
+      }
+    }
+  });
+  test("If multiple Zod errors found, the error code should be a comma-separated string list sorted by frequency", () => {
+    const input = {
+      hello: 1,
+      shouldBeNumber: "But is not",
+      extraProperty: "hi",
+    };
+    try {
+      parseZodSchema(
+        z.strictObject({
+          hello: z.string(),
+          shouldBeNumber: z.number(),
+        }),
+        input,
+      );
+    } catch (error) {
+      if (error instanceof DataError) {
+        expect(error.data).toEqual(input);
+        expect(error.code).toBe("INVALID_TYPE×2,UNRECOGNIZED_KEYS×1");
       }
     }
   });

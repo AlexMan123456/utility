@@ -1,4 +1,6 @@
-import type { z, ZodError, ZodType } from "zod";
+import type { ZodError, ZodType } from "zod";
+
+import { z } from "zod";
 
 import { DataError } from "src/types";
 
@@ -36,10 +38,24 @@ function parseZodSchema<SchemaType extends ZodType, ErrorType extends Error>(
       }
     }
 
+    const allErrorCodes: Record<string, number> = {};
+
+    for (const issue of parsedResult.error.issues) {
+      const code = issue.code.toUpperCase();
+      allErrorCodes[code] = (allErrorCodes[code] ?? 0) + 1;
+    }
+
     throw new DataError(
       data,
-      parsedResult.error.issues[0]?.code?.toUpperCase(),
-      parsedResult.error.issues[0]?.message,
+      Object.entries(allErrorCodes)
+        .toSorted(([_, firstCount], [__, secondCount]) => {
+          return secondCount - firstCount;
+        })
+        .map(([code, count], _, allErrorCodes) => {
+          return allErrorCodes.length === 1 && count === 1 ? code : `${code}×${count}`;
+        })
+        .join(","),
+      `\n\n${z.prettifyError(parsedResult.error)}\n`,
     );
   }
   return parsedResult.data;
