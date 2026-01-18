@@ -3,4 +3,5 @@ export { default as parseEnv, Env } from "src/functions/parsers/parseEnv";
 export { default as parseFormData } from "src/functions/parsers/parseFormData";
 export { default as parseIntStrict } from "src/functions/parsers/parseIntStrict";
 export { default as parseVersionType, VersionType } from "src/functions/parsers/parseVersionType";
-export { default as parseZodSchema } from "src/functions/parsers/parseZodSchema";
+
+export * from "src/functions/parsers/zod";
