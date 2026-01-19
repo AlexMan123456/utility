@@ -52,19 +52,17 @@ describe("stringifyDotenv", () => {
         `);
   });
 
-  test("If quoteStyle is none, reject values with spaces or #", () => {
+  test.each([
+    ["spaces", { HELLO: "my world" }],
+    ["#", { INVALID: "Hello #" }],
+    ["=", { ALSO_INVALID: "Hello=world" }],
+  ])("If quoteStyle is none, reject values with %s", (_, input) => {
     try {
-      stringifyDotenv(
-        {
-          HELLO: "my world",
-          INVALID: "Hello #",
-        },
-        { quoteStyle: "none" },
-      );
+      stringifyDotenv(input, { quoteStyle: "none" });
       throw new Error("DID_NOT_THROW");
     } catch (error) {
       if (DataError.check(error)) {
-        expect(error.data).toEqual({ HELLO: "my world" });
+        expect(error.data).toEqual(input);
         expect(error.code).toBe("INCOMPATIBLE_QUOTE_STYLE");
       } else {
         throw error;
