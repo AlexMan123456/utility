@@ -40,12 +40,13 @@ function stringifyDotenv(
       if (
         /[ \t\r\n]/.test(contentsCopy[key]) ||
         contentsCopy[key].includes("#") ||
-        contentsCopy[key].includes("=")
+        contentsCopy[key].includes("=") ||
+        contentsCopy[key].includes("\\")
       ) {
         throw new DataError(
           { [key]: contentsCopy[key] },
           "INCOMPATIBLE_QUOTE_STYLE",
-          'Cannot use `{ quoteStyle: "none" }` when value has whitespace, #, or =',
+          'Cannot use `{ quoteStyle: "none" }` when value has whitespace, #, =, or \\',
         );
       } else {
         result += `${key}=${contentsCopy[key]}\n`;

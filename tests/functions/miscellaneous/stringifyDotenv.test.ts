@@ -56,6 +56,7 @@ describe("stringifyDotenv", () => {
     ["spaces", { HELLO: "my world" }],
     ["#", { INVALID: "Hello #" }],
     ["=", { ALSO_INVALID: "Hello=world" }],
+    ["\\", { BACKSLASHES_TOO_UGH: "Hello\\world" }],
   ])("If quoteStyle is none, reject values with %s", (_, input) => {
     try {
       stringifyDotenv(input, { quoteStyle: "none" });
