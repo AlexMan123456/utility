@@ -1,8 +1,8 @@
-[**@alextheman/utility v4.10.1**](README.md)
+[**@alextheman/utility v4.10.2**](README.md)
 
 ***
 
-# @alextheman/utility v4.10.1
+# @alextheman/utility v4.10.2
 
 ## Array Helpers
 
