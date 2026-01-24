@@ -4,6 +4,7 @@ export { default as VersionNumber } from "src/types/VersionNumber";
 
 export type { HTTPErrorCode } from "src/types/APIError";
 export type { ArrayElement } from "src/types/ArrayElement";
+export type { CallReturnType } from "src/types/CallReturnType";
 export type { CreateEnumType } from "src/types/CreateEnumType";
 export type { DisallowUndefined } from "src/types/DisallowUndefined";
 export type { IgnoreCase } from "src/types/IgnoreCase";

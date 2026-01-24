@@ -1,6 +1,7 @@
 import sodium from "libsodium-wrappers";
 import { beforeAll, describe, expect, test } from "vitest";
 
+import { getPublicAndPrivateKey } from "src/functions";
 import encryptWithKey from "src/functions/security/encryptWithKey";
 import { DataError } from "src/types";
 
@@ -43,19 +44,18 @@ describe("encryptWithKey", () => {
   });
 
   test("Encrypts the value and responds with the encrypted value, NOT the plaintext", async () => {
-    const { publicKey, privateKey } = sodium.crypto_box_keypair();
+    const { publicKey, privateKey } = getPublicAndPrivateKey("uint8array");
 
     const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
     const plaintextValue = "Hello world";
 
     const encryptedValue = await encryptWithKey(publicKeyBase64, plaintextValue);
 
-    const decryptedValue = sodium.to_string(
-      sodium.crypto_box_seal_open(
-        sodium.from_base64(encryptedValue, sodium.base64_variants.ORIGINAL),
-        publicKey,
-        privateKey,
-      ),
+    const decryptedValue = sodium.crypto_box_seal_open(
+      sodium.from_base64(encryptedValue, sodium.base64_variants.ORIGINAL),
+      publicKey,
+      privateKey as Uint8Array,
+      "text",
     );
 
     expect(decryptedValue).toBe(plaintextValue);
@@ -63,7 +63,7 @@ describe("encryptWithKey", () => {
   });
 
   test("Returns different encrypted strings per run that still resolve to the same value", async () => {
-    const { publicKey, privateKey } = sodium.crypto_box_keypair();
+    const { publicKey, privateKey } = getPublicAndPrivateKey("uint8array");
 
     const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
     const plaintextValue = "Hello world";
@@ -76,19 +76,17 @@ describe("encryptWithKey", () => {
 
     expect(firstEncryptedValue).not.toBe(secondEncryptedValue);
 
-    const firstDecryptedValue = sodium.to_string(
-      sodium.crypto_box_seal_open(
-        sodium.from_base64(firstEncryptedValue, sodium.base64_variants.ORIGINAL),
-        publicKey,
-        privateKey,
-      ),
+    const firstDecryptedValue = sodium.crypto_box_seal_open(
+      sodium.from_base64(firstEncryptedValue, sodium.base64_variants.ORIGINAL),
+      publicKey,
+      privateKey,
+      "text",
     );
-    const secondDecryptedValue = sodium.to_string(
-      sodium.crypto_box_seal_open(
-        sodium.from_base64(secondEncryptedValue, sodium.base64_variants.ORIGINAL),
-        publicKey,
-        privateKey,
-      ),
+    const secondDecryptedValue = sodium.crypto_box_seal_open(
+      sodium.from_base64(secondEncryptedValue, sodium.base64_variants.ORIGINAL),
+      publicKey,
+      privateKey,
+      "text",
     );
 
     expect(firstDecryptedValue).toBe(plaintextValue);
