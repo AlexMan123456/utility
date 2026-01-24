@@ -1,8 +1,8 @@
-[**@alextheman/utility v4.10.2**](README.md)
+[**@alextheman/utility v4.11.0**](README.md)
 
 ***
 
-# @alextheman/utility v4.10.2
+# @alextheman/utility v4.11.0
 
 ## Array Helpers
 
@@ -54,6 +54,7 @@
 - [~~determineVersionType~~](functions/determineVersionType.md)
 - [encryptWithKey](functions/encryptWithKey.md)
 - [~~getIndividualVersionNumbers~~](functions/getIndividualVersionNumbers.md)
+- [getPublicAndPrivateKey](functions/getPublicAndPrivateKey.md)
 - [~~incrementVersion~~](functions/incrementVersion.md)
 - [~~parseVersion~~](functions/parseVersion.md)
 - [removeUndefinedFromObject](functions/removeUndefinedFromObject.md)
