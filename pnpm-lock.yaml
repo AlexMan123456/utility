@@ -12,15 +12,15 @@ importers:
         specifier: ^17.2.3
         version: 17.2.3
       libsodium-wrappers:
-        specifier: ^0.8.1
-        version: 0.8.1
+        specifier: ^0.8.2
+        version: 0.8.2
       zod:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
       '@alextheman/eslint-plugin':
         specifier: ^5.4.3
-        version: 5.4.3(a87586c69f9293ef28db855fc6658bf3)
+        version: 5.4.3(40434b6a269e7ebbd65ea19734c03a63)
       '@types/node':
         specifier: ^25.0.10
         version: 25.0.10
@@ -58,8 +58,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vite-tsconfig-paths:
-        specifier: ^6.0.4
-        version: 6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2))
+        specifier: ^6.0.5
+        version: 6.0.5(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2))
       vitest:
         specifier: ^4.0.18
         version: 4.0.18(@opentelemetry/api@1.9.0)(@types/node@25.0.10)(jiti@2.6.1)(jsdom@27.4.0)(yaml@2.8.2)
@@ -93,8 +93,8 @@ packages:
       vite-tsconfig-paths: '>=5.1.4'
       vitest: '>=4.0.13'
 
-  '@alextheman/utility@4.10.2':
-    resolution: {integrity: sha512-68tFfypF+BYXW91g2kHDEtahV920AwWPkaI2MsJd5HXlK/as1HKrv+SWVLSm8YNRIbvn3K91hq+KYwpQOqVnpA==}
+  '@alextheman/utility@4.11.0':
+    resolution: {integrity: sha512-mxvHUDDBiSEHQqcXY81AHvswSuZq4j6jEh1lPA6cyfMaY1eHeW6m7S/SFy8zvRDvpf0kAPa1YqEpmqhsfETGpg==}
     engines: {node: '>=22.0.0'}
 
   '@altano/repository-tools@2.0.1':
@@ -1127,8 +1127,8 @@ packages:
   balanced-match@1.0.2:
     resolution: {integrity: sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==}
 
-  baseline-browser-mapping@2.9.17:
-    resolution: {integrity: sha512-agD0MgJFUP/4nvjqzIB29zRPUuCF7Ge6mEv9s8dHrtYD7QWXRcx75rOADE/d5ah1NI+0vkDl0yorDd5U852IQQ==}
+  baseline-browser-mapping@2.9.18:
+    resolution: {integrity: sha512-e23vBV1ZLfjb9apvfPk4rHVu2ry6RIr2Wfs+O324okSidrX7pTAnEJPCh/O5BtRlr7QtZI7ktOP3vsqr7Z5XoA==}
     hasBin: true
 
   bidi-js@1.0.3:
@@ -2107,11 +2107,11 @@ packages:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
 
-  libsodium-wrappers@0.8.1:
-    resolution: {integrity: sha512-UOqD9M4HhAhwEo2foIgnUrpqXCj2VKdndZXM3PZ0zGe++9808TzAFSp4o2mOgPM/DNUnUqncR3G0xqiKDoAQXQ==}
+  libsodium-wrappers@0.8.2:
+    resolution: {integrity: sha512-VFLmfxkxo+U9q60tjcnSomQBRx2UzlRjKWJqvB4K1pUqsMQg4cu3QXA2nrcsj9A1qRsnJBbi2Ozx1hsiDoCkhw==}
 
-  libsodium@0.8.1:
-    resolution: {integrity: sha512-V70In9cepY7MMoKyEvnrojqgQN5yQM/8i8kGh4n/IC1g3thA5nonK0d84e0fR86tFOeAQsOdaL5ONuR93ru25A==}
+  libsodium@0.8.2:
+    resolution: {integrity: sha512-TsnGYMoZtpweT+kR+lOv5TVsnJ/9U0FZOsLFzFOMWmxqOAYXjX3fsrPAW+i1LthgDKXJnI9A8dWEanT1tnJKIw==}
 
   linkify-it@5.0.0:
     resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
@@ -2813,13 +2813,10 @@ packages:
     resolution: {integrity: sha512-hVDIBwsRruT73PbK7uP5ebUt+ezEtCmzZz3F59BSr2F6OVFnJ/6h8liuvdLrQ88Xmnk6/+xGGuq+pG9WwTuy3A==}
     engines: {node: ^20.17.0 || >=22.9.0}
 
-  vite-tsconfig-paths@6.0.4:
-    resolution: {integrity: sha512-iIsEJ+ek5KqRTK17pmxtgIxXtqr3qDdE6OxrP9mVeGhVDNXRJTKN/l9oMbujTQNzMLe6XZ8qmpztfbkPu2TiFQ==}
+  vite-tsconfig-paths@6.0.5:
+    resolution: {integrity: sha512-f/WvY6ekHykUF1rWJUAbCU7iS/5QYDIugwpqJA+ttwKbxSbzNlqlE8vZSrsnxNQciUW+z6lvhlXMaEyZn9MSig==}
     peerDependencies:
       vite: '*'
-    peerDependenciesMeta:
-      vite:
-        optional: true
 
   vite@7.3.1:
     resolution: {integrity: sha512-w+N7Hifpc3gRjZ63vYBXA56dvvRlNWRczTdmCBBa+CotUzAPf5b7YMdMR/8CQoeYE5LX3W4wj6RYTgonm1b9DA==}
@@ -3020,9 +3017,9 @@ snapshots:
 
   '@acemir/cssom@0.9.31': {}
 
-  '@alextheman/eslint-plugin@5.4.3(a87586c69f9293ef28db855fc6658bf3)':
+  '@alextheman/eslint-plugin@5.4.3(40434b6a269e7ebbd65ea19734c03a63)':
     dependencies:
-      '@alextheman/utility': 4.10.2
+      '@alextheman/utility': 4.11.0
       '@eslint/js': 9.39.2
       '@typescript-eslint/utils': 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
       common-tags: 1.8.2
@@ -3043,17 +3040,17 @@ snapshots:
       typedoc-plugin-markdown: 4.9.0(typedoc@0.28.16(typescript@5.9.3))
       typedoc-rhineai-theme: 1.2.0(typedoc@0.28.16(typescript@5.9.3))
       typescript-eslint: 8.50.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-      vite-tsconfig-paths: 6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2))
+      vite-tsconfig-paths: 6.0.5(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2))
       vitest: 4.0.18(@opentelemetry/api@1.9.0)(@types/node@25.0.10)(jiti@2.6.1)(jsdom@27.4.0)(yaml@2.8.2)
       zod: 4.3.6
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@alextheman/utility@4.10.2':
+  '@alextheman/utility@4.11.0':
     dependencies:
       dotenv: 17.2.3
-      libsodium-wrappers: 0.8.1
+      libsodium-wrappers: 0.8.2
       zod: 4.3.6
 
   '@altano/repository-tools@2.0.1': {}
@@ -3882,13 +3879,13 @@ snapshots:
 
   alex-c-line@1.20.0:
     dependencies:
-      '@alextheman/utility': 4.10.2
+      '@alextheman/utility': 4.11.0
       commander: 14.0.2
       dotenv: 17.2.3
       dotenv-stringify: 3.0.1
       execa: 9.6.1
       gray-matter: 4.0.3
-      libsodium-wrappers: 0.8.1
+      libsodium-wrappers: 0.8.2
       update-notifier: 7.3.1
       zod: 4.3.6
 
@@ -4012,7 +4009,7 @@ snapshots:
 
   balanced-match@1.0.2: {}
 
-  baseline-browser-mapping@2.9.17: {}
+  baseline-browser-mapping@2.9.18: {}
 
   bidi-js@1.0.3:
     dependencies:
@@ -4042,7 +4039,7 @@ snapshots:
 
   browserslist@4.28.1:
     dependencies:
-      baseline-browser-mapping: 2.9.17
+      baseline-browser-mapping: 2.9.18
       caniuse-lite: 1.0.30001766
       electron-to-chromium: 1.5.278
       node-releases: 2.0.27
@@ -5153,11 +5150,11 @@ snapshots:
       prelude-ls: 1.2.1
       type-check: 0.4.0
 
-  libsodium-wrappers@0.8.1:
+  libsodium-wrappers@0.8.2:
     dependencies:
-      libsodium: 0.8.1
+      libsodium: 0.8.2
 
-  libsodium@0.8.1: {}
+  libsodium@0.8.2: {}
 
   linkify-it@5.0.0:
     dependencies:
@@ -5968,12 +5965,11 @@ snapshots:
 
   validate-npm-package-name@7.0.2: {}
 
-  vite-tsconfig-paths@6.0.4(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2)):
+  vite-tsconfig-paths@6.0.5(typescript@5.9.3)(vite@7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2)):
     dependencies:
       debug: 4.4.3
       globrex: 0.1.2
       tsconfck: 3.1.6(typescript@5.9.3)
-    optionalDependencies:
       vite: 7.3.1(@types/node@25.0.10)(jiti@2.6.1)(yaml@2.8.2)
     transitivePeerDependencies:
       - supports-color
