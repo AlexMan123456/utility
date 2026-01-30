@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck: This is a deprecated function.
 import sodium from "libsodium-wrappers";
 
 import { DataError } from "src/types";
@@ -14,6 +16,10 @@ export interface PublicAndPrivateKey<KeyType extends Uint8Array | string> {
 /**
  * Returns the public key and private key, properly narrowing down types depending on the provided `outputFormat`.
  *
+ * @deprecated Please use `sodium.crypto_box_keypair` from `libsodium-wrappers` instead.
+ *
+ * This function was initially created to deal with a typing issue with the package introduced in v0.8.1 of said package, but this seems to have been fixed in v0.8.2
+ *
  * @returns An object containing both the publicKey and privateKey, along with a keyType.
  *
  * Because you have not provided an `outputFormat`, the keys will be typed as `Uint8Array`.
@@ -21,6 +27,10 @@ export interface PublicAndPrivateKey<KeyType extends Uint8Array | string> {
 function getPublicAndPrivateKey(): PublicAndPrivateKey<Uint8Array>;
 /**
  * Returns the public key and private key, properly narrowing down types depending on the provided `outputFormat`.
+ *
+ * @deprecated Please use `sodium.crypto_box_keypair` from `libsodium-wrappers` instead.
+ *
+ * This function was initially created to deal with a typing issue with the package introduced in v0.8.1 of said package, but this seems to have been fixed in v0.8.2
  *
  * @param outputFormat - The format of the resulting publicKey and privateKey you would like to use.
  *
@@ -31,6 +41,10 @@ function getPublicAndPrivateKey(): PublicAndPrivateKey<Uint8Array>;
 function getPublicAndPrivateKey(outputFormat: "uint8array"): PublicAndPrivateKey<Uint8Array>;
 /**
  * Returns the public key and private key, properly narrowing down types depending on the provided `outputFormat`.
+ *
+ * @deprecated Please use `sodium.crypto_box_keypair` from `libsodium-wrappers` instead.
+ *
+ * This function was initially created to deal with a typing issue with the package introduced in v0.8.1 of said package, but this seems to have been fixed in v0.8.2
  *
  * @param outputFormat - The format of the resulting publicKey and privateKey you would like to use.
  *
@@ -43,6 +57,10 @@ function getPublicAndPrivateKey(
 ): PublicAndPrivateKey<string>;
 /**
  * Returns the public key and private key, properly narrowing down types depending on the provided `outputFormat`.
+ *
+ * @deprecated Please use `sodium.crypto_box_keypair` from `libsodium-wrappers` instead.
+ *
+ * This function was initially created to deal with a typing issue with the package introduced in v0.8.1 of said package, but this seems to have been fixed in v0.8.2
  *
  * @param outputFormat - The format of the resulting publicKey and privateKey you would like to use.
  *

@@ -1,7 +1,6 @@
 import sodium from "libsodium-wrappers";
 import { beforeAll, describe, expect, test } from "vitest";
 
-import { getPublicAndPrivateKey } from "src/functions";
 import encryptWithKey from "src/functions/security/encryptWithKey";
 import { DataError } from "src/types";
 
@@ -44,7 +43,7 @@ describe("encryptWithKey", () => {
   });
 
   test("Encrypts the value and responds with the encrypted value, NOT the plaintext", async () => {
-    const { publicKey, privateKey } = getPublicAndPrivateKey("uint8array");
+    const { publicKey, privateKey } = sodium.crypto_box_keypair("uint8array");
 
     const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
     const plaintextValue = "Hello world";
@@ -63,7 +62,7 @@ describe("encryptWithKey", () => {
   });
 
   test("Returns different encrypted strings per run that still resolve to the same value", async () => {
-    const { publicKey, privateKey } = getPublicAndPrivateKey("uint8array");
+    const { publicKey, privateKey } = sodium.crypto_box_keypair("uint8array");
 
     const publicKeyBase64 = sodium.to_base64(publicKey, sodium.base64_variants.ORIGINAL);
     const plaintextValue = "Hello world";
