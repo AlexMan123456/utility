@@ -54,7 +54,7 @@
 - [~~determineVersionType~~](functions/determineVersionType.md)
 - [encryptWithKey](functions/encryptWithKey.md)
 - [~~getIndividualVersionNumbers~~](functions/getIndividualVersionNumbers.md)
-- [getPublicAndPrivateKey](functions/getPublicAndPrivateKey.md)
+- [~~getPublicAndPrivateKey~~](functions/getPublicAndPrivateKey.md)
 - [~~incrementVersion~~](functions/incrementVersion.md)
 - [~~parseVersion~~](functions/parseVersion.md)
 - [removeUndefinedFromObject](functions/removeUndefinedFromObject.md)
@@ -64,6 +64,7 @@
 
 - [parseBoolean](functions/parseBoolean.md)
 - [parseEnv](functions/parseEnv.md)
+- [parseFilePath](functions/parseFilePath.md)
 - [parseFormData](functions/parseFormData.md)
 - [parseIntStrict](functions/parseIntStrict.md)
 - [parseVersionType](functions/parseVersionType.md)
